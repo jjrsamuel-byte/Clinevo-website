@@ -278,6 +278,20 @@ ${headExtras}
   align-items: start;
 }
 
+/* Decorative illustration */
+.post-illustration {
+  margin-bottom: 48px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(83,74,183,0.05) 0%, rgba(69,196,188,0.05) 100%);
+  border: 1px solid var(--b-border);
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-illustration svg { width: 100%; max-width: 600px; height: auto; }
+
 /* Body copy */
 .post-body p {
   font-family: var(--f-body);
@@ -287,6 +301,8 @@ ${headExtras}
   color: var(--b-body-color);
   margin-bottom: 22px;
 }
+
+/* H2 with teal accent bar */
 .post-body h2 {
   font-family: var(--f-display);
   font-size: 20px;
@@ -296,35 +312,109 @@ ${headExtras}
   color: var(--b-near-black);
   margin: 48px 0 16px;
   padding-top: 8px;
+  position: relative;
 }
+.post-body h2::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--b-signal);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+/* H3 with purple left accent */
 .post-body h3 {
   font-family: var(--f-body);
   font-size: 15px;
   font-weight: 600;
-  color: var(--b-signal);
+  color: var(--b-purple);
   margin: 32px 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid rgba(83,74,183,0.2);
 }
+
 .post-body strong { color: var(--b-near-black); font-weight: 600; }
 .post-body a { color: var(--b-purple); text-decoration: underline; text-underline-offset: 3px; }
 .post-body a:hover { color: var(--b-purple-bg); }
-.post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
-.post-body li {
+
+/* Unordered lists with teal dot markers */
+.post-body ul {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+}
+.post-body ul li {
   font-family: var(--f-body);
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--b-body-color);
-  margin-bottom: 8px;
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
 }
+.post-body ul li:last-child { border-bottom: none; }
+.post-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--b-signal);
+}
+
+/* Ordered lists with purple numbered circles */
+.post-body ol {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+  counter-reset: post-counter;
+}
+.post-body ol li {
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  padding: 10px 0 10px 44px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
+  counter-increment: post-counter;
+}
+.post-body ol li:last-child { border-bottom: none; }
+.post-body ol li::before {
+  content: counter(post-counter);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--b-purple);
+  color: white;
+  font-family: var(--f-display);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .post-body hr {
   border: none;
   border-top: 1px solid var(--b-border);
   margin: 48px 0;
 }
 
-/* Pull quote */
+/* Pull quote — coloured box */
 .post-body blockquote {
-  border-left: 3px solid var(--b-signal);
-  padding: 6px 0 6px 20px;
+  border-left: 4px solid var(--b-purple);
+  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.04) 100%);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
   margin: 36px 0;
 }
 .post-body blockquote p {
@@ -336,6 +426,7 @@ ${headExtras}
   margin-bottom: 0;
   font-style: normal;
 }
+
 .post-body code {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 13px;
@@ -501,6 +592,53 @@ ${nav}
 <div class="blog-post-wrap">
   <div class="post-container">
     <main class="post-main">
+      <div class="post-illustration">
+        <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="40" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <line x1="110" y1="100" x2="190" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="250" y1="100" x2="330" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="390" y1="100" x2="470" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M 60 160 A 80 80 0 0 1 60 40" stroke="rgba(83,74,183,0.18)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 70 155 A 65 65 0 0 1 70 45" stroke="rgba(83,74,183,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="80" cy="100" r="28" fill="rgba(83,74,183,0.07)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="18" fill="rgba(83,74,183,0.1)" stroke="rgba(83,74,183,0.5)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="7" fill="#534AB7"/>
+          <path d="M195 97 L210 100 L195 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="220" cy="100" r="28" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <path d="M 208 84 A 20 20 0 0 1 232 84" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 208 116 A 20 20 0 0 0 232 116" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="220" cy="100" r="8" fill="none" stroke="#45C4BC" stroke-width="2"/>
+          <circle cx="220" cy="100" r="3" fill="#45C4BC"/>
+          <path d="M335 97 L350 100 L335 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="360" cy="100" r="30" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1"/>
+          <circle cx="360" cy="100" r="22" fill="rgba(83,74,183,0.08)" stroke="rgba(83,74,183,0.35)" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="14" fill="rgba(83,74,183,0.12)" stroke="#534AB7" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="6" fill="#534AB7"/>
+          <circle cx="360" cy="70" r="4" fill="rgba(69,196,188,0.7)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="386" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="334" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <line x1="360" y1="94" x2="360" y2="74" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="366" y1="95" x2="383" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="354" y1="95" x2="337" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <path d="M475 97 L490 100 L475 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="510" cy="100" r="28" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.3)" stroke-width="1.5"/>
+          <circle cx="510" cy="100" r="18" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.5)" stroke-width="1.5"/>
+          <path d="M500 100 L507 108 L522 90" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 530 40 A 50 50 0 0 1 580 90" stroke="rgba(69,196,188,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 540 40 A 38 38 0 0 1 578 78" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="55" r="5" fill="none" stroke="rgba(69,196,188,0.4)" stroke-width="1.5"/><circle cx="150" cy="55" r="2" fill="rgba(69,196,188,0.4)"/>
+          <circle cx="290" cy="60" r="4" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="430" cy="148" r="5" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/><circle cx="430" cy="148" r="2" fill="rgba(69,196,188,0.35)"/>
+          <circle cx="170" cy="145" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <text x="80" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">INTAKE</text>
+          <text x="220" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.5">WORKFLOW</text>
+          <text x="360" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">AI LAYER</text>
+          <text x="510" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.5)" font-weight="600" letter-spacing="0.5">OUTCOME</text>
+        </svg>
+      </div>
       <div class="post-body">
         ${html}
       </div>
@@ -524,10 +662,10 @@ ${nav}
 <div class="post-footer-strip">
   <div class="post-footer-strip-inner">
     <div class="post-author">
-      <div class="post-author-avatar">J</div>
+      <div class="post-author-avatar">C</div>
       <div>
-        <span class="post-author-name">Justin Samuel</span>
-        <span class="post-author-role">Founder, Clinevo · Clinical AI Consultancy</span>
+        <span class="post-author-name">Clinevo Team</span>
+        <span class="post-author-role">Clinevo · Clinical AI Consultancy</span>
       </div>
     </div>
     <div class="post-footer-cta">
