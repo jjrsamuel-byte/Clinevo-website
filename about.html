@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1TJ6NS70"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-SX1TJ6NS70');</script>
+<script>!function(key){if(window.reb2b)return;window.reb2b={loaded:true};var s=document.createElement("script");s.async=true;s.src="https://ddwl4m2hdecbv.cloudfront.net/b/"+key+"/"+key+".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s,document.getElementsByTagName("script")[0]);}("7N850H5274N1");</script>
+<script src="https://app.termly.io/resource-blocker/fd704718-0567-4638-bceb-07caafa9c98b?autoBlock=on"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Clinevo — UK Clinical AI Consultancy</title>
+<meta name="description" content="Clinevo is a UK-based clinical AI consultancy built by people who understand clinical practices. We help veterinary, optical, and dental practices adopt AI with measurable outcomes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://clinevo.ai/about">
+<meta property="og:title" content="About Clinevo — UK Clinical AI Consultancy">
+<meta property="og:description" content="Founded by people who understand clinics. Education, consulting, and development — with accountability for outcomes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clinevo.ai/about">
+<meta property="og:site_name" content="Clinevo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --clinevo-purple: #534AB7;
+  --signal-teal: #45C4BC;
+  --forest-teal: #0F6E56;
+  --near-black: #0F1923;
+  --off-white: #DCE0EC;
+  --brand-purple: #2C2870;
+  --bg-dark: #030A12;
+  --bg-light: #FFFFFF;
+  --bg-panel: #F4F5F9;
+  --text-primary: var(--near-black);
+  --text-secondary: #4A5568;
+  --text-on-dark: var(--off-white);
+  --text-tagline: var(--signal-teal);
+  --border-light: rgba(83, 74, 183, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+}
+h1 { font-weight: 700; }
+h2 { font-weight: 700; }
+h3 { font-weight: 600; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ═══════════════════════════
+   NAV
+   ═══════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 40px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo svg { width: 50px; height: 50px; }
+.nav-wordmark {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px; font-weight: 700;
+  color: var(--near-black);
+  letter-spacing: -0.4px;
+}
+.hamburger { display: none; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--clinevo-purple); }
+.nav-links a.active { color: var(--clinevo-purple); font-weight: 600; }
+.nav-links .btn-primary { color: white; }
+.nav-links .btn-primary:hover { color: white; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-primary {
+  background: var(--clinevo-purple); color: white;
+}
+.btn-primary:hover {
+  background: var(--brand-purple);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(83, 74, 183, 0.25);
+}
+.btn-teal {
+  background: var(--signal-teal); color: var(--near-black);
+  font-weight: 700;
+}
+.btn-teal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(69, 196, 188, 0.3);
+}
+.btn-white {
+  background: white; color: var(--near-black); font-weight: 700;
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-ghost-light {
+  background: transparent; color: var(--off-white);
+  border: 1.5px solid rgba(220,224,236,0.2);
+}
+.btn-ghost-light:hover {
+  border-color: rgba(220,224,236,0.5);
+  background: rgba(255,255,255,0.04);
+}
+.coming-soon-badge {
+  display: inline-block;
+  background: #45C4BC;
+  color: #0F1923;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════
+   PAGE HERO
+   ═══════════════════════════ */
+.page-hero {
+  background: var(--bg-dark);
+  color: var(--off-white);
+  padding: 160px 0 80px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  top: -300px; right: -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(83,74,183,0.08) 0%, transparent 70%);
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  bottom: -250px; left: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(69,196,188,0.06) 0%, transparent 70%);
+}
+.page-hero h1 {
+  font-size: 52px; letter-spacing: -1.5px;
+  color: var(--off-white);
+  margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+.page-hero h1 .accent {
+  color: var(--signal-teal);
+}
+.page-hero p {
+  font-size: 18px; line-height: 1.75;
+  color: rgba(220,224,236,0.55);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   ABOUT SECTIONS
+   ═══════════════════════════════════════ */
+.about-section {
+  padding: 100px 0;
+}
+.about-section.alt {
+  background: var(--bg-panel);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-grid.reversed {
+  direction: rtl;
+}
+.about-grid.reversed > * {
+  direction: ltr;
+}
+.about-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--clinevo-purple);
+  margin-bottom: 16px;
+}
+.about-section h2 {
+  font-size: 38px; letter-spacing: -1px;
+  color: var(--near-black);
+  margin-bottom: 20px;
+}
+.about-section p.desc {
+  font-size: 16px; color: var(--text-secondary);
+  margin-bottom: 20px; line-height: 1.8;
+}
+.about-section p.desc:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Visual block — reused pattern */
+.vis-block {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.about-section.alt .vis-block {
+  background: white;
+}
+.vis-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.vis-block.purple::before { background: var(--clinevo-purple); }
+.vis-block.teal::before { background: var(--signal-teal); }
+.vis-block.forest::before { background: var(--forest-teal); }
+.vis-block.gradient::before { background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal)); }
+
+.vis-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.vis-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.vis-icon.purple { background: rgba(83,74,183,0.06); }
+.vis-icon.teal { background: rgba(69,196,188,0.06); }
+.vis-icon.forest { background: rgba(15,110,86,0.06); }
+.vis-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px; font-weight: 600; color: var(--near-black);
+}
+
+/* Value list inside vis-block */
+.value-list {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.value-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg-panel);
+  border-radius: 12px;
+}
+.about-section.alt .value-item {
+  background: rgba(83,74,183,0.03);
+}
+.value-num {
+  width: 32px; height: 32px; min-width: 32px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  margin-top: 1px;
+}
+.value-num.purple { background: var(--clinevo-purple); }
+.value-num.teal { background: var(--signal-teal); color: white; }
+.value-num.forest { background: var(--forest-teal); }
+.value-text h4 {
+  font-size: 14px; font-weight: 600;
+  color: var(--near-black);
+  margin-bottom: 2px;
+}
+.value-text p {
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Check list */
+.check-list {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-top: 28px;
+}
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.check-icon {
+  width: 24px; height: 24px; min-width: 24px;
+  border-radius: 50%;
+  background: rgba(69, 196, 188, 0.12);
+  color: var(--signal-teal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  margin-top: 2px;
+}
+.check-item span {
+  font-size: 15px; color: var(--text-primary); font-weight: 500;
+}
+
+/* Quote block */
+.quote-block {
+  border-left: 3px solid var(--clinevo-purple);
+  padding: 24px 28px;
+  background: rgba(83,74,183,0.03);
+  border-radius: 0 12px 12px 0;
+  margin-top: 28px;
+}
+.quote-block p {
+  font-size: 17px; color: var(--near-black);
+  font-style: italic; line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════
+   CONTACT FORM SECTION
+   ═══════════════════════════════════════ */
+.contact-section {
+  padding: 100px 0;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info h2 {
+  font-size: 34px; letter-spacing: -1px;
+  color: var(--near-black);
+  margin-bottom: 16px;
+}
+.contact-info > p {
+  font-size: 16px; color: var(--text-secondary);
+  line-height: 1.75; margin-bottom: 36px;
+}
+.contact-details {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.contact-detail {
+  display: flex; align-items: center; gap: 14px;
+}
+.contact-detail-icon {
+  width: 40px; height: 40px; min-width: 40px;
+  border-radius: 10px;
+  background: rgba(83,74,183,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--clinevo-purple);
+  font-size: 16px;
+}
+.contact-detail-text {
+  font-size: 15px; color: var(--text-primary); font-weight: 500;
+}
+.contact-detail-text a {
+  color: var(--clinevo-purple); text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-detail-text a:hover { color: var(--brand-purple); }
+.contact-detail-label {
+  font-size: 12px; color: var(--text-secondary);
+  font-weight: 400; margin-top: 2px;
+}
+
+/* Form card */
+.contact-form-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(83,74,183,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.contact-form-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal));
+}
+.form-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--near-black);
+  margin-bottom: 4px;
+}
+.form-subtitle {
+  font-size: 14px; color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px; font-weight: 600;
+  color: var(--near-black);
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(83,74,183,0.12);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--near-black);
+  background: var(--bg-panel);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--clinevo-purple);
+  box-shadow: 0 0 0 3px rgba(83,74,183,0.08);
+  background: white;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(74,85,104,0.4);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-submit {
+  width: 100%;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: var(--clinevo-purple);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+.form-submit:hover {
+  background: var(--brand-purple);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(83,74,183,0.25);
+}
+.form-note {
+  font-size: 12px; color: var(--text-secondary);
+  margin-top: 12px; text-align: center;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+.cta-section {
+  padding: 100px 0;
+  background: var(--brand-purple);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(83,74,183,0.3);
+}
+.cta-section h2 {
+  font-size: 44px; color: white;
+  letter-spacing: -1px; margin-bottom: 14px;
+  position: relative;
+}
+.cta-section p {
+  font-size: 17px; color: rgba(255,255,255,0.5);
+  max-width: 460px; margin: 0 auto 36px;
+  position: relative;
+}
+.cta-buttons {
+  display: flex; justify-content: center; gap: 14px;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+footer {
+  padding: 60px 0 40px;
+  background: var(--bg-dark);
+  color: rgba(220,224,236,0.4);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand .nav-wordmark {
+  color: var(--off-white);
+  display: block; margin-bottom: 10px;
+}
+.footer-brand p {
+  font-size: 14px; line-height: 1.7;
+}
+.footer-brand .tagline-footer {
+  color: var(--signal-teal);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+.footer-col h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--off-white);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; color: rgba(220,224,236,0.4);
+  text-decoration: none; font-size: 14px;
+  margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--signal-teal); }
+.social-links { display: flex; gap: 12px; margin-top: 4px; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(220,224,236,0.08); margin-bottom: 0; transition: background 0.2s, transform 0.2s; }
+.social-links a:hover { background: var(--signal-teal); transform: translateY(-2px); }
+.social-links a svg { width: 18px; height: 18px; fill: rgba(220,224,236,0.6); transition: fill 0.2s; }
+.social-links a:hover svg { fill: var(--near-black); }
+.footer-bottom {
+  border-top: 1px solid rgba(220,224,236,0.06);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px;
+}
+.footer-bottom a {
+  color: rgba(220,224,236,0.35); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--signal-teal); }
+
+/* ═══════════════════════════
+   RESPONSIVE
+   ═══════════════════════════ */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  .nav-inner { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 200; background: #ffffff; padding: 20px 24px; gap: 0; border-bottom: 1px solid var(--border-light); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .nav-links.open a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(83,74,183,0.06); font-size: 16px; }
+  .nav-links.open a:last-child { border-bottom: none; margin-top: 8px; text-align: center; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 101; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--near-black); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .page-hero { padding: 120px 0 60px; }
+  .page-hero h1 { font-size: 34px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid.reversed { direction: ltr; }
+  .about-section h2 { font-size: 30px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-section h2 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════
+     NAV
+     ═══════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(26,26)">
+          <path d="M18.66,11.66 A22,22 0 1 1 18.66,-11.66" fill="none" stroke="#534AB7" stroke-width="2.6" stroke-linecap="butt"/>
+          <path d="M11.7,7.31 A13.8,13.8 0 1 1 11.7,-7.31" fill="none" stroke="#0F6E56" stroke-width="1.7" stroke-linecap="butt"/>
+          <path d="M5.85,3.66 A6.9,6.9 0 1 1 5.85,-3.66" fill="none" stroke="#0F1923" stroke-width="1.3" stroke-linecap="butt"/>
+          <line x1="-22" y1="-1.43" x2="-22" y2="1.43" stroke="#534AB7" stroke-width="1.69" stroke-linecap="butt"/>
+          <line x1="-13.8" y1="-0.94" x2="-13.8" y2="0.94" stroke="#0F6E56" stroke-width="1.1" stroke-linecap="butt"/>
+          <line x1="-6.9" y1="-0.72" x2="-6.9" y2="0.72" stroke="#0F1923" stroke-width="0.85" stroke-linecap="butt"/>
+        </g>
+      </svg>
+      <span class="nav-wordmark">Clinevo</span>
+    </a>
+    <button class="hamburger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="clinevo_brand.html#pillars">How we help</a>
+      <a href="services.html">Services</a>
+      <a href="sectors.html">Sectors</a>
+      <a href="about.html" class="active">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="consultation.html" class="btn btn-primary">Book a free consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════
+     PAGE HERO
+     ═══════════════════════════ -->
+<section class="page-hero">
+  <h1>Built by people who <span class="accent">understand clinics.</span></h1>
+  <p>We started Clinevo because we saw the same problem everywhere: brilliant clinical teams held back by admin that AI should have solved years ago.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     OUR STORY
+     ═══════════════════════════════════════ -->
+<section class="about-section" id="story">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="about-tag">Our story</div>
+        <h2>From frustration to foundation.</h2>
+        <p class="desc">Clinevo was born from a simple observation: clinical practices across the UK are drowning in admin. Phones ring unanswered. Recall lists go untouched. Clinicians spend more time on paperwork than patients.</p>
+        <p class="desc">We saw AI tools being sold to practices that did not understand them, by vendors who did not understand clinics. The result was wasted budgets, frustrated teams, and technology gathering dust.</p>
+        <p class="desc">So we built something different. A consultancy that starts with your practice, your workflows, your team, your commercial goals, and works backwards to find where AI genuinely makes a difference. No jargon. No overselling. Just measurable outcomes.</p>
+      </div>
+      <div class="vis-block gradient">
+        <div class="vis-header">
+          <div class="vis-icon purple">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#534AB7" stroke-width="1.5" fill="none"/><path d="M10 6v4l3 2" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="vis-title">The Clinevo timeline</div>
+        </div>
+        <div class="value-list">
+          <div class="value-item">
+            <div class="value-num purple">1</div>
+            <div class="value-text">
+              <h4>Identified the gap</h4>
+              <p>Clinical AI tools existed, but no one was helping practices choose, implement, and measure them properly</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num purple">2</div>
+            <div class="value-text">
+              <h4>Built the model</h4>
+              <p>Education first, then strategy, then implementation, with accountability baked into every engagement</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num purple">3</div>
+            <div class="value-text">
+              <h4>Proved it in veterinary</h4>
+              <p>Started with vet practices as the proving ground. Now expanding into optical and dental</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num purple">4</div>
+            <div class="value-text">
+              <h4>Scaling what works</h4>
+              <p>Same structural problems, same proven model. Three clinical verticals, one approach</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     OUR PURPOSE
+     ═══════════════════════════════════════ -->
+<section class="about-section alt" id="purpose">
+  <div class="container">
+    <div class="about-grid reversed">
+      <div>
+        <div class="about-tag">Our purpose</div>
+        <h2>Give clinicians their time back.</h2>
+        <p class="desc">Every minute a vet, optometrist, or dentist spends on hold, chasing recalls, or writing notes is a minute they are not spending with patients. That is the problem we exist to solve.</p>
+        <p class="desc">We believe AI should be invisible to the patient and transformative for the team. It should answer the phone before it rings out. It should send the recall before the client forgets. It should write the notes while the clinician focuses on care.</p>
+        <p class="desc">Our purpose is not to sell technology. It is to make clinical practices more efficient, more profitable, and better places to work, using AI as the tool, not the goal.</p>
+        <div class="quote-block">
+          <p>"We measure success by one thing: did the practice get a better outcome than before we started?"</p>
+        </div>
+      </div>
+      <div class="vis-block teal">
+        <div class="vis-header">
+          <div class="vis-icon teal">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" stroke="#45C4BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <div class="vis-title">What drives us</div>
+        </div>
+        <div class="value-list">
+          <div class="value-item">
+            <div class="value-num teal">&#10003;</div>
+            <div class="value-text">
+              <h4>Outcomes over outputs</h4>
+              <p>We do not count features delivered. We count revenue recovered, time saved, and clients retained</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num teal">&#10003;</div>
+            <div class="value-text">
+              <h4>Honesty over hype</h4>
+              <p>If AI is not the right answer for your practice, we will tell you. We would rather lose a deal than waste your money</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num teal">&#10003;</div>
+            <div class="value-text">
+              <h4>Partnership over transactions</h4>
+              <p>We stay accountable long after go-live. Your results are our reputation</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num teal">&#10003;</div>
+            <div class="value-text">
+              <h4>UK-built, UK-managed</h4>
+              <p>Your data stays in the UK. Your support team is in the UK. No offshore compromises</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     OUR MISSION
+     ═══════════════════════════════════════ -->
+<section class="about-section" id="mission">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="about-tag">Our mission</div>
+        <h2>Make AI work for every clinical practice in the UK.</h2>
+        <p class="desc">There are over 30,000 veterinary, optical, and dental practices in the UK. Most are independent or small group operations. Most are facing the same challenges: rising costs, staff shortages, missed revenue, and growing admin burden.</p>
+        <p class="desc">Our mission is to make clinical AI accessible, practical, and commercially viable for every one of them. Not just the large corporate groups with dedicated IT teams and six-figure technology budgets.</p>
+        <p class="desc">We do this by combining deep clinical understanding with proven AI implementation methodology. Education first, so teams understand what they are adopting. Strategy second, so investment is directed where it matters most. Implementation third, so outcomes are measurable from day one.</p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>Serve 1,000 UK clinical practices by 2028</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>Deliver measurable ROI on every engagement</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>Build the most trusted clinical AI brand in the UK</span>
+          </div>
+        </div>
+      </div>
+      <div class="vis-block forest">
+        <div class="vis-header">
+          <div class="vis-icon forest">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 18L10 2L18 18H2Z" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="10" y1="8" x2="10" y2="12" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="15" r="0.5" fill="#0F6E56"/></svg>
+          </div>
+          <div class="vis-title">The opportunity</div>
+        </div>
+        <div class="value-list">
+          <div class="value-item">
+            <div class="value-num forest">5k</div>
+            <div class="value-text">
+              <h4>UK veterinary practices</h4>
+              <p>Independent and group practices facing rising costs and staff shortages</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num forest">12k</div>
+            <div class="value-text">
+              <h4>UK optical practices</h4>
+              <p>High recall dependency, growing private dispensing, ripe for AI-driven retention</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num forest">13k</div>
+            <div class="value-text">
+              <h4>UK dental practices</h4>
+              <p>The largest clinical vertical. Plan membership, FTA rates, and utilisation are key levers</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-num forest">30k+</div>
+            <div class="value-text">
+              <h4>Total addressable market</h4>
+              <p>One proven model, three clinical verticals, enormous under-served demand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT FORM
+     ═══════════════════════════════════════ -->
+<section class="contact-section alt" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p>Whether you have a question, want to explore working together, or just want to learn more about what we do, we would love to hear from you.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#534AB7" stroke-width="1.5" fill="none"/><path d="M2 6l7 4 7-4" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-text"><a href="mailto:hello@clinevo.ai">hello@clinevo.ai</a></div>
+              <div class="contact-detail-label">General enquiries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <div class="form-title">Send us a message</div>
+        <div class="form-subtitle">We will get back to you within one working day.</div>
+
+        <form action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="e.g. Sarah" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="e.g. Mitchell" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@yourpractice.co.uk" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>What is this about?</option>
+              <option value="general">General enquiry</option>
+              <option value="consultation">Book a consultation</option>
+              <option value="partnership">Partnership opportunity</option>
+              <option value="press">Press or media</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send message &rarr;</button>
+          <p class="form-note">We will respond within one working day. No spam, no mailing lists.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to find out where AI fits your practice?</h2>
+    <p>A 30-minute conversation. No obligation. No jargon. Just a clear, honest assessment.</p>
+    <div class="cta-buttons">
+      <a href="consultation.html" class="btn btn-white">Book your free consultation &rarr;</a>
+      <span class="btn btn-ghost-light" style="cursor: default; opacity: 0.7;">Take the AI readiness test <span class="coming-soon-badge">Coming Soon</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-wordmark">Clinevo</span>
+        <div class="tagline-footer">AI FOR CLINICS THAT CARE.</div>
+        <p>Clinical AI consultancy. Veterinary, optical, and dental practices, from AI understanding through to implementation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html#ai-receptionist-setup">AI receptionist</a>
+        <a href="services.html#clinical-scribe">Clinical scribe</a>
+        <a href="services.html#recall-automation">Recall automation</a>
+        <a href="services.html#lapsed-client">Lapsed client reactivation</a>
+        <a href="services.html#no-show-recovery">No-show recovery</a>
+        <a href="services.html#seasonal-campaigns">Campaign automation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="consultation.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@clinevo.ai">hello@clinevo.ai</a>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/clinevo.ai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61576651670482" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Clinevo is a trading name of Reginova Ltd. Company No. 16304176. Registered in England &amp; Wales.</span>
+      <span><a href="privacy.html">Privacy</a> &middot; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

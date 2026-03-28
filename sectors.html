@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1TJ6NS70"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-SX1TJ6NS70');</script>
+<script>!function(key){if(window.reb2b)return;window.reb2b={loaded:true};var s=document.createElement("script");s.async=true;s.src="https://ddwl4m2hdecbv.cloudfront.net/b/"+key+"/"+key+".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s,document.getElementsByTagName("script")[0]);}("7N850H5274N1");</script>
+<script src="https://app.termly.io/resource-blocker/fd704718-0567-4638-bceb-07caafa9c98b?autoBlock=on"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for Veterinary, Optical & Dental Sectors — Clinevo</title>
+<meta name="description" content="Sector-specific AI solutions for UK veterinary, optical, and dental practices. Addressing missed calls, low recall compliance, clinician burnout, and revenue leakage.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://clinevo.ai/sectors">
+<meta property="og:title" content="AI for Veterinary, Optical & Dental Sectors — Clinevo">
+<meta property="og:description" content="Sector-specific AI solutions addressing the real challenges facing UK clinical practices.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clinevo.ai/sectors">
+<meta property="og:site_name" content="Clinevo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   CLINEVO — Brand-Accurate Colour System
+   ═══════════════════════════════════════════ */
+:root {
+  --clinevo-purple: #534AB7;
+  --signal-teal: #45C4BC;
+  --forest-teal: #0F6E56;
+  --near-black: #0F1923;
+  --off-white: #DCE0EC;
+  --brand-purple: #2C2870;
+  --bg-dark: #030A12;
+  --bg-light: #FFFFFF;
+  --bg-panel: #F4F5F9;
+  --text-primary: var(--near-black);
+  --text-secondary: #4A5568;
+  --text-on-dark: var(--off-white);
+  --text-tagline: var(--signal-teal);
+  --border-light: rgba(83, 74, 183, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+}
+h1 { font-weight: 700; }
+h2 { font-weight: 700; }
+h3 { font-weight: 600; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ═══════════════════════════
+   NAV
+   ═══════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 40px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo svg { width: 50px; height: 50px; }
+.nav-wordmark {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px; font-weight: 700;
+  color: var(--near-black);
+  letter-spacing: -0.4px;
+}
+.hamburger { display: none; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--clinevo-purple); }
+.nav-links a.active { color: var(--clinevo-purple); font-weight: 600; }
+.nav-links .btn-primary { color: white; }
+.nav-links .btn-primary:hover { color: white; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-primary {
+  background: var(--clinevo-purple); color: white;
+}
+.btn-primary:hover {
+  background: var(--brand-purple);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(83, 74, 183, 0.25);
+}
+.btn-white {
+  background: white; color: var(--near-black); font-weight: 700;
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-ghost-light {
+  background: transparent; color: var(--off-white);
+  border: 1.5px solid rgba(220,224,236,0.2);
+}
+.btn-ghost-light:hover {
+  border-color: rgba(220,224,236,0.5);
+  background: rgba(255,255,255,0.04);
+}
+.btn-secondary {
+  background: transparent; color: var(--clinevo-purple);
+  border: 1.5px solid rgba(83, 74, 183, 0.2);
+}
+.btn-secondary:hover {
+  border-color: var(--clinevo-purple);
+  background: rgba(83, 74, 183, 0.04);
+}
+
+/* ═══════════════════════════
+   PAGE HERO
+   ═══════════════════════════ */
+.page-hero {
+  background: var(--bg-dark);
+  color: var(--off-white);
+  padding: 160px 0 80px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  top: -300px; right: -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(83,74,183,0.08) 0%, transparent 70%);
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  bottom: -250px; left: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(69,196,188,0.06) 0%, transparent 70%);
+}
+.page-hero h1 {
+  font-size: 52px; letter-spacing: -1.5px;
+  color: var(--off-white);
+  margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+.page-hero h1 .accent {
+  color: var(--signal-teal);
+}
+.page-hero p {
+  font-size: 18px; line-height: 1.75;
+  color: rgba(220,224,236,0.55);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   SECTOR TOGGLE TABS
+   ═══════════════════════════════════════ */
+.sector-toggle-section {
+  padding: 60px 0 0;
+  text-align: center;
+}
+.sector-tabs {
+  display: inline-flex;
+  gap: 0;
+  background: var(--bg-panel);
+  border-radius: 16px;
+  padding: 6px;
+  border: 1px solid var(--border-light);
+}
+.sector-tab {
+  padding: 14px 36px;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.sector-tab:hover {
+  color: var(--clinevo-purple);
+}
+.sector-tab.active {
+  background: white;
+  color: var(--clinevo-purple);
+  box-shadow: 0 2px 12px rgba(83,74,183,0.1);
+}
+.sector-tab .tab-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--clinevo-purple);
+  margin-right: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.sector-tab.active .tab-dot {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   SECTOR CONTENT
+   ═══════════════════════════════════════ */
+.sector-content {
+  display: none;
+  padding: 80px 0 100px;
+  animation: fadeInSector 0.4s ease;
+}
+.sector-content.active {
+  display: block;
+}
+@keyframes fadeInSector {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sector-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 64px;
+}
+.sector-header h2 {
+  font-size: 40px; letter-spacing: -1px;
+  color: var(--near-black);
+  margin-bottom: 16px;
+}
+.sector-header p {
+  font-size: 17px; color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Problem / Solution grid */
+.sector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Challenges panel */
+.challenges-panel {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.challenges-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #E53E3E, #ED8936);
+}
+.challenges-panel-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.challenges-panel-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(229,62,62,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: #E53E3E;
+}
+.challenges-panel-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--near-black);
+}
+.challenge-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.challenge-item:last-child { border-bottom: none; }
+.challenge-item h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--near-black);
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
+}
+.challenge-item h4 .warn-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #E53E3E;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.challenge-item p {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 16px;
+}
+
+/* Solution panel */
+.solution-panel {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.solution-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal));
+}
+.solution-panel-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.solution-panel-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(69,196,188,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--signal-teal);
+}
+.solution-panel-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--near-black);
+}
+.solution-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.solution-item:last-child { border-bottom: none; }
+.solution-check {
+  width: 24px; height: 24px; min-width: 24px;
+  border-radius: 50%;
+  background: rgba(69, 196, 188, 0.12);
+  color: var(--signal-teal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  margin-top: 2px;
+}
+.solution-item-text h4 {
+  font-size: 15px; font-weight: 600;
+  color: var(--near-black);
+  margin-bottom: 2px;
+}
+.solution-item-text p {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Stats bar */
+.sector-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.sector-stat {
+  text-align: center;
+  padding: 24px 16px;
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+}
+.sector-stat .num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px; font-weight: 700;
+  color: var(--clinevo-purple);
+  letter-spacing: -0.5px; line-height: 1;
+}
+.sector-stat .lbl {
+  font-size: 13px; color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Relevant services strip */
+.relevant-services {
+  margin-top: 48px;
+  padding: 28px 32px;
+  background: rgba(83,74,183,0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+}
+.relevant-services-header {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--clinevo-purple);
+  margin-bottom: 16px;
+}
+.relevant-services-grid {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.relevant-svc-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.relevant-svc-pill:hover {
+  border-color: var(--clinevo-purple);
+  color: var(--clinevo-purple);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(83,74,183,0.08);
+}
+.relevant-svc-pill .pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.relevant-svc-pill .pill-dot.purple { background: var(--clinevo-purple); }
+.relevant-svc-pill .pill-dot.teal { background: var(--signal-teal); }
+.relevant-svc-pill .pill-dot.forest { background: var(--forest-teal); }
+
+/* Sources strip — collapsible */
+.sources-panel {
+  margin-top: 32px;
+}
+.sources-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 24px;
+  background: rgba(15,25,35,0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.sources-toggle:hover {
+  background: rgba(15,25,35,0.04);
+}
+.sources-toggle .sources-header {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin: 0;
+}
+.sources-toggle .toggle-arrow {
+  font-size: 10px; color: var(--text-secondary);
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+  margin-left: auto;
+}
+.sources-panel.open .toggle-arrow {
+  transform: rotate(180deg);
+}
+.sources-list {
+  display: none; flex-direction: column; gap: 6px;
+  padding: 16px 24px;
+  border: 1px solid var(--border-light);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  background: rgba(15,25,35,0.02);
+}
+.sources-panel.open .sources-list {
+  display: flex;
+}
+.sources-panel.open .sources-toggle {
+  border-radius: 12px 12px 0 0;
+}
+.sources-list a {
+  font-size: 12px; color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+.sources-list a:hover {
+  color: var(--clinevo-purple);
+  opacity: 1;
+}
+.sources-list a span.src-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+.cta-section {
+  padding: 100px 0;
+  background: var(--brand-purple);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(83,74,183,0.3);
+}
+.cta-section h2 {
+  font-size: 44px; color: white;
+  letter-spacing: -1px; margin-bottom: 14px;
+  position: relative;
+}
+.cta-section p {
+  font-size: 17px; color: rgba(255,255,255,0.5);
+  max-width: 460px; margin: 0 auto 36px;
+  position: relative;
+}
+.cta-buttons {
+  display: flex; justify-content: center; gap: 14px;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+footer {
+  padding: 60px 0 40px;
+  background: var(--bg-dark);
+  color: rgba(220,224,236,0.4);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand .nav-wordmark {
+  color: var(--off-white);
+  display: block; margin-bottom: 10px;
+}
+.footer-brand p {
+  font-size: 14px; line-height: 1.7;
+}
+.footer-brand .tagline-footer {
+  color: var(--signal-teal);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+.footer-col h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--off-white);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; color: rgba(220,224,236,0.4);
+  text-decoration: none; font-size: 14px;
+  margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--signal-teal); }
+.social-links { display: flex; gap: 12px; margin-top: 4px; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(220,224,236,0.08); margin-bottom: 0; transition: background 0.2s, transform 0.2s; }
+.social-links a:hover { background: var(--signal-teal); transform: translateY(-2px); }
+.social-links a svg { width: 18px; height: 18px; fill: rgba(220,224,236,0.6); transition: fill 0.2s; }
+.social-links a:hover svg { fill: var(--near-black); }
+.footer-bottom {
+  border-top: 1px solid rgba(220,224,236,0.06);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px;
+}
+.footer-bottom a {
+  color: rgba(220,224,236,0.35); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--signal-teal); }
+
+/* ═══════════════════════════
+   RESPONSIVE
+   ═══════════════════════════ */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  .nav-inner { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 200; background: #ffffff; padding: 20px 24px; gap: 0; border-bottom: 1px solid var(--border-light); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .nav-links.open a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(83,74,183,0.06); font-size: 16px; }
+  .nav-links.open a:last-child { border-bottom: none; margin-top: 8px; text-align: center; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 101; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--near-black); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .page-hero { padding: 120px 0 60px; }
+  .page-hero h1 { font-size: 34px; }
+  .sector-grid { grid-template-columns: 1fr; gap: 40px; }
+  .sector-stats { grid-template-columns: repeat(2, 1fr); }
+  .sector-header h2 { font-size: 30px; }
+  .sector-tabs { flex-direction: column; width: 100%; }
+  .sector-tab { text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-section h2 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════
+     NAV
+     ═══════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(26,26)">
+          <path d="M18.66,11.66 A22,22 0 1 1 18.66,-11.66" fill="none" stroke="#534AB7" stroke-width="2.6" stroke-linecap="butt"/>
+          <path d="M11.7,7.31 A13.8,13.8 0 1 1 11.7,-7.31" fill="none" stroke="#0F6E56" stroke-width="1.7" stroke-linecap="butt"/>
+          <path d="M5.85,3.66 A6.9,6.9 0 1 1 5.85,-3.66" fill="none" stroke="#0F1923" stroke-width="1.3" stroke-linecap="butt"/>
+          <line x1="-22" y1="-1.43" x2="-22" y2="1.43" stroke="#534AB7" stroke-width="1.69" stroke-linecap="butt"/>
+          <line x1="-13.8" y1="-0.94" x2="-13.8" y2="0.94" stroke="#0F6E56" stroke-width="1.1" stroke-linecap="butt"/>
+          <line x1="-6.9" y1="-0.72" x2="-6.9" y2="0.72" stroke="#0F1923" stroke-width="0.85" stroke-linecap="butt"/>
+        </g>
+      </svg>
+      <span class="nav-wordmark">Clinevo</span>
+    </a>
+    <button class="hamburger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="clinevo_brand.html#pillars">How we help</a>
+      <a href="services.html">Services</a>
+      <a href="sectors.html" class="active">Sectors</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="consultation.html" class="btn btn-primary">Book a free consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════
+     PAGE HERO
+     ═══════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Same problems. <span class="accent">Different clinics.</span></h1>
+    <p>Veterinary, optical, and dental practices share the same structural challenges: missed calls, poor recall, wasted admin time, and revenue left on the table. Clinevo solves them in sequence.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTOR TOGGLE
+     ═══════════════════════════════════════ -->
+<section class="sector-toggle-section">
+  <div class="container">
+    <div class="sector-tabs">
+      <button class="sector-tab active" onclick="switchSector('veterinary', this)"><span class="tab-dot"></span>Veterinary</button>
+      <button class="sector-tab" onclick="switchSector('optical', this)"><span class="tab-dot"></span>Optical</button>
+      <button class="sector-tab" onclick="switchSector('dental', this)"><span class="tab-dot"></span>Dental</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTOR — VETERINARY
+     ═══════════════════════════════════════════════════════ -->
+<div class="sector-content active" id="veterinary">
+  <div class="container">
+    <div class="sector-header">
+      <h2>The UK veterinary sector is under pressure, and reception is the bottleneck.</h2>
+      <p>Consolidation, staff shortages, and rising client expectations have turned front-of-house into the weakest link. Most practices are losing revenue before a vet even picks up a phone.</p>
+    </div>
+
+    <div class="sector-grid">
+      <!-- Challenges -->
+      <div class="challenges-panel">
+        <div class="challenges-panel-header">
+          <div class="challenges-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 18h16L10 2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="challenges-panel-title">The struggles</div>
+        </div>
+
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Missed calls and lost revenue</h4>
+          <p>30–40% of peak-hour calls go unanswered, each one a lost appointment worth £80–£200.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Reception staff burnout and turnover</h4>
+          <p>Juggling phones, walk-ins, and PMS updates drives 32.5% annual turnover. New hires take 3–6 months to become effective.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Recall compliance below 30%</h4>
+          <p>Manual recall via letters and sporadic calls leaves 70–85% of vaccination and wellness reminders unanswered.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Lapsed clients invisible in the PMS</h4>
+          <p>Thousands of 12+ month dormant clients sit in the system, representing tens of thousands in lost annual revenue.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Clinician time consumed by admin</h4>
+          <p>Vets spend 60–90 minutes per day on SOAP notes alone, eroding time that should go to clinical care.</p>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="solution-panel">
+        <div class="solution-panel-header">
+          <div class="solution-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="solution-panel-title">How Clinevo solves it</div>
+        </div>
+
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>AI receptionist captures every call</h4>
+            <p>Voice AI answers in under 1.5s, 24/7. It books appointments, handles FAQs, and escalates emergencies.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Reception team freed for in-person care</h4>
+            <p>Phone calls handled by AI, so your team focuses on walk-ins and complex queries.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Automated recall drives compliance to 80%+</h4>
+            <p>PMS-triggered SMS, email, and WhatsApp reminders with one-tap rebooking links.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Lapsed clients reactivated automatically</h4>
+            <p>Dormant clients segmented by value and reactivated. Typical recovery: 15–25% within 90 days.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Clinical scribe saves 90+ minutes per day</h4>
+            <p>AI-generated SOAP notes written during consultation and posted directly to your PMS.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="sector-stats">
+      <div class="sector-stat">
+        <div class="num">35%</div>
+        <div class="lbl">Calls missed at peak hours</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">23%</div>
+        <div class="lbl">Average recall compliance</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">57hrs</div>
+        <div class="lbl">Average vet working week</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">37%</div>
+        <div class="lbl">Vets considering leaving the profession</div>
+      </div>
+    </div>
+
+    <!-- Relevant services -->
+    <div class="relevant-services">
+      <div class="relevant-services-header">Relevant Clinevo services</div>
+      <div class="relevant-services-grid">
+        <a href="services.html#ai-receptionist-setup" class="relevant-svc-pill"><span class="pill-dot purple"></span> AI Receptionist</a>
+        <a href="services.html#ai-receptionist-managed" class="relevant-svc-pill"><span class="pill-dot purple"></span> Monthly Managed</a>
+        <a href="services.html#clinical-scribe" class="relevant-svc-pill"><span class="pill-dot teal"></span> Clinical Scribe</a>
+        <a href="services.html#recall-automation" class="relevant-svc-pill"><span class="pill-dot forest"></span> Recall Automation</a>
+        <a href="services.html#lapsed-client" class="relevant-svc-pill"><span class="pill-dot forest"></span> Lapsed Client Reactivation</a>
+        <a href="services.html#no-show-recovery" class="relevant-svc-pill"><span class="pill-dot forest"></span> No-Show Recovery</a>
+        <a href="services.html#care-plan-upsell" class="relevant-svc-pill"><span class="pill-dot teal"></span> Wellness Plan Upsell</a>
+        <a href="services.html#seasonal-campaigns" class="relevant-svc-pill"><span class="pill-dot forest"></span> Seasonal Campaigns</a>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources-panel">
+      <button class="sources-toggle" onclick="this.parentElement.classList.toggle('open')">
+        <span class="sources-header">Sources</span>
+        <span class="toggle-arrow">&#9660;</span>
+      </button>
+      <div class="sources-list">
+        <a href="https://www.christie.com/news-resources/press-releases/surge-of-activity-in-uk-veterinary-market-says-new-christie-co-report/" target="_blank"><span class="src-label">Practice count:</span> Christie &amp; Co Veterinary Market Insight 2024: 5,331 UK practices</a>
+        <a href="https://petsapp.com/case-studies/how-petsapp-helped-pennard-vets-reduce-missed-calls-by-85percent" target="_blank"><span class="src-label">Missed calls:</span> PetsApp / Pennard Vets case study: 60%+ calls missed at peak hours</a>
+        <a href="https://petdesk.com/blog/what-pesky-no-shows-actually-cost-your-veterinary-practice/" target="_blank"><span class="src-label">Revenue impact:</span> PetDesk: $41,250 lost to no-shows per year per FTE vet</a>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1371051/" target="_blank"><span class="src-label">Recall compliance:</span> PMC: Analysis of Practice Management Software for Owner Compliance with Recall Reminders</a>
+        <a href="https://digitail.com/blog/how-ai-dictation-saves-vets-10-hours-a-week/" target="_blank"><span class="src-label">Documentation time:</span> Digitail: AI Dictation Saves Vets 10+ Hours a Week</a>
+        <a href="https://software.idexx.com/resources/blog/reducing-veterinary-staff-turnover-7-strategies-for-a-thriving-practice" target="_blank"><span class="src-label">Staff turnover:</span> IDEXX: 32.5% annual turnover for veterinary receptionists</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTOR — OPTICAL
+     ═══════════════════════════════════════════════════════ -->
+<div class="sector-content" id="optical">
+  <div class="container">
+    <div class="sector-header">
+      <h2>Optical practices are losing patients to recall gaps and retail competition.</h2>
+      <p>With high-street chains, online retailers, and NHS contract pressures squeezing margins, independent and small-group optical practices need every patient to come back and every visit to convert.</p>
+    </div>
+
+    <div class="sector-grid">
+      <!-- Challenges -->
+      <div class="challenges-panel">
+        <div class="challenges-panel-header">
+          <div class="challenges-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 18h16L10 2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="challenges-panel-title">The struggles</div>
+        </div>
+
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Recall compliance stuck at 40–50%</h4>
+          <p>Two-year test intervals make patients easy to lose. Less than half return on time with manual recall.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Did-not-attend rates eroding chair time</h4>
+          <p>10–15% DNA rates are common. Most practices don't follow up at all, or do so days later.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Private dispensing revenue under pressure</h4>
+          <p>Online retailers undercut on price and patients leave after eye tests without purchasing in-store.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Reception overwhelmed with routine queries</h4>
+          <p>Phone lines clogged with opening hours, NHS eligibility, and contact lens queries that don't need a human.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> No systematic approach to patient retention</h4>
+          <p>Patients drift to competitors not because of poor care, but because nobody asked them to stay.</p>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="solution-panel">
+        <div class="solution-panel-header">
+          <div class="solution-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="solution-panel-title">How Clinevo solves it</div>
+        </div>
+
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Automated recall across SMS, email, and WhatsApp</h4>
+            <p>Personalised, multi-touch reminders with one-tap rebooking. Compliance jumps to 70–85%.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>No-show recovery fills empty testing slots</h4>
+            <p>Automated follow-up within minutes of a DNA. Offers rebooking and fills from the waitlist.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>AI receptionist handles routine calls</h4>
+            <p>Opening hours, NHS eligibility, and contact lens reorders all handled instantly by voice AI.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Post-visit follow-up drives dispensing and reviews</h4>
+            <p>Automated check-ins prompt dispensing purchases, Google reviews, and next-test rebooking.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Lapsed patient reactivation recovers lost revenue</h4>
+            <p>Targeted campaigns bring back 15–25% of overdue patients within 90 days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="sector-stats">
+      <div class="sector-stat">
+        <div class="num">45%</div>
+        <div class="lbl">Average recall compliance</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">12%</div>
+        <div class="lbl">Typical DNA rate</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">50%</div>
+        <div class="lbl">Sight test fee shortfall vs actual cost</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">45%</div>
+        <div class="lbl">Market share held by corporate multiples</div>
+      </div>
+    </div>
+
+    <!-- Relevant services -->
+    <div class="relevant-services">
+      <div class="relevant-services-header">Relevant Clinevo services</div>
+      <div class="relevant-services-grid">
+        <a href="services.html#ai-receptionist-setup" class="relevant-svc-pill"><span class="pill-dot purple"></span> AI Receptionist</a>
+        <a href="services.html#webchat-whatsapp" class="relevant-svc-pill"><span class="pill-dot purple"></span> Web Chat &amp; WhatsApp</a>
+        <a href="services.html#recall-automation" class="relevant-svc-pill"><span class="pill-dot forest"></span> Recall Automation</a>
+        <a href="services.html#no-show-recovery" class="relevant-svc-pill"><span class="pill-dot forest"></span> No-Show Recovery</a>
+        <a href="services.html#lapsed-client" class="relevant-svc-pill"><span class="pill-dot forest"></span> Lapsed Client Reactivation</a>
+        <a href="services.html#post-visit-followup" class="relevant-svc-pill"><span class="pill-dot forest"></span> Post-Visit Follow-up</a>
+        <a href="services.html#seasonal-campaigns" class="relevant-svc-pill"><span class="pill-dot forest"></span> Seasonal Campaigns</a>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources-panel">
+      <button class="sources-toggle" onclick="this.parentElement.classList.toggle('open')">
+        <span class="sources-header">Sources</span>
+        <span class="toggle-arrow">&#9660;</span>
+      </button>
+      <div class="sources-list">
+        <a href="https://www.ibisworld.com/united-kingdom/number-of-businesses/opticians/6226/" target="_blank"><span class="src-label">Practice count:</span> IBISWorld 2025: 5,421 UK optician businesses</a>
+        <a href="https://optical.org/media/hodlzrvn/ee-mapping-of-optical-businesses-final-report-22-feb-2023.pdf" target="_blank"><span class="src-label">Market structure:</span> GOC Mapping of Optical Businesses Report, Feb 2023</a>
+        <a href="https://www.opticianonline.net/content/news/poor-recall-marketing-costs-practices-millions" target="_blank"><span class="src-label">Recall compliance:</span> Optician Online: 52% average response to three-letter recall series</a>
+        <a href="https://www.opticianonline.net/cpd-archive/4484/" target="_blank"><span class="src-label">DNA rates:</span> Optician Online: NHS outpatient DNA rate ~9%, higher in younger demographics</a>
+        <a href="https://www.england.nhs.uk/outpatient-transformation-programme/did-not-attends-dnas/" target="_blank"><span class="src-label">NHS DNA data:</span> NHS England: Did Not Attends overview</a>
+        <a href="https://salience.co.uk/insight/reports/glasses-retailers-market-performance-report/" target="_blank"><span class="src-label">Online competition:</span> Salience: Eyewear &amp; Opticians Market Report 2025; online growing at 5.5% CAGR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTOR — DENTAL
+     ═══════════════════════════════════════════════════════ -->
+<div class="sector-content" id="dental">
+  <div class="container">
+    <div class="sector-header">
+      <h2>UK dental practices are drowning in admin and bleeding revenue through empty chairs.</h2>
+      <p>With NHS contract pressures, rising patient expectations, and the largest clinical workforce in UK primary care, dental is the market where operational AI has the biggest commercial impact.</p>
+    </div>
+
+    <div class="sector-grid">
+      <!-- Challenges -->
+      <div class="challenges-panel">
+        <div class="challenges-panel-header">
+          <div class="challenges-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 18h16L10 2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="M10 8v4M10 14v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="challenges-panel-title">The struggles</div>
+        </div>
+
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Failed-to-attend rates of 8–15%</h4>
+          <p>Each missed appointment costs £60–£150. Most practices send one SMS reminder, if that, and accept the loss.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Plan membership underperforming</h4>
+          <p>Less than 30% of eligible patients convert to dental plans because the conversation rarely happens at the right moment.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Phone lines saturated during peak hours</h4>
+          <p>Monday mornings spike 40%+ above average. Patients hear engaged tones and book elsewhere.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> Hygienist utilisation below capacity</h4>
+          <p>Poor recall and no waitlist management leave hygienists with 15–25% empty chair time weekly.</p>
+        </div>
+        <div class="challenge-item">
+          <h4><span class="warn-dot"></span> No structured patient reactivation</h4>
+          <p>Patients who miss their 6-month check-up rarely get follow-up, and after 12 months, they're effectively lost.</p>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="solution-panel">
+        <div class="solution-panel-header">
+          <div class="solution-panel-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="solution-panel-title">How Clinevo solves it</div>
+        </div>
+
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>No-show recovery fills chairs within minutes</h4>
+            <p>Automated follow-up the moment a patient FTAs, offering rebooking, contacts the waitlist, recovers 20–40%.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>AI prompts plan membership at the right moment</h4>
+            <p>During qualifying calls, AI naturally introduces plan options with the right information, at the right time, every call.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>AI receptionist eliminates missed calls</h4>
+            <p>Every call answered in under 1.5s, 24/7. Peak-hour capacity is no longer a constraint.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Recall automation drives hygiene bookings</h4>
+            <p>Multi-channel reminders for check-ups and hygiene with one-tap booking, pushing compliance to 70–85%.</p>
+          </div>
+        </div>
+        <div class="solution-item">
+          <div class="solution-check">&#10003;</div>
+          <div class="solution-item-text">
+            <h4>Lapsed patient campaigns bring revenue back</h4>
+            <p>Targeted reactivation segmented by treatment history and value, deployed automatically via SMS and email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="sector-stats">
+      <div class="sector-stat">
+        <div class="num">17%</div>
+        <div class="lbl">National DNA rate</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">69%</div>
+        <div class="lbl">Market now private dentistry</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">21%</div>
+        <div class="lbl">NHS dentist positions unfilled</div>
+      </div>
+      <div class="sector-stat">
+        <div class="num">28%</div>
+        <div class="lbl">Typical plan conversion rate</div>
+      </div>
+    </div>
+
+    <!-- Relevant services -->
+    <div class="relevant-services">
+      <div class="relevant-services-header">Relevant Clinevo services</div>
+      <div class="relevant-services-grid">
+        <a href="services.html#ai-receptionist-setup" class="relevant-svc-pill"><span class="pill-dot purple"></span> AI Receptionist</a>
+        <a href="services.html#ai-receptionist-managed" class="relevant-svc-pill"><span class="pill-dot purple"></span> Monthly Managed</a>
+        <a href="services.html#webchat-whatsapp" class="relevant-svc-pill"><span class="pill-dot purple"></span> Web Chat &amp; WhatsApp</a>
+        <a href="services.html#recall-automation" class="relevant-svc-pill"><span class="pill-dot forest"></span> Recall Automation</a>
+        <a href="services.html#no-show-recovery" class="relevant-svc-pill"><span class="pill-dot forest"></span> No-Show Recovery</a>
+        <a href="services.html#lapsed-client" class="relevant-svc-pill"><span class="pill-dot forest"></span> Lapsed Client Reactivation</a>
+        <a href="services.html#care-plan-upsell" class="relevant-svc-pill"><span class="pill-dot teal"></span> Plan Membership Upsell</a>
+        <a href="services.html#seasonal-campaigns" class="relevant-svc-pill"><span class="pill-dot forest"></span> Seasonal Campaigns</a>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources-panel">
+      <button class="sources-toggle" onclick="this.parentElement.classList.toggle('open')">
+        <span class="sources-header">Sources</span>
+        <span class="toggle-arrow">&#9660;</span>
+      </button>
+      <div class="sources-list">
+        <a href="https://www.ons.gov.uk/aboutus/transparencyandgovernance/freedomofinformationfoi/numberofdentistsanddentalpracticesintheuk" target="_blank"><span class="src-label">Practice count:</span> ONS: 12,010 dental practices in the UK</a>
+        <a href="https://www.nature.com/articles/s41404-021-0810-8" target="_blank"><span class="src-label">Market breakdown:</span> BDJ In Practice: 8,500 independent, 2,500 small groups, 1,500 corporate</a>
+        <a href="https://www.nature.com/articles/sj.bdj.2014.766" target="_blank"><span class="src-label">FTA impact:</span> BDJ: NHS dentistry failed attendances cost 81 hours lost per FTE dentist per year</a>
+        <a href="https://www.nature.com/articles/s41404-026-3468-4" target="_blank"><span class="src-label">Revenue lost:</span> BDJ In Practice 2026: 10 missed appointments/week at £120 avg = £60,000+/year</a>
+        <a href="https://www.denplan.co.uk/the-core/industry-and-company-news/paying-for-private-dental-care" target="_blank"><span class="src-label">Private care:</span> Denplan 2024: 20% of Brits use private dental care; 61% of NHS patients would consider it</a>
+        <a href="https://www.resonateapp.com/resources/call-answering-rates-dental-clinics-statistics" target="_blank"><span class="src-label">Call volumes:</span> Resonate App: Monday mornings generate 40%+ more calls than average weekdays</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Which sector is your practice in?</h2>
+    <p>A 30-minute conversation. No obligation. We'll map the specific challenges and opportunities for your practice type.</p>
+    <div class="cta-buttons">
+      <a href="consultation.html" class="btn btn-white">Book your free consultation &rarr;</a>
+      <a href="index.html" class="btn btn-ghost-light">Back to homepage</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-wordmark">Clinevo</span>
+        <div class="tagline-footer">AI FOR CLINICS THAT CARE.</div>
+        <p>Clinical AI consultancy. Veterinary, optical, and dental practices, from AI understanding through to implementation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html#ai-receptionist-setup">AI receptionist</a>
+        <a href="services.html#clinical-scribe">Clinical scribe</a>
+        <a href="services.html#recall-automation">Recall automation</a>
+        <a href="services.html#lapsed-client">Lapsed client reactivation</a>
+        <a href="services.html#no-show-recovery">No-show recovery</a>
+        <a href="services.html#seasonal-campaigns">Campaign automation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="consultation.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@clinevo.ai">hello@clinevo.ai</a>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/clinevo.ai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61576651670482" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Clinevo is a trading name of Reginova Ltd. Company No. 16304176. Registered in England &amp; Wales.</span>
+      <span><a href="privacy.html">Privacy</a> &middot; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchSector(sectorId, btn) {
+  // Hide all sector content
+  document.querySelectorAll('.sector-content').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  // Deactivate all tabs
+  document.querySelectorAll('.sector-tab').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  // Show selected sector
+  document.getElementById(sectorId).classList.add('active');
+  // Activate clicked tab
+  btn.classList.add('active');
+  // Close any open sources panels
+  document.querySelectorAll('.sources-panel.open').forEach(function(el) {
+    el.classList.remove('open');
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinevo - Variation 3: Bold & Dynamic</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-teal: #1B4F5A;
+    --mid-teal: #2E8B9A;
+    --light-teal: #D6EEF2;
+    --accent: #45C4BC;
+    --white: #FFFFFF;
+    --off-white: #F6FAFB;
+    --text-dark: #12292E;
+    --text-muted: #5A7A80;
+    --dark-bg: #0E2E34;
+    --card-bg: #163D44;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* === DARK HERO SECTION === */
+  .dark-section {
+    background: var(--dark-bg);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px; position: relative; z-index: 10;
+  }
+  .nav-logo {
+    font-size: 26px; font-weight: 800; color: white;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-center { display: flex; gap: 32px; }
+  .nav-center a {
+    color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-center a:hover { color: white; }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .nav-login {
+    color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px;
+    font-weight: 500; padding: 10px 20px;
+  }
+  .nav-demo {
+    background: var(--accent); color: var(--dark-teal); padding: 10px 24px;
+    border-radius: 10px; font-weight: 700; font-size: 14px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .nav-demo:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(69,196,188,0.3); }
+
+  /* HERO */
+  .hero {
+    padding: 60px 60px 100px; position: relative; z-index: 1;
+    min-height: 90vh; display: flex; align-items: center;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px;
+    max-width: 1300px; margin: 0 auto; width: 100%; align-items: center;
+  }
+
+  /* Animated background blobs */
+  .bg-blob {
+    position: absolute; border-radius: 50%; filter: blur(100px);
+    opacity: 0.15; z-index: 0;
+  }
+  .bg-blob.one {
+    width: 500px; height: 500px; top: -100px; right: 10%;
+    background: var(--accent); animation: blobmove1 12s ease-in-out infinite;
+  }
+  .bg-blob.two {
+    width: 400px; height: 400px; bottom: -100px; left: 5%;
+    background: var(--mid-teal); animation: blobmove2 15s ease-in-out infinite;
+  }
+  @keyframes blobmove1 {
+    0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-40px, 30px); }
+  }
+  @keyframes blobmove2 {
+    0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -20px); }
+  }
+
+  .hero-text h1 {
+    font-size: 60px; font-weight: 800; line-height: 1.08;
+    letter-spacing: -2px; margin-bottom: 24px;
+  }
+  .hero-text h1 .gradient-text {
+    background: linear-gradient(135deg, var(--accent), #7EEEE6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-text p {
+    font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.55);
+    margin-bottom: 40px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    padding: 15px 32px; border-radius: 12px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px; border: none;
+  }
+  .btn.accent {
+    background: var(--accent); color: var(--dark-teal);
+    box-shadow: 0 4px 20px rgba(69,196,188,0.25);
+  }
+  .btn.accent:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(69,196,188,0.35); }
+  .btn.outline {
+    background: transparent; color: white;
+    border: 1.5px solid rgba(255,255,255,0.2);
+  }
+  .btn.outline:hover { border-color: rgba(255,255,255,0.5); }
+
+  /* Hero visual: stacked cards */
+  .hero-cards-stack { position: relative; height: 440px; }
+  .hero-stack-card {
+    position: absolute; background: var(--card-bg);
+    border-radius: 20px; border: 1px solid rgba(255,255,255,0.06);
+    padding: 28px; color: white;
+  }
+  .hero-stack-card.main {
+    width: 100%; top: 40px; left: 0; z-index: 3;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  }
+  .hero-stack-card.behind1 {
+    width: 90%; top: 16px; left: 5%; z-index: 2;
+    opacity: 0.5; filter: blur(1px);
+  }
+  .hero-stack-card.behind2 {
+    width: 80%; top: 0; left: 10%; z-index: 1;
+    opacity: 0.25; filter: blur(2px);
+  }
+  .card-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+  }
+  .card-top h3 { font-size: 16px; font-weight: 700; }
+  .card-badge {
+    background: rgba(69,196,188,0.15); color: var(--accent);
+    padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 600;
+  }
+  .card-metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-bottom: 28px;
+  }
+  .cm {
+    background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px;
+    text-align: center; border: 1px solid rgba(255,255,255,0.05);
+  }
+  .cm .num { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .cm .txt { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .mini-chart {
+    display: flex; align-items: flex-end; gap: 4px; height: 80px;
+  }
+  .mini-bar {
+    flex: 1; border-radius: 4px 4px 0 0; transition: height 0.5s ease;
+  }
+  .mini-bar:nth-child(odd) { background: var(--mid-teal); }
+  .mini-bar:nth-child(even) { background: var(--accent); opacity: 0.6; }
+
+  /* === MARQUEE LOGOS === */
+  .logo-marquee {
+    padding: 40px 0; background: white;
+    border-bottom: 1px solid rgba(27,79,90,0.06);
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex; gap: 60px; animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); } 100% { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    font-size: 18px; font-weight: 700; color: var(--dark-teal);
+    opacity: 0.2; white-space: nowrap; padding: 0 20px;
+  }
+
+  /* === FEATURES BENTO GRID === */
+  .bento {
+    padding: 100px 60px; background: var(--off-white);
+  }
+  .bento-header {
+    text-align: center; margin-bottom: 60px;
+  }
+  .tag {
+    display: inline-block; padding: 6px 16px; border-radius: 100px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 16px;
+    background: var(--light-teal); color: var(--mid-teal);
+  }
+  .bento-header h2 {
+    font-size: 44px; font-weight: 800; color: var(--dark-teal);
+    letter-spacing: -1.5px; margin-bottom: 12px;
+  }
+  .bento-header p {
+    font-size: 17px; color: var(--text-muted); max-width: 500px; margin: 0 auto;
+  }
+  .bento-grid {
+    display: grid; max-width: 1200px; margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+  }
+  .bento-card {
+    background: white; border-radius: 20px; padding: 36px;
+    border: 1px solid rgba(27,79,90,0.06);
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+  }
+  .bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(27,79,90,0.08);
+  }
+  .bento-card.wide { grid-column: span 2; }
+  .bento-card.tall { grid-row: span 2; display: flex; flex-direction: column; }
+  .bento-card .icon-wrap {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--light-teal), rgba(69,196,188,0.15));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 20px;
+  }
+  .bento-card h3 {
+    font-size: 20px; font-weight: 700; color: var(--dark-teal);
+    margin-bottom: 10px;
+  }
+  .bento-card p {
+    font-size: 14px; color: var(--text-muted); line-height: 1.7;
+  }
+  .bento-card .card-visual {
+    margin-top: auto; padding-top: 24px;
+  }
+  /* Mini visual elements inside bento cards */
+  .mini-progress { margin-top: 20px; }
+  .mini-progress-item {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  }
+  .mini-progress-item .label {
+    font-size: 12px; color: var(--text-muted); width: 80px; flex-shrink: 0;
+  }
+  .mini-progress-item .bar {
+    flex: 1; height: 8px; background: var(--light-teal); border-radius: 4px;
+    overflow: hidden;
+  }
+  .mini-progress-item .bar .fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--mid-teal), var(--accent));
+  }
+
+  .compliance-badges {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+  }
+  .compliance-badge {
+    padding: 8px 16px; background: var(--off-white); border-radius: 10px;
+    font-size: 12px; font-weight: 600; color: var(--dark-teal);
+    border: 1px solid rgba(27,79,90,0.06);
+  }
+
+  /* === HOW IT WORKS (Horizontal Steps) === */
+  .how-section {
+    padding: 100px 60px; background: white;
+  }
+  .how-header { text-align: center; margin-bottom: 60px; }
+  .how-header h2 {
+    font-size: 44px; font-weight: 800; color: var(--dark-teal);
+    letter-spacing: -1.5px;
+  }
+  .how-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    max-width: 1100px; margin: 0 auto; position: relative;
+  }
+  .how-steps::before {
+    content: ''; position: absolute; top: 36px; left: 10%; right: 10%;
+    height: 3px; background: var(--light-teal); z-index: 0;
+  }
+  .how-step {
+    text-align: center; position: relative; z-index: 1;
+    padding: 0 16px;
+  }
+  .step-circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--dark-teal); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800; margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(27,79,90,0.15);
+    border: 4px solid white;
+  }
+  .how-step h3 {
+    font-size: 17px; font-weight: 700; color: var(--dark-teal);
+    margin-bottom: 8px;
+  }
+  .how-step p {
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+  }
+
+  /* === STATS BANNER === */
+  .stats-banner {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, var(--dark-teal), var(--mid-teal));
+    position: relative; overflow: hidden;
+  }
+  .stats-banner::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: rgba(69,196,188,0.08);
+  }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+    max-width: 1100px; margin: 0 auto; position: relative;
+  }
+  .stat { text-align: center; }
+  .stat .num {
+    font-size: 56px; font-weight: 800; color: var(--accent);
+    letter-spacing: -1px; line-height: 1;
+  }
+  .stat .desc {
+    font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* === TESTIMONIALS === */
+  .reviews {
+    padding: 100px 60px; background: var(--off-white);
+  }
+  .reviews-header { text-align: center; margin-bottom: 60px; }
+  .reviews-header h2 {
+    font-size: 44px; font-weight: 800; color: var(--dark-teal);
+    letter-spacing: -1.5px;
+  }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .review-card {
+    background: white; border-radius: 20px; padding: 32px;
+    border: 1px solid rgba(27,79,90,0.06);
+    transition: all 0.3s;
+  }
+  .review-card:hover {
+    box-shadow: 0 12px 36px rgba(27,79,90,0.06);
+  }
+  .review-stars { margin-bottom: 16px; }
+  .review-stars span {
+    color: #F5A623; font-size: 18px;
+  }
+  .review-card blockquote {
+    font-size: 15px; line-height: 1.7; color: var(--text-dark);
+    margin-bottom: 24px; font-style: normal;
+  }
+  .review-author {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 16px; border-top: 1px solid rgba(27,79,90,0.06);
+  }
+  .ra-avatar {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--mid-teal), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 14px;
+  }
+  .ra-name { font-size: 14px; font-weight: 700; color: var(--dark-teal); }
+  .ra-role { font-size: 12px; color: var(--text-muted); }
+
+  /* === CTA === */
+  .final-cta {
+    padding: 120px 60px; background: var(--dark-bg);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .final-cta .bg-blob.one { top: auto; bottom: -200px; right: auto; left: 20%; opacity: 0.1; }
+  .final-cta .bg-blob.two { top: -200px; left: auto; right: 20%; opacity: 0.08; }
+  .final-cta h2 {
+    font-size: 52px; font-weight: 800; color: white;
+    letter-spacing: -1.5px; margin-bottom: 16px; position: relative;
+  }
+  .final-cta p {
+    font-size: 18px; color: rgba(255,255,255,0.45); margin-bottom: 40px;
+    max-width: 480px; margin-left: auto; margin-right: auto; position: relative;
+  }
+  .cta-btns {
+    display: flex; justify-content: center; gap: 14px; position: relative;
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 60px; background: #091E22; color: rgba(255,255,255,0.35);
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 12px; }
+  .footer-col h4 {
+    color: white; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.35); text-decoration: none;
+    font-size: 14px; margin-bottom: 10px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px; text-align: center; font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-center { display: none; }
+    .hero { padding: 40px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 38px; }
+    .hero-cards-stack { height: 320px; }
+    .bento, .how-section, .reviews { padding: 60px 24px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-card.wide, .bento-card.tall { grid-column: auto; grid-row: auto; }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; }
+    .how-steps::before { display: none; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .final-cta h2 { font-size: 36px; }
+    .cta-btns { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- === DARK HERO === -->
+<div class="dark-section">
+  <div class="bg-blob one"></div>
+  <div class="bg-blob two"></div>
+
+  <nav>
+    <div class="nav-logo">Clin<span>evo</span></div>
+    <div class="nav-center">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#results">Results</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-login">Log In</a>
+      <a href="#" class="nav-demo">Book Demo</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Run Clinical Trials with <span class="gradient-text">Superhuman Speed</span></h1>
+        <p>Clinevo combines AI-powered automation with deep clinical expertise to slash trial timelines, reduce costs, and improve data quality.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn accent">Start Free &rarr;</a>
+          <a href="#" class="btn outline">&#9654;&ensp;Watch Demo</a>
+        </div>
+      </div>
+      <div class="hero-cards-stack">
+        <div class="hero-stack-card behind2"></div>
+        <div class="hero-stack-card behind1"></div>
+        <div class="hero-stack-card main">
+          <div class="card-top">
+            <h3>Trial Command Centre</h3>
+            <span class="card-badge">&#9679; Live</span>
+          </div>
+          <div class="card-metrics">
+            <div class="cm"><div class="num">3.2k</div><div class="txt">Enrolled</div></div>
+            <div class="cm"><div class="num">97%</div><div class="txt">Retention</div></div>
+            <div class="cm"><div class="num">32</div><div class="txt">Sites</div></div>
+          </div>
+          <div class="mini-chart">
+            <div class="mini-bar" style="height:35%"></div>
+            <div class="mini-bar" style="height:55%"></div>
+            <div class="mini-bar" style="height:42%"></div>
+            <div class="mini-bar" style="height:68%"></div>
+            <div class="mini-bar" style="height:50%"></div>
+            <div class="mini-bar" style="height:80%"></div>
+            <div class="mini-bar" style="height:60%"></div>
+            <div class="mini-bar" style="height:92%"></div>
+            <div class="mini-bar" style="height:75%"></div>
+            <div class="mini-bar" style="height:85%"></div>
+            <div class="mini-bar" style="height:62%"></div>
+            <div class="mini-bar" style="height:95%"></div>
+            <div class="mini-bar" style="height:70%"></div>
+            <div class="mini-bar" style="height:88%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- LOGO MARQUEE -->
+<div class="logo-marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">AstraZenith</span>
+    <span class="marquee-item">NovaCure Biotech</span>
+    <span class="marquee-item">BioGenix Research</span>
+    <span class="marquee-item">MedVanta Group</span>
+    <span class="marquee-item">PharmaCo Global</span>
+    <span class="marquee-item">TrialWorks Inc</span>
+    <span class="marquee-item">ClinPharma EU</span>
+    <span class="marquee-item">GeneBridge Labs</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">AstraZenith</span>
+    <span class="marquee-item">NovaCure Biotech</span>
+    <span class="marquee-item">BioGenix Research</span>
+    <span class="marquee-item">MedVanta Group</span>
+    <span class="marquee-item">PharmaCo Global</span>
+    <span class="marquee-item">TrialWorks Inc</span>
+    <span class="marquee-item">ClinPharma EU</span>
+    <span class="marquee-item">GeneBridge Labs</span>
+  </div>
+</div>
+
+<!-- BENTO FEATURES -->
+<section class="bento" id="features">
+  <div class="bento-header">
+    <div class="tag">Platform</div>
+    <h2>Built for modern clinical teams</h2>
+    <p>Every tool you need, intelligently connected in one platform.</p>
+  </div>
+  <div class="bento-grid">
+    <!-- Tall card -->
+    <div class="bento-card tall">
+      <div class="icon-wrap">&#129302;</div>
+      <h3>AI Protocol Design</h3>
+      <p>ML-optimised protocols based on 10,000+ historical trials. Reduce amendments by 65%.</p>
+      <div class="card-visual">
+        <div class="mini-progress">
+          <div class="mini-progress-item">
+            <span class="label">Endpoints</span>
+            <div class="bar"><div class="fill" style="width:92%"></div></div>
+          </div>
+          <div class="mini-progress-item">
+            <span class="label">Inclusion</span>
+            <div class="bar"><div class="fill" style="width:85%"></div></div>
+          </div>
+          <div class="mini-progress-item">
+            <span class="label">Dosing</span>
+            <div class="bar"><div class="fill" style="width:78%"></div></div>
+          </div>
+          <div class="mini-progress-item">
+            <span class="label">Schedule</span>
+            <div class="bar"><div class="fill" style="width:96%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Wide card -->
+    <div class="bento-card wide">
+      <div class="icon-wrap">&#128101;</div>
+      <h3>Smart Patient Recruitment</h3>
+      <p>AI matches patients to trials using EHR data, genetic profiles, and geographic proximity. Cut enrollment time by 60% with diversity-optimised cohorts.</p>
+    </div>
+    <!-- Regular cards -->
+    <div class="bento-card">
+      <div class="icon-wrap">&#128200;</div>
+      <h3>Risk-Based Monitoring</h3>
+      <p>Automated anomaly detection across all sites with configurable risk thresholds and instant alerts.</p>
+    </div>
+    <div class="bento-card">
+      <div class="icon-wrap">&#128274;</div>
+      <h3>Regulatory Compliance</h3>
+      <p>Always audit-ready with automated compliance tracking and one-click submission packages.</p>
+      <div class="compliance-badges">
+        <span class="compliance-badge">FDA</span>
+        <span class="compliance-badge">EMA</span>
+        <span class="compliance-badge">ICH-GCP</span>
+        <span class="compliance-badge">GDPR</span>
+        <span class="compliance-badge">21 CFR 11</span>
+      </div>
+    </div>
+    <div class="bento-card">
+      <div class="icon-wrap">&#127760;</div>
+      <h3>Global Site Management</h3>
+      <p>Multi-region, multi-language, timezone-aware. Manage 50+ countries from one unified dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-header">
+    <div class="tag">Process</div>
+    <h2>Launch in 4 simple steps</h2>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="step-circle">1</div>
+      <h3>Import</h3>
+      <p>Connect your EDC, CTMS, and existing data sources via secure API.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">2</div>
+      <h3>Optimise</h3>
+      <p>AI analyses your protocol and recommends improvements for speed and quality.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">3</div>
+      <h3>Launch</h3>
+      <p>Go live with automated recruitment, monitoring, and real-time dashboards.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-circle">4</div>
+      <h3>Submit</h3>
+      <p>Generate audit-ready regulatory packages with a single click.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-banner" id="results">
+  <div class="stats-row">
+    <div class="stat"><div class="num">40%</div><div class="desc">Faster Timelines</div></div>
+    <div class="stat"><div class="num">3,200+</div><div class="desc">Trials Managed</div></div>
+    <div class="stat"><div class="num">98.7%</div><div class="desc">Data Accuracy</div></div>
+    <div class="stat"><div class="num">$2.1B</div><div class="desc">R&D Costs Saved</div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div class="tag">Testimonials</div>
+    <h2>What clinical leaders say</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <blockquote>"Clinevo's AI recommended removing 3 unnecessary endpoints from our protocol. That single change saved us 4 months and $1.2M."</blockquote>
+      <div class="review-author">
+        <div class="ra-avatar">SK</div>
+        <div><div class="ra-name">Dr Sarah Kim</div><div class="ra-role">VP Clinical Ops, NovaCure</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <blockquote>"We went from managing trials in spreadsheets to having a real-time command centre. The team productivity increase has been remarkable."</blockquote>
+      <div class="review-author">
+        <div class="ra-avatar">MR</div>
+        <div><div class="ra-name">Michael Reeves</div><div class="ra-role">Director, BioGenix Research</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+      <blockquote>"The regulatory compliance automation alone justified the investment. We passed our FDA inspection with zero findings for the first time ever."</blockquote>
+      <div class="review-author">
+        <div class="ra-avatar">TC</div>
+        <div><div class="ra-name">Tanya Chen</div><div class="ra-role">Regulatory Director, PharmaCo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="bg-blob one"></div>
+  <div class="bg-blob two"></div>
+  <h2>Ready to run trials<br><span class="gradient-text" style="background:linear-gradient(135deg,var(--accent),#7EEEE6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">at superhuman speed?</span></h2>
+  <p>Free 14-day trial. No credit card. Full platform access.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn accent">Get Started Free &rarr;</a>
+    <a href="#" class="btn outline">Talk to Sales</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Clin<span>evo</span></div>
+      <p>The AI-powered clinical trial platform. Smarter trials, faster cures, better outcomes.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Integrations</a>
+      <a href="#">Security</a>
+      <a href="#">Changelog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Press</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Documentation</a>
+      <a href="#">Case Studies</a>
+      <a href="#">Webinars</a>
+      <a href="#">ROI Calculator</a>
+      <a href="#">Compliance Guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Clinevo. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

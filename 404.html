@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Clinevo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --clinevo-purple: #534AB7;
+  --signal-teal: #45C4BC;
+  --near-black: #0F1923;
+  --off-white: #DCE0EC;
+  --brand-purple: #2C2870;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--near-black);
+  color: var(--off-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.container { max-width: 480px; }
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--clinevo-purple);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+p {
+  color: rgba(220,224,236,0.5);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+a.btn {
+  display: inline-block;
+  background: var(--clinevo-purple);
+  color: white;
+  text-decoration: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.2s;
+}
+a.btn:hover {
+  background: #6057CE;
+  transform: translateY(-1px);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>404</h1>
+  <h2>Page not found</h2>
+  <p>The page you are looking for does not exist or has been moved. Let us get you back on track.</p>
+  <a href="/" class="btn">Back to homepage</a>
+</div>
+</body>
+</html>

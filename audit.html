@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinevo — AI Opportunity Audit</title>
+  <meta name="description" content="Take Clinevo's free AI Opportunity Audit. Under 5 minutes to a bespoke report showing exactly where AI can transform your veterinary, optical, or dental practice.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clinevo.ai/audit">
+  <meta property="og:title" content="Clinevo — AI Opportunity Audit">
+  <meta property="og:description" content="Under 5 minutes to a bespoke report showing exactly where AI can transform your practice.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clinevo.ai/audit">
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { height: 100%; }
+    body { overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #2C2870; }
+    ::-webkit-scrollbar-thumb { background: #534AB7; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } = Recharts;
+/* ─── Clinevo Brand Tokens ───────────────────────────────────────────────── */
+const NAVY    = "#0F1923";   // near-black — darkest bg
+const PANEL   = "#0C1A27";   // panel-dk — dark slide bg
+const PURPLE  = "#534AB7";   // primary brand purple
+const PURPLE_BG = "#2C2870"; // deep purple bg
+const SIGNAL  = "#45C4BC";   // signal teal — primary accent
+const SIGNAL_D= "#2BA8A1";   // darker signal
+const SIGNAL_L= "rgba(69,196,188,0.12)"; // signal tint bg
+const FOREST  = "#0F6E56";   // forest green
+const GOLD    = "#F59E0B";   // amber — warnings / medium
+const WHITE   = "#FFFFFF";
+const OW      = "#FAFAFA";   // page-bg
+const LIGHT   = "#F0F1F8";   // light-bg
+const OFFWHITE= "#DCE0EC";   // off-white — borders & headings on dark
+const LG      = "#DCE0EC";   // border colour alias
+const MG      = "#8A9AB0";   // fade — muted text
+const DG      = "#4A5A70";   // body text
+const SLATE   = "#3D5060";   // mid-grey
+const GREEN   = "#10B981";   // positive
+const RED     = "#EF4444";   // negative
+// Aliases used across slides
+const TEAL   = SIGNAL;
+const TEAL_D = SIGNAL_D;
+const TEAL_L = SIGNAL_L;
+const DARKBG  = "#030A12";   // darkest possible bg for cover/about
+/* ─── Audit content ─────────────────────────────────────────────────────── */
+// All questions are mandatory — every answer improves the report
+const SECTIONS = [
+  {
+    id: "profile", title: "Practice Profile", subtitle: "Just the basics — everything else we can explore together", icon: "🏥",
+    questions: [
+      { id: "practice_name",   label: "Practice Name",                             type: "text",        placeholder: "e.g. Elmwood Veterinary Clinic" },
+      { id: "practice_type",   label: "Practice Type",                             type: "select",      options: ["Veterinary","Optometry","Dental","Other"] },
+      { id: "ownership",       label: "Practice Ownership",                        type: "select",      options: ["Fully independent","Part of a small group (2–5 sites)","Corporate group / franchise"] },
+      { id: "num_clinicians",  label: "Number of Clinicians / Practitioners",      type: "select",      options: ["1–2","3–5","6–10","10+"] },
+      { id: "current_pms",     label: "Practice Management System (PMS)",          type: "text",        placeholder: "e.g. ezyVet, Dentally, Ocuco" },
+    ]
+  },
+  {
+    id: "reception", title: "Phone & Front-of-House", subtitle: "How clients reach you — and what slips through", icon: "📞",
+    questions: [
+      { id: "daily_call_volume", label: "Approximate number of inbound calls per day",                  type: "select",      options: ["Under 20","20–50","50–100","100–200","200+","Don't know"] },
+      { id: "call_pressure",    label: "How would you describe your inbound call volume?",              type: "select",      options: ["Manageable — reception handles it comfortably","Busy — often stretched at peak times","Overwhelming — calls are regularly missed or left on hold","Variable — fine most days, chaotic at peak times"] },
+      { id: "call_reasons",     label: "Most common reasons clients call",                              type: "multiselect", options: ["Booking or rescheduling appointments","Prescription or product requests","Test results or clinical queries","General FAQs (hours, directions, prices)","Emergencies","Billing or account queries"] },
+      { id: "after_hours",      label: "What happens to contacts outside of opening hours?",            type: "select",      options: ["Covered by staff (on-call or extended hours)","Answerphone — we follow up next day","Redirected to an out-of-hours service","Calls go unanswered — nothing in place"] },
+      { id: "missed_calls_week",label: "Roughly how many calls are missed or unanswered per week?",    type: "select",      options: ["Under 5","5–15","15–30","30+","Don't know"] },
+      { id: "digital_channels", label: "Which digital channels do clients use to contact you?",        type: "multiselect", options: ["WhatsApp","Website contact form","Facebook Messenger","Email","Online booking portal","None — phone only"] },
+    ]
+  },
+  {
+    id: "communications", title: "Recalls, Reminders & Retention", subtitle: "How well are you keeping clients coming back?", icon: "🔁",
+    questions: [
+      { id: "reminder_method",  label: "How are appointment reminders currently sent?",                 type: "multiselect", options: ["Automated SMS","Automated email","Manual phone calls","App notifications","We don't send reminders"] },
+      { id: "recall_system",    label: "How is your recall and re-booking system managed?",             type: "select",      options: ["Fully automated — runs without staff input","Partially automated — staff still trigger it","Manual / ad-hoc — relies on staff memory","No formal recall system"] },
+      { id: "lapsed_clients",   label: "Roughly how many clients do you think haven't booked or visited in over a year — best guess is fine", type: "select",      options: ["Under 50","50–200","200–500","500–1,000","1,000+","Don't know"] },
+      { id: "dna_rate",         label: "Approximate rate of appointments where the client didn't show up or cancelled on the day", type: "select",      options: ["Under 5%","5–10%","10–15%","Over 15%","We don't track this"] },
+      { id: "cancellation_recovery", label: "What happens when a client cancels or doesn't show up?",  type: "select",      options: ["Slot filled automatically via a waitlist","Staff manually attempt to fill it","Slot is usually left empty","No consistent process"] },
+      { id: "post_visit",       label: "Is there any post-visit follow-up with clients?",              type: "select",      options: ["Automated check-in message sent (SMS / email / WhatsApp)","Staff follow up manually for selected cases","No post-visit follow-up","Only for specific clinical reasons"] },
+      { id: "google_rating",    label: "Current Google rating",                                        type: "select",      options: ["4.5–5.0 ★","4.0–4.4 ★","3.5–3.9 ★","Under 3.5 ★","No listing / Unknown"] },
+    ]
+  },
+  {
+    id: "workflow", title: "Clinical Admin & Documentation", subtitle: "Where clinician time is being lost", icon: "⚙️",
+    questions: [
+      { id: "after_hours_admin", label: "Do clinicians regularly complete notes or admin outside working hours?", type: "select", options: ["Rarely — completed during the day","Sometimes — a few evenings per week","Often — most evenings","Always — significant out-of-hours burden"] },
+      { id: "compliance_burden", label: "Which documentation tasks consume the most time?",            type: "multiselect", optionsByType: {
+        "Veterinary":  ["SOAP notes and clinical records","Vaccination and booster records","Drug dispensing and prescription logs","Referral and specialist letters","CMA-required estimates and itemised billing","None are particularly burdensome"],
+        "Dental":      ["Clinical notes and treatment records","NHS FP17 claim forms","CQC compliance documentation","Radiation / IRMER records","Referral and lab communication letters","None are particularly burdensome"],
+        "Optometry":   ["Clinical examination records","NHS GOS claim forms (GOS1–GOS6)","Referral letters to hospital eye services","OCT and imaging records","Contact lens fitting and aftercare records","None are particularly burdensome"],
+        "Other":       ["Clinical notes and patient records","Regulatory compliance documentation","Referral and correspondence letters","Prescription and dispensing records","None are particularly burdensome"],
+      }},
+      { id: "ai_experience",    label: "Has the practice used any AI tools before?",                   type: "multiselect", options: ["AI phone or reception handling","AI clinical note-taking / transcription","Automated recall or reminder system","AI-assisted diagnostics or imaging","None yet","Not sure what counts as AI"] },
+    ]
+  },
+  {
+    id: "revenue", title: "Revenue & Growth", subtitle: "Where value is being left on the table", icon: "💰",
+    questions: [
+      { id: "active_clients",   label: "Approximate number of active registered clients / patients",   type: "select",      options: ["Under 500","500–1,500","1,500–5,000","5,000–10,000","10,000+","Don't know"] },
+      { id: "avg_appt_value",   label: "Approximate average appointment or consultation value",        type: "select",      options: ["Under £30","£30–£60","£60–£100","£100–£200","Over £200","Don't know"] },
+      { id: "private_mix",      label: "Private / elective revenue as a proportion of total income",   type: "select",      options: ["Primarily or fully private","Mixed — significant private element","Predominantly NHS / insurance funded","Exploring private growth for the first time"] },
+      { id: "care_plans",       label: "Do you offer a care plan, wellness plan, or membership scheme?", type: "select",    options: ["Yes — well established, strong uptake","Yes — but enrolment is low","No — considering it","No — not applicable"] },
+      { id: "upsell_process",   label: "How are additional or preventive services introduced during consultations?", type: "select", options: ["Structured — clinicians follow a consistent process","Ad-hoc — depends on the individual clinician","Rarely raised unless the client asks","No consistent approach"] },
+      { id: "revenue_gaps",     label: "Where do you think revenue is currently being lost?",          type: "multiselect", options: ["Missed or unanswered calls","After-hours enquiries not captured","No-shows and cancellations not recovered","Lapsed clients not being reactivated","Additional services not offered during visits","Weak Google rating reducing new enquiries","Not sure"] },
+    ]
+  },
+  {
+    id: "readiness", title: "Team & Expectations", subtitle: "Helps us prepare the right approach for your practice", icon: "🧠",
+    questions: [
+      { id: "team_attitude",      label: "How would you describe your team's attitude toward AI?",        type: "select",      options: ["Enthusiastic — keen to explore it","Open — willing if it's clearly explained","Cautious — some resistance expected","Resistant — significant concern","Mixed — varies by person"] },
+      { id: "success_definition", label: "What would a successful AI implementation look like to you?",   type: "multiselect", options: ["More appointments booked, fewer missed","Reception team freed for higher-value work","More consistent recalls and client communication","Better out-of-hours coverage","Measurable revenue growth","Reduced clinician admin and burnout"] },
+      { id: "one_problem",        label: "If AI could solve one problem at your practice, what would it be?", type: "textarea", placeholder: "The more specific the better — this shapes the whole report. E.g. 'We lose at least 20 calls every Monday morning and clients are going elsewhere…'" },
+    ]
+  }
+];
+const SYSTEM_PROMPT = `You are a senior clinical AI transformation consultant at Clinevo, a UK clinical AI consultancy specialising in veterinary, dental, and optometry practices. Analyse the audit data and return ONLY a valid JSON object — no markdown fences, no preamble, no explanation. Just raw JSON.
+CLINEVO SERVICE CAPABILITIES (use these to frame opportunities — describe capabilities, never mention pricing, product names, or vendor tools):
+1. AI Phone Reception — 24/7 intelligent call handling, appointment booking, FAQ responses, emergency triage, clinical persona, PMS integration. Eliminates missed calls including after-hours.
+2. Web Chat & WhatsApp AI — Same AI capability extended to website chat and WhatsApp. Handles booking, triage, FAQs across digital channels.
+3. AI Clinical Scribe — Automated SOAP note generation from consultations. Saves 60–120 minutes of clinician admin per day. PMS integration, staff training, 30-day post-go-live support.
+4. Recall & Client Communications Automation — Automated recall campaigns, appointment reminders, satisfaction surveys. Typically increases recall compliance by 200–400%.
+5. Lapsed Client Reactivation — PMS analysis identifies clients inactive 12+ months. Automated SMS/email campaign. Typically recovers 15–25% of lapsed clients.
+6. No-Show & Cancellation Recovery — Automated follow-up within minutes of a cancellation or no-show. Recovers 20–40% of lost appointment slots.
+7. Care Plan & Wellness Upsell Prompts — AI identifies clients without a care/wellness plan during qualifying calls and introduces it naturally. Passive revenue driver.
+8. Post-Visit Follow-up & Review Generation — Automated SMS/WhatsApp check-in 48–72 hours post-visit. Surfaces welfare concerns, prompts rebooking, generates Google reviews from satisfied clients.
+9. Seasonal Campaign Automation — Pre-built campaign sequences tied to the clinical calendar. Drives bookings without manual effort.
+SECTOR CONTEXT (apply to the relevant practice type):
+VETERINARY: CMA investigation found £1bn consumer detriment over 5 years. Incoming mandatory obligations include price lists, written estimates over £500, itemised billing, prescription fee caps. ~60% of practices now corporate-owned. Workforce crisis — 37% of vets considering leaving, 57-hour average working weeks. SOAP note burden is acute. Vaccination, dental, and wellness recall represents significant recurring revenue risk. Independent practices face consolidation pressure.
+DENTAL: Largest sector by practice count (12,344 practices). Private dentistry now 69% of market. NHS UDA system creates losses on most procedures — £1bn in clawback 2023–25. NHS contract reforms April 2026 add further complexity. DNA rate ~17% nationally. 21% of NHS dentist positions unfilled. Documentation burden: FP17 forms, CQC compliance, radiation records. Private growth is the dominant strategic priority for independent practices.
+OPTOMETRY: NHS sight test fee (£23.53) covers under 50% of actual cost — practices must cross-subsidise through product sales. Annual recall and contact lens reorder cycles are primary revenue drivers. Optometrist vacancies are the hardest to fill of any profession in the UK. Corporate multiples (Specsavers 45–50% share) dominate — independents must differentiate on service and client experience. Absorbing more hospital-level ophthalmology work.
+SECTOR BENCHMARK DATA (use these real figures to populate benchmarks — always attribute to "AI-adopting practices in this sector"):
+VETERINARY: AI phone handling → missed call rate drops from ~25% to under 3%. After-hours bookings captured increase by 30–45%. SOAP note time cut by 60–80% with AI scribe (VetRec evidence: 5–7 min saved per consult). Vaccination recall compliance improves 200–400% with automated campaigns. Lapsed client reactivation campaigns recover 15–25% of inactive clients. DNA rate reduction of 30–39% with automated SMS reminders. Average vet working week 57 hours — AI admin tools typically reclaim 60–120 min/day. Practices with active Google review prompting see 3–5x increase in monthly review volume.
+DENTAL: National DNA rate ~17% — practices using automated reminders reduce to 8–11%. NHS clawback risk reduced significantly when appointment fill rates improve. FP17 admin time cut by 40–60% where AI-assisted claim prep is deployed. Lapsed patient reactivation: 15–25% response rate from automated campaigns. Post-visit SMS follow-up increases Google review generation by 3–5x. Practices with recall automation see 200–400% improvement in compliance rates. Private conversion rate improves 15–25% where care plan prompting is used during calls. After-hours enquiry capture can recover 20–35% of previously lost new patient contacts.
+OPTOMETRY: Annual recall response rate improves from ~35% (manual) to 65–80% (automated). Contact lens reorder reminders recover 20–30% of lapsed wearers. After-hours booking capture adds 15–25% more appointments per month. DNA rate falls from sector average ~12% to under 5% with automated reminders. Post-test SMS follow-up increases Google review volume 3–5x. Practices prompting care plan / eye care plan uptake during calls see 20–35% increase in plan conversions. New patient enquiry conversion rate improves 25–40% with 24/7 AI phone handling vs. answerphone.
+Schema (follow exactly):
+{
+  "practice_name": string,
+  "practice_type": string,
+  "executive_summary": string (3–4 punchy sentences: name the specific operational state of this practice and the transformation opportunity. Be direct and sector-specific. No pricing, no tool names, no vendors.),
+  "overall_score": integer 1–10 (AI transformation opportunity — higher = bigger untapped potential),
+  "scores": [
+    {"area":"Phone & Front-of-House","score":integer 1–10},
+    {"area":"Client Retention & Recall","score":integer 1–10},
+    {"area":"Clinical Documentation","score":integer 1–10},
+    {"area":"Revenue & Growth","score":integer 1–10},
+    {"area":"Digital Presence & Reputation","score":integer 1–10}
+  ],
+  "area_assessments": [
+    {
+      "area": string (must match one of the 5 score areas exactly),
+      "current_state": string (1–2 sentences: what is actually happening right now — be specific, reference their audit answers),
+      "key_issue": string (1 sentence: the single most important problem in this area),
+      "commercial_impact": string (1–2 sentences: what this costs them in plain language — lost appointments, wasted time, missed clients. No £ figures.),
+      "score": integer 1–10 (must match the score already given)
+    }
+  ] (one entry per score area — all 5),
+  "insights": [string,string,string] (3 sharp, specific observations about this practice's current state — name the actual problems, reference sector context where relevant. No pricing or tool references.),
+  "readiness": {
+    "team_posture": string (1 sentence speaking directly to the owner about their team — e.g. "Your team sounds open to change, which means a smooth rollout is very achievable with the right briefing"),
+    "change_risk": "LOW"|"MEDIUM"|"HIGH",
+    "change_risk_note": string (1 sentence explaining what this means for the owner — e.g. "Some early staff communication will go a long way to getting everyone on board"),
+    "investment_posture": string (1 sentence reflecting their stated investment mindset back to them — e.g. "You've signalled you're open to investing if the business case is clear — that's exactly what this report is designed to give you"),
+    "one_thing": string (reflect their stated single biggest problem back to them as a confirmed priority — e.g. "You've identified missed calls as your number one problem — and the data in this report backs that up"),
+    "success_signals": [string, string] (2 outcomes they defined as success, written as affirmations to the owner — e.g. "More appointments booked without adding headcount")
+  },
+  "benchmarks": [
+    {
+      "metric": string (short metric name, e.g. "Missed Call Rate"),
+      "this_practice": string (honest assessment based on audit responses, e.g. "~25–30% est." — derive from their answers),
+      "ai_adopters": string (what AI-adopting practices in this sector achieve, e.g. "Under 3%"),
+      "gap": string (plain-language description of the gap, e.g. "Significant — most contacts after 6pm are currently lost"),
+      "direction": "behind"|"ahead"|"on-par"
+    }
+  ] (4–5 metrics most relevant to this practice based on their audit responses — pick from: Missed Call Rate, After-Hours Bookings Captured, DNA / No-Show Rate, Recall Compliance Rate, Lapsed Client Recovery, Clinician Admin Time Per Day, Google Review Volume, New Enquiry Conversion Rate, Post-Visit Follow-up Rate),
+  "opportunities": [
+    {
+      "title": string,
+      "problem": string (1 sentence — name the specific pain point clearly),
+      "solution": string (1–2 sentences — what AI capability addresses this. Describe what it does, not which tool or what it costs.),
+      "impact": string (plain-language business outcome — no £ figures),
+      "effort": "LOW"|"MEDIUM"|"HIGH",
+      "roi_horizon": string (e.g. "30 days", "30–60 days", "60–90 days", "Ongoing"),
+      "priority": "HIGH"|"MEDIUM"
+    }
+  ] (3 to 5 items, ranked by priority then effort — lowest effort highest impact first),
+  "risks": [
+    {
+      "risk": string (short risk name — e.g. "Staff resistance"),
+      "likelihood": "LOW"|"MEDIUM"|"HIGH",
+      "impact": "LOW"|"MEDIUM"|"HIGH"|"CRITICAL",
+      "mitigation": string (2–3 sentences: specific, practical mitigation steps written for the practice owner — reassuring and concrete, not generic)
+    }
+  ] (4–5 risks most relevant to this practice — draw from: Staff resistance to AI, Emergency or clinical mishandling, PMS integration complexity, Client complaints about AI, Data protection and GDPR, Low adoption after go-live, Choosing the wrong starting point),
+  "roadmap": [
+    {"phase":string,"timeline":string,"actions":[string,string,string]}
+  ] (exactly 3 phases. Tailor the change management approach to the team readiness signals — if team is cautious or resistant, phase 1 should explicitly include staff briefing and early wins. Describe what happens in practice, not costs or tools.),
+  "next_steps": [string,string,string] (3 clear, practical actions written directly to the practice owner — what they should do next to move forward. Start each with a verb. Focus on things they can do right now: reflect on a specific finding, pull a specific number from their PMS, have a conversation with their team, or book a call with Clinevo. Make them feel like the report has genuinely helped them and the logical next move is obvious.)
+}
+Rules:
+— Scores = OPPORTUNITY SIZE. 9–10 = major untapped AI potential. 1–3 = already well handled.
+— Never mention pricing, fees, setup costs, or £ figures.
+— Never name specific AI vendors, platforms, or tools.
+— Every opportunity must trace directly to an audit response — nothing generic.
+— Use commercial data (active_clients, avg_appt_value, annual_consult_vol, lapsed_clients, dna_rate) to sharpen the scale of the opportunity in insights and benchmarks.
+— Apply sector-specific context (CMA, NHS UDA, GOS contracts, workforce data) where it strengthens the insight.
+— Roadmap change management must reflect the team's actual readiness signals.
+— If call_topics is filled in, next_steps must address those specific questions directly.`;
+/* ─── Helpers ───────────────────────────────────────────────────────────── */
+function pill(label, bg, col) {
+  return (
+    <span style={{ background: bg, color: col, fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 20, letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+      {label}
+    </span>
+  );
+}
+function Divider({ light = false }) {
+  return <div style={{ height: 1, background: light ? "rgba(255,255,255,0.1)" : LG, margin: "1.5rem 0" }} />;
+}
+/* ─── Question renderer ─────────────────────────────────────────────────── */
+function QField({ q, value, onChange, onToggle, practiceType = "Other" }) {
+  const base = { width: "100%", boxSizing: "border-box", border: `1.5px solid ${LG}`, borderRadius: 8, padding: "10px 14px", fontSize: 14, fontFamily: "'DM Sans', sans-serif", background: WHITE, color: SLATE, outline: "none", transition: "border-color 0.15s" };
+  const resolvedOptions = q.optionsByType
+    ? (q.optionsByType[practiceType] || q.optionsByType["Other"] || [])
+    : (q.options || []);
+  if (q.type === "text") return (
+    <input style={base} value={value || ""} placeholder={q.placeholder} onChange={e => onChange(q.id, e.target.value)}
+      onFocus={e => e.target.style.borderColor = PURPLE} onBlur={e => e.target.style.borderColor = LG} />
+  );
+  if (q.type === "textarea") return (
+    <textarea style={{ ...base, minHeight: 90, resize: "vertical", lineHeight: 1.65 }} value={value || ""} placeholder={q.placeholder}
+      onChange={e => onChange(q.id, e.target.value)}
+      onFocus={e => e.target.style.borderColor = PURPLE} onBlur={e => e.target.style.borderColor = LG} />
+  );
+  if (q.type === "select") return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      {resolvedOptions.map(opt => {
+        const sel = value === opt;
+        return (
+          <label key={opt} onClick={() => onChange(q.id, opt)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 13px", border: `1.5px solid ${sel ? PURPLE : LG}`, borderRadius: 8, cursor: "pointer", background: sel ? "rgba(83,74,183,0.07)" : WHITE, transition: "all 0.15s", color: SLATE, fontSize: 13, fontFamily: "'DM Sans', sans-serif", userSelect: "none" }}>
+            <div style={{ width: 15, height: 15, borderRadius: "50%", border: `2px solid ${sel ? PURPLE : LG}`, background: sel ? PURPLE : "transparent", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {sel && <div style={{ width: 5, height: 5, borderRadius: "50%", background: WHITE }} />}
+            </div>
+            {opt}
+          </label>
+        );
+      })}
+    </div>
+  );
+  if (q.type === "multiselect") {
+    const sel = Array.isArray(value) ? value : [];
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {resolvedOptions.map(opt => {
+          const on = sel.includes(opt);
+          return (
+            <label key={opt} onClick={() => onToggle(q.id, opt)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 13px", border: `1.5px solid ${on ? PURPLE : LG}`, borderRadius: 8, cursor: "pointer", background: on ? "rgba(83,74,183,0.07)" : WHITE, transition: "all 0.15s", color: SLATE, fontSize: 13, fontFamily: "'DM Sans', sans-serif", userSelect: "none" }}>
+              <div style={{ width: 15, height: 15, borderRadius: 4, border: `2px solid ${on ? PURPLE : LG}`, background: on ? PURPLE : "transparent", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {on && <span style={{ color: WHITE, fontSize: 9, fontWeight: 800 }}>✓</span>}
+              </div>
+              {opt}
+            </label>
+          );
+        })}
+        <p style={{ margin: "2px 0 0", fontSize: 10, color: MG, fontFamily: "'DM Sans', sans-serif" }}>Select all that apply</p>
+      </div>
+    );
+  }
+  return null;
+}
+/* ─── Intro screen ──────────────────────────────────────────────────────── */
+function Intro({ onStart }) {
+  return (
+    <div style={{ minHeight: "100vh", background: `linear-gradient(155deg, ${PURPLE_BG} 0%, #1E1B5E 50%, #17154D 100%)`, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: "'Outfit', 'DM Sans', system-ui, sans-serif", position: "relative", overflow: "hidden" }}>
+      <svg style={{ position: "absolute", bottom: -120, right: -120, opacity: 0.07, pointerEvents: "none" }} width="600" height="600" viewBox="0 0 600 600">
+        <circle cx="500" cy="500" r="260" fill="none" stroke="#534AB7" strokeWidth="1.5"/>
+        <circle cx="500" cy="500" r="180" fill="none" stroke="#45C4BC" strokeWidth="1"/>
+        <circle cx="500" cy="500" r="100" fill="none" stroke="#DCE0EC" strokeWidth="0.8"/>
+      </svg>
+      <div style={{ maxWidth: 560, textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 36 }}>
+          <svg width="64" height="64" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,1 A9,9 0 1,0 10,19" fill="none" stroke="#534AB7" strokeWidth="2.2" strokeLinecap="butt"/>
+            <path d="M10,4.4 A5.6,5.6 0 1,0 10,15.6" fill="none" stroke="#45C4BC" strokeWidth="1.5" strokeLinecap="butt"/>
+            <path d="M10,7.2 A2.8,2.8 0 1,0 10,12.8" fill="none" stroke="#DCE0EC" strokeWidth="1.2" strokeLinecap="butt"/>
+          </svg>
+          <span style={{ color: OFFWHITE, fontSize: 18, fontWeight: 300, letterSpacing: "0.35em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif" }}>CLINEVO</span>
+          <div style={{ width: 32, height: 1, background: "rgba(69,196,188,0.4)" }} />
+        </div>
+        <h1 style={{ color: OFFWHITE, fontSize: "clamp(2.2rem,5vw,3.2rem)", fontWeight: 300, lineHeight: 1.1, margin: "0 0 1rem", letterSpacing: "-0.02em" }}>
+          AI Opportunity<br />
+          <span style={{ color: SIGNAL, fontWeight: 700 }}>Audit</span>
+        </h1>
+        <p style={{ color: MG, fontSize: 15, lineHeight: 1.75, margin: "0 0 2.5rem", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}>
+          Under 5 minutes. A bespoke report showing exactly where AI can transform your practice — ready before you speak to us.
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: "2.5rem" }}>
+          {["6 sections","~31 questions","Powered by Clinevo AI","Instant presentation"].map(t => (
+            <span key={t} style={{ background: "rgba(83,74,183,0.12)", border: "1px solid rgba(83,74,183,0.2)", borderRadius: 20, padding: "5px 13px", color: "rgba(123,114,217,0.9)", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em" }}>{t}</span>
+          ))}
+        </div>
+        <button onClick={onStart}
+          style={{ background: PURPLE, color: WHITE, border: "none", borderRadius: 12, padding: "15px 44px", fontSize: 14, fontWeight: 600, cursor: "pointer", letterSpacing: "0.08em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif", transition: "all 0.2s" }}
+          onMouseEnter={e => { e.target.style.background = "#6057CE"; e.target.style.transform = "translateY(-1px)"; e.target.style.boxShadow = "0 8px 24px rgba(83,74,183,0.35)"; }}
+          onMouseLeave={e => { e.target.style.background = PURPLE; e.target.style.transform = "none"; e.target.style.boxShadow = "none"; }}>
+          Begin Audit →
+        </button>
+        <p style={{ marginTop: 16, color: "rgba(138,154,176,0.5)", fontSize: 11, fontFamily: "'DM Sans', sans-serif" }}>Your responses are used solely to generate your personalised report.</p>
+      </div>
+    </div>
+  );
+}
+/* ─── Audit form ────────────────────────────────────────────────────────── */
+function AuditForm({ idx, answers, setAnswer, toggleMulti, onBack, onNext, isLast, err }) {
+  const sec = SECTIONS[idx];
+  const total = SECTIONS.length;
+  const practiceType = answers.practice_type || "Other";
+  const unanswered = sec.questions.filter(q => {
+    const v = answers[q.id];
+    if (q.type === "text" || q.type === "textarea") return !v || v.trim() === "";
+    if (q.type === "multiselect") return !Array.isArray(v) || v.length === 0;
+    return !v;
+  });
+  const canProceed = unanswered.length === 0;
+  return (
+    <div style={{ minHeight: "100vh", background: LIGHT, fontFamily: "'Outfit', 'DM Sans', system-ui, sans-serif" }}>
+      <div style={{ background: PURPLE_BG, padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <svg width="15" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,1 A9,9 0 1,0 10,19" fill="none" stroke="#534AB7" strokeWidth="2.2" strokeLinecap="butt"/>
+            <path d="M10,4.4 A5.6,5.6 0 1,0 10,15.6" fill="none" stroke="#45C4BC" strokeWidth="1.5" strokeLinecap="butt"/>
+            <path d="M10,7.2 A2.8,2.8 0 1,0 10,12.8" fill="none" stroke="#DCE0EC" strokeWidth="1.2" strokeLinecap="butt"/>
+          </svg>
+          <span style={{ color: SIGNAL, fontWeight: 700, fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif" }}>CLINEVO</span>
+        </div>
+        <span style={{ color: MG, fontSize: 12, fontFamily: "'Outfit', sans-serif" }}>Section {idx + 1} of {total}</span>
+      </div>
+      <div style={{ height: 3, background: LIGHT }}>
+        <div style={{ height: "100%", width: `${(idx / total) * 100}%`, background: PURPLE, transition: "width 0.4s ease" }} />
+      </div>
+      <div style={{ maxWidth: 680, margin: "0 auto", padding: "2rem 1.5rem 6rem" }}>
+        <div style={{ marginBottom: "1.75rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+            <span style={{ fontSize: 26 }}>{sec.icon}</span>
+            <div>
+              <h2 style={{ margin: 0, color: NAVY, fontSize: 20, fontWeight: 700, letterSpacing: "-0.01em", fontFamily: "'Outfit', sans-serif" }}>{sec.title}</h2>
+              <p style={{ margin: 0, color: MG, fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>{sec.subtitle}</p>
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: 5, alignItems: "center", marginTop: 12 }}>
+            {SECTIONS.map((s, i) => (
+              <div key={i} style={{ height: 5, borderRadius: 3, transition: "all 0.3s", background: i < idx ? SIGNAL : i === idx ? PURPLE : LIGHT, width: i === idx ? 28 : 7, opacity: i > idx ? 0.3 : 1 }} />
+            ))}
+          </div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          {sec.questions.map((q, qi) => (
+            <div key={q.id} style={{ background: WHITE, borderRadius: 12, padding: "1.25rem 1.5rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", border: `1px solid ${LG}` }}>
+              <label style={{ display: "block", fontWeight: 600, color: NAVY, fontSize: 13, marginBottom: 11, lineHeight: 1.4, fontFamily: "'Outfit', sans-serif" }}>
+                <span style={{ color: SIGNAL, marginRight: 6 }}>{qi + 1}.</span>{q.label}
+              </label>
+              <QField q={q} value={answers[q.id]} onChange={setAnswer} onToggle={toggleMulti} practiceType={practiceType} />
+            </div>
+          ))}
+        </div>
+        {err && <div style={{ marginTop: 14, padding: "11px 15px", background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 8, color: RED, fontSize: 13 }}>{err}</div>}
+      </div>
+      <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, background: WHITE, borderTop: `1px solid ${LG}`, padding: "14px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <button onClick={onBack} style={{ background: "none", border: `1.5px solid ${LG}`, borderRadius: 8, padding: "9px 18px", fontSize: 12, color: DG, cursor: "pointer", fontWeight: 500, fontFamily: "'Outfit', sans-serif" }}>← Back</button>
+        {!canProceed && (
+          <p style={{ margin: 0, fontSize: 12, color: MG, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>{unanswered.length} question{unanswered.length > 1 ? "s" : ""} remaining</p>
+        )}
+        <button
+          onClick={canProceed ? onNext : undefined}
+          style={{ background: canProceed ? PURPLE : LG, color: canProceed ? WHITE : MG, border: "none", borderRadius: 8, padding: "9px 24px", fontSize: 12, cursor: canProceed ? "pointer" : "default", fontWeight: 600, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.04em", transition: "background 0.2s, color 0.2s" }}>
+          {isLast ? "Generate My Report →" : "Continue →"}
+        </button>
+      </div>
+    </div>
+  );
+}
+/* ─── Generating screen ─────────────────────────────────────────────────── */
+function Generating() {
+  const steps = ["Analysing your practice profile…", "Mapping AI opportunity areas…", "Calculating ROI estimates…", "Building your presentation…"];
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setStep(s => (s + 1) % steps.length), 1900);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div style={{ minHeight: "100vh", background: PURPLE_BG, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "'Outfit', 'DM Sans', system-ui, sans-serif" }}>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes pulse { 0%,100%{opacity:.6} 50%{opacity:1} }`}</style>
+      <div style={{ width: 56, height: 56, border: `3px solid rgba(83,74,183,0.2)`, borderTop: `3px solid ${PURPLE}`, borderRadius: "50%", animation: "spin 0.9s linear infinite", marginBottom: "2rem" }} />
+      <p style={{ color: SIGNAL, fontWeight: 600, fontSize: 15, animation: "pulse 1.9s ease-in-out infinite", margin: 0, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.04em" }}>{steps[step]}</p>
+      <p style={{ color: "rgba(138,154,176,0.5)", fontSize: 12, marginTop: 10, fontFamily: "'DM Sans', sans-serif" }}>This usually takes 15–20 seconds</p>
+    </div>
+  );
+}
+/* ─── Score gauge ───────────────────────────────────────────────────────── */
+function Gauge({ score, size = 110 }) {
+  const r = (size / 2) - 10;
+  const circ = 2 * Math.PI * r;
+  const col = score >= 7 ? RED : score >= 5 ? GOLD : GREEN;
+  const trackCol = score >= 7 ? "rgba(239,68,68,0.12)" : score >= 5 ? "rgba(245,158,11,0.12)" : "rgba(16,185,129,0.12)";
+  return (
+    <div style={{ textAlign: "center" }}>
+      <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={trackCol} strokeWidth={9} />
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={col} strokeWidth={9}
+          strokeDasharray={circ} strokeDashoffset={circ * (1 - score / 10)} strokeLinecap="round" style={{ transition: "stroke-dashoffset 1s ease" }} />
+      </svg>
+      <div style={{ marginTop: -size / 2 - 10, position: "relative", zIndex: 1, paddingBottom: size / 2 - 10 }}>
+        <div style={{ fontSize: size === 110 ? 30 : 22, fontWeight: 700, color: NAVY, lineHeight: 1, fontFamily: "'Outfit', sans-serif" }}>{score}</div>
+        <div style={{ fontSize: 11, color: MG, fontWeight: 500 }}>/10</div>
+      </div>
+      <div style={{ fontSize: 11, color: MG, marginTop: 4, fontFamily: "'DM Sans', sans-serif" }}>Opportunity Score</div>
+    </div>
+  );
+}
+/* ─── Presentation shell ────────────────────────────────────────────────── */
+function Presentation({ data, onRestart }) {
+  const [slide, setSlide] = useState(0);
+  const slides = [
+    <CoverSlide data={data} />,
+    <SummarySlide data={data} />,
+    <ReadinessSlide data={data} />,
+    <RadarSlide data={data} />,
+    <AreaAssessmentSlide data={data} />,
+    <BenchmarkSlide data={data} />,
+    <OppsSlide data={data} />,
+    <RoadmapSlide data={data} />,
+    <RiskSlide data={data} />,
+    <NextSlide data={data} onRestart={onRestart} />,
+    <AboutSlide />,
+  ];
+  const labels = ["Cover","Summary","Readiness","Scores","Assessment","Benchmarks","Opportunities","Roadmap","Risks","Next Steps","About"];
+  const total = slides.length;
+  return (
+    <div style={{ minHeight: "100vh", background: PURPLE_BG, display: "flex", flexDirection: "column", fontFamily: "'Outfit', 'DM Sans', system-ui, sans-serif" }}>
+      <div style={{ background: PURPLE_BG, padding: "10px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,1 A9,9 0 1,0 10,19" fill="none" stroke="#534AB7" strokeWidth="2.2" strokeLinecap="butt"/>
+            <path d="M10,4.4 A5.6,5.6 0 1,0 10,15.6" fill="none" stroke="#45C4BC" strokeWidth="1.5" strokeLinecap="butt"/>
+            <path d="M10,7.2 A2.8,2.8 0 1,0 10,12.8" fill="none" stroke="#DCE0EC" strokeWidth="1.2" strokeLinecap="butt"/>
+          </svg>
+          <span style={{ color: SIGNAL, fontWeight: 700, fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif" }}>CLINEVO</span>
+        </div>
+        <div style={{ display: "flex", gap: 4 }}>
+          {labels.map((l, i) => (
+            <button key={i} onClick={() => setSlide(i)}
+              style={{ background: i === slide ? PURPLE : "transparent", color: i === slide ? WHITE : MG, border: "none", borderRadius: 6, padding: "4px 9px", fontSize: 10, cursor: "pointer", fontWeight: i === slide ? 700 : 400, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em", transition: "all 0.15s" }}>
+              {i + 1}
+            </button>
+          ))}
+        </div>
+        <span style={{ fontSize: 11, color: MG, fontFamily: "'Outfit', sans-serif" }}>{slide + 1} / {total}</span>
+      </div>
+      <div style={{ flex: 1, overflow: "auto" }} key={slide}>
+        {slides[slide]}
+      </div>
+      <div style={{ background: PURPLE_BG, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexShrink: 0 }}>
+        <button onClick={() => setSlide(s => Math.max(0, s - 1))} disabled={slide === 0}
+          style={{ background: slide === 0 ? "transparent" : "rgba(83,74,183,0.15)", color: slide === 0 ? "transparent" : SIGNAL, border: `1px solid ${slide === 0 ? "transparent" : "rgba(83,74,183,0.3)"}`, borderRadius: 8, padding: "8px 18px", fontSize: 12, cursor: slide === 0 ? "default" : "pointer", fontWeight: 600, fontFamily: "'Outfit', sans-serif", transition: "all 0.2s" }}>
+          ← Prev
+        </button>
+        <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+          {slides.map((_, i) => (
+            <div key={i} onClick={() => setSlide(i)} style={{ height: 6, borderRadius: 3, width: i === slide ? 22 : 6, background: i === slide ? SIGNAL : "rgba(255,255,255,0.18)", cursor: "pointer", transition: "all 0.25s" }} />
+          ))}
+        </div>
+        <button onClick={() => setSlide(s => Math.min(total - 1, s + 1))} disabled={slide === total - 1}
+          style={{ background: slide === total - 1 ? "transparent" : PURPLE, color: WHITE, border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 12, cursor: slide === total - 1 ? "default" : "pointer", fontWeight: 600, fontFamily: "'Outfit', sans-serif", transition: "all 0.2s", opacity: slide === total - 1 ? 0 : 1 }}>
+          Next →
+        </button>
+      </div>
+    </div>
+  );
+}
+/* ─── Slide wrappers ────────────────────────────────────────────────────── */
+function SlideWrap({ children, dark = false, pad = "2.5rem" }) {
+  return (
+    <div style={{ minHeight: "calc(100vh - 90px)", background: dark ? "#1E1B5E" : OW, padding: pad, boxSizing: "border-box" }}>
+      {children}
+    </div>
+  );
+}
+function STitle({ children, light = false }) {
+  return (
+    <div style={{ marginBottom: "1.75rem" }}>
+      <div style={{ width: 36, height: 4, background: SIGNAL, borderRadius: 2, marginBottom: 10 }} />
+      <h2 style={{ margin: 0, color: light ? OFFWHITE : NAVY, fontSize: "clamp(1.3rem,3vw,1.9rem)", fontWeight: 700, letterSpacing: "-0.02em", fontFamily: "'Outfit', sans-serif" }}>{children}</h2>
+    </div>
+  );
+}
+/* ─── Slide 1: Cover ───────────────────────────────────────────────────── */
+function CoverSlide({ data }) {
+  return (
+    <div style={{ minHeight: "calc(100vh - 90px)", background: `linear-gradient(135deg, ${PURPLE_BG} 0%, #1E1B5E 60%, #17154D 100%)`, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem", position: "relative", overflow: "hidden" }}>
+      <svg style={{ position: "absolute", top: -100, right: -100, opacity: 0.06, pointerEvents: "none" }} width="500" height="500" viewBox="0 0 500 500">
+        <circle cx="400" cy="100" r="200" fill="none" stroke="#534AB7" strokeWidth="1"/>
+        <circle cx="400" cy="100" r="140" fill="none" stroke="#45C4BC" strokeWidth="0.8"/>
+        <circle cx="400" cy="100" r="80"  fill="none" stroke="#DCE0EC" strokeWidth="0.6"/>
+      </svg>
+      <div>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, background: "rgba(83,74,183,0.1)", border: "1px solid rgba(83,74,183,0.2)", borderRadius: 20, padding: "6px 16px" }}>
+            <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,1 A9,9 0 1,0 10,19" fill="none" stroke="#534AB7" strokeWidth="2.2" strokeLinecap="butt"/>
+              <path d="M10,4.4 A5.6,5.6 0 1,0 10,15.6" fill="none" stroke="#45C4BC" strokeWidth="1.5" strokeLinecap="butt"/>
+              <path d="M10,7.2 A2.8,2.8 0 1,0 10,12.8" fill="none" stroke="#DCE0EC" strokeWidth="1.2" strokeLinecap="butt"/>
+            </svg>
+            <span style={{ color: SIGNAL, fontSize: 10, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif" }}>AI Opportunity Audit</span>
+          </div>
+        </div>
+        <h1 style={{ color: OFFWHITE, fontSize: "clamp(2.2rem,6vw,4rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 16px", letterSpacing: "-0.03em", fontFamily: "'Outfit', sans-serif" }}>
+          {data.practice_name}
+        </h1>
+        <div style={{ width: 56, height: 3, background: PURPLE, margin: "0 auto 20px", borderRadius: 2 }} />
+        <p style={{ color: MG, fontSize: 15, margin: "0 0 6px", fontFamily: "'DM Sans', sans-serif" }}>{data.practice_type}</p>
+        <p style={{ color: "rgba(138,154,176,0.4)", fontSize: 12, margin: 0, fontFamily: "'DM Sans', sans-serif" }}>
+          {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })} · Prepared by Clinevo
+        </p>
+      </div>
+    </div>
+  );
+}
+/* ─── Slide 2: Executive Summary ──────────────────────────────────────── */
+function SummarySlide({ data }) {
+  return (
+    <SlideWrap>
+      <STitle>Executive Summary</STitle>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "2.5rem", alignItems: "start" }}>
+        <div>
+          <p style={{ color: DG, fontSize: 15, lineHeight: 1.8, margin: "0 0 1.75rem", borderLeft: `3px solid ${PURPLE}`, paddingLeft: 16 }}>{data.executive_summary}</p>
+          <h3 style={{ margin: "0 0 12px", color: MG, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "'Outfit', sans-serif" }}>Key Observations</h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            {(data.insights || []).map((ins, i) => (
+              <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "11px 14px", background: "rgba(83,74,183,0.07)", borderRadius: 8, borderLeft: `3px solid ${PURPLE}` }}>
+                <span style={{ color: SIGNAL, fontWeight: 700, fontSize: 12, flexShrink: 0, marginTop: 1 }}>0{i + 1}</span>
+                <p style={{ margin: 0, color: SLATE, fontSize: 13, lineHeight: 1.65, fontFamily: "'DM Sans', sans-serif" }}>{ins}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <Gauge score={data.overall_score} />
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 3: Readiness Profile ──────────────────────────────────────── */
+function ReadinessSlide({ data }) {
+  const r = data.readiness || {};
+  const riskCol   = { LOW: GREEN, MEDIUM: GOLD, HIGH: RED };
+  const riskBg    = { LOW: "#ECFDF5", MEDIUM: "#FFFBEB", HIGH: "#FEF2F2" };
+  const riskLabel = { LOW: "Straightforward to implement", MEDIUM: "Some change management needed", HIGH: "Change management will be key" };
+  return (
+    <SlideWrap dark>
+      <STitle light>Your Readiness Picture</STitle>
+      <p style={{ color: MG, fontSize: 13.5, margin: "-1rem 0 1.75rem" }}>Based on what you told us about your team, your goals, and where you are right now.</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+        <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "1.1rem 1.25rem" }}>
+          <div style={{ fontSize: 11, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8, fontFamily: "'Outfit', sans-serif" }}>Your Team</div>
+          <p style={{ margin: 0, color: OFFWHITE, fontSize: 13.5, lineHeight: 1.65 }}>{r.team_posture || "—"}</p>
+        </div>
+        <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "1.1rem 1.25rem" }}>
+          <div style={{ fontSize: 11, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8, fontFamily: "'Outfit', sans-serif" }}>Implementation</div>
+          <div style={{ marginBottom: 8 }}>
+            <span style={{ background: riskBg[r.change_risk] || "#FFFBEB", color: riskCol[r.change_risk] || GOLD, fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 20, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              {riskLabel[r.change_risk] || "—"}
+            </span>
+          </div>
+          <p style={{ margin: 0, color: MG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{r.change_risk_note || "—"}</p>
+        </div>
+        <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "1.1rem 1.25rem" }}>
+          <div style={{ fontSize: 11, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8, fontFamily: "'Outfit', sans-serif" }}>Your Investment Mindset</div>
+          <p style={{ margin: 0, color: OFFWHITE, fontSize: 13.5, lineHeight: 1.65 }}>{r.investment_posture || "—"}</p>
+        </div>
+        <div style={{ background: "rgba(83,74,183,0.08)", border: "1px solid rgba(83,74,183,0.2)", borderRadius: 12, padding: "1.1rem 1.25rem" }}>
+          <div style={{ fontSize: 11, color: SIGNAL, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8, fontFamily: "'Outfit', sans-serif" }}>Your Priority Problem</div>
+          <p style={{ margin: 0, color: OFFWHITE, fontSize: 13.5, lineHeight: 1.65, fontFamily: "'DM Sans', sans-serif" }}>{r.one_thing || "—"}</p>
+        </div>
+      </div>
+      {(r.success_signals || []).length > 0 && (
+        <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "1.1rem 1.25rem" }}>
+          <div style={{ fontSize: 11, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10, fontFamily: "'Outfit', sans-serif" }}>What Success Looks Like to You</div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            {(r.success_signals || []).map((s, i) => (
+              <span key={i} style={{ background: "rgba(83,74,183,0.12)", border: "1px solid rgba(83,74,183,0.22)", color: "#A9A3E8", fontSize: 12, fontWeight: 500, padding: "5px 12px", borderRadius: 20, fontFamily: "'DM Sans', sans-serif" }}>{s}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </SlideWrap>
+  );
+}
+/* ─── Slide 4: Radar ───────────────────────────────────────────────────── */
+function RadarSlide({ data }) {
+  const rd = (data.scores || []).map(s => ({ subject: s.area, score: s.score, fullMark: 10 }));
+  return (
+    <SlideWrap>
+      <STitle>AI Opportunity by Area</STitle>
+      <p style={{ color: MG, fontSize: 13.5, margin: "-1rem 0 1.75rem" }}>Higher score = greater untapped AI potential in that area of your practice.</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "center" }}>
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart data={rd} margin={{ top: 10, right: 20, bottom: 10, left: 20 }}>
+            <PolarGrid stroke={OFFWHITE} strokeOpacity={0.15} />
+            <PolarAngleAxis dataKey="subject" tick={{ fill: DG, fontSize: 11, fontFamily: "'DM Sans', sans-serif" }} />
+            <PolarRadiusAxis angle={30} domain={[0, 10]} tick={{ fill: MG, fontSize: 10 }} tickCount={3} />
+            <Radar dataKey="score" stroke={PURPLE} fill={PURPLE} fillOpacity={0.2} strokeWidth={2} dot={{ fill: SIGNAL, r: 3 }} />
+          </RadarChart>
+        </ResponsiveContainer>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {(data.scores || []).map(s => {
+            const col = s.score >= 7 ? RED : s.score >= 5 ? GOLD : GREEN;
+            const label = s.score >= 7 ? "High opportunity" : s.score >= 5 ? "Medium" : "Lower priority";
+            return (
+              <div key={s.area}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontSize: 13, color: SLATE, fontWeight: 500 }}>{s.area}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 11, color: col, fontWeight: 600 }}>{label}</span>
+                    <span style={{ fontSize: 14, fontWeight: 800, color: NAVY, width: 20, textAlign: "right" }}>{s.score}</span>
+                  </div>
+                </div>
+                <div style={{ height: 5, background: LG, borderRadius: 3, overflow: "hidden" }}>
+                  <div style={{ height: "100%", width: `${s.score * 10}%`, background: col, borderRadius: 3, transition: "width 0.8s ease" }} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 5: Area Assessments ───────────────────────────────────────── */
+function AreaAssessmentSlide({ data }) {
+  const scoreCol = s => s >= 7 ? RED : s >= 5 ? GOLD : GREEN;
+  const scoreLabel = s => s >= 7 ? "High opportunity" : s >= 5 ? "Medium" : "Well managed";
+  return (
+    <SlideWrap>
+      <STitle>Assessment Findings</STitle>
+      <p style={{ color: MG, fontSize: 13.5, margin: "-1rem 0 1.75rem" }}>A deeper look at what we found across each area of your practice.</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+        {(data.area_assessments || []).map((a, i) => {
+          const col = scoreCol(a.score);
+          return (
+            <div key={i} style={{ background: WHITE, border: `1px solid ${LG}`, borderRadius: 12, padding: "1.1rem 1.35rem", borderLeft: `4px solid ${col}` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
+                <h3 style={{ margin: 0, color: NAVY, fontSize: 14, fontWeight: 700, fontFamily: "'Outfit', sans-serif" }}>{a.area}</h3>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+                  <span style={{ fontSize: 11, color: col, fontWeight: 600 }}>{scoreLabel(a.score)}</span>
+                  <span style={{ background: col, color: WHITE, fontSize: 12, fontWeight: 900, width: 26, height: 26, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center" }}>{a.score}</span>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem" }}>
+                <div>
+                  <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 5, fontFamily: "'Outfit', sans-serif" }}>Current State</div>
+                  <p style={{ margin: 0, color: DG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{a.current_state}</p>
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 5, fontFamily: "'Outfit', sans-serif" }}>Key Issue</div>
+                  <p style={{ margin: 0, color: SLATE, fontSize: 12.5, lineHeight: 1.6, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>{a.key_issue}</p>
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 5, fontFamily: "'Outfit', sans-serif" }}>Commercial Impact</div>
+                  <p style={{ margin: 0, color: DG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{a.commercial_impact}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 6: Benchmarks ─────────────────────────────────────────────── */
+function BenchmarkSlide({ data }) {
+  const dirColor = { behind: RED, ahead: GREEN, "on-par": GOLD };
+  const dirBg    = { behind: "rgba(239,68,68,0.08)", ahead: "rgba(16,185,129,0.08)", "on-par": "rgba(245,158,11,0.08)" };
+  const dirBorder= { behind: "rgba(239,68,68,0.2)", ahead: "rgba(16,185,129,0.2)", "on-par": "rgba(245,158,11,0.2)" };
+  const dirLabel = { behind: "Gap to close", ahead: "Ahead of peers", "on-par": "On par" };
+  const behind = (data.benchmarks || []).filter(b => b.direction === "behind").length;
+  return (
+    <SlideWrap dark>
+      <div style={{ marginBottom: "1.75rem" }}>
+        <div style={{ width: 36, height: 4, background: SIGNAL, borderRadius: 2, marginBottom: 10 }} />
+        <h2 style={{ margin: "0 0 6px", color: OFFWHITE, fontSize: "clamp(1.3rem,3vw,1.9rem)", fontWeight: 700, letterSpacing: "-0.02em", fontFamily: "'Outfit', sans-serif" }}>Where You Stand vs Peers</h2>
+        <p style={{ margin: 0, color: MG, fontSize: 13.5 }}>{data.practice_type} practices that have deployed AI — measured across the same operational areas.</p>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "0.85rem", marginBottom: "1.25rem" }}>
+        {(data.benchmarks || []).map((b, i) => {
+          const col    = dirColor[b.direction] || MG;
+          const bg     = dirBg[b.direction]    || "rgba(255,255,255,0.04)";
+          const border = dirBorder[b.direction] || "rgba(255,255,255,0.08)";
+          return (
+            <div key={i} style={{ background: bg, border: `1px solid ${border}`, borderRadius: 12, padding: "1rem 1.15rem", display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                <span style={{ color: WHITE, fontSize: 13, fontWeight: 700, lineHeight: 1.3, fontFamily: "'Outfit', sans-serif", flex: 1, paddingRight: 8 }}>{b.metric}</span>
+                <span style={{ background: col, color: WHITE, fontSize: 10, fontWeight: 800, padding: "2px 8px", borderRadius: 10, textTransform: "uppercase", letterSpacing: "0.07em", whiteSpace: "nowrap", flexShrink: 0 }}>{dirLabel[b.direction]}</span>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1px 1fr", gap: "0.6rem", alignItems: "center" }}>
+                <div>
+                  <div style={{ fontSize: 10, color: MG, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 3 }}>You now</div>
+                  <div style={{ fontSize: 18, fontWeight: 700, fontFamily: "'Outfit', sans-serif", color: b.direction === "behind" ? "#FDA4AF" : b.direction === "ahead" ? "#6EE7B7" : "#FCD34D", lineHeight: 1 }}>{b.this_practice}</div>
+                </div>
+                <div style={{ height: "100%", background: "rgba(255,255,255,0.08)" }} />
+                <div>
+                  <div style={{ fontSize: 10, color: MG, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 3 }}>AI peers</div>
+                  <div style={{ fontSize: 18, fontWeight: 700, fontFamily: "'Outfit', sans-serif", color: col, lineHeight: 1 }}>{b.ai_adopters}</div>
+                </div>
+              </div>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 8 }}>
+                <p style={{ margin: 0, color: MG, fontSize: 12, lineHeight: 1.55 }}>{b.gap}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ background: "rgba(83,74,183,0.1)", border: "1px solid rgba(83,74,183,0.22)", borderRadius: 10, padding: "11px 15px", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ width: 36, height: 36, borderRadius: 8, background: PURPLE, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          <span style={{ color: WHITE, fontSize: 16, fontWeight: 700, fontFamily: "'Outfit', sans-serif" }}>{behind}</span>
+        </div>
+        <p style={{ margin: 0, color: MG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
+          {behind > 0
+            ? <><span style={{ color: WHITE, fontWeight: 600 }}>{behind} area{behind > 1 ? "s" : ""} where AI-adopting {data.practice_type?.toLowerCase()} practices are pulling ahead.</span> These are the gaps your discovery call will focus on.</>
+            : <><span style={{ color: WHITE, fontWeight: 600 }}>{data.practice_name} is performing comparably to AI-adopting peers.</span> The opportunity is to consolidate and extend that advantage.</>
+          }
+        </p>
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 7: Opportunities ──────────────────────────────────────────── */
+function OppsSlide({ data }) {
+  const priCol    = { HIGH: RED,   MEDIUM: GOLD };
+  const priBg     = { HIGH: "#FEF2F2", MEDIUM: "#FFFBEB" };
+  const effortCol = { LOW: GREEN,  MEDIUM: GOLD, HIGH: RED };
+  const effortBg  = { LOW: "#ECFDF5", MEDIUM: "#FFFBEB", HIGH: "#FEF2F2" };
+  return (
+    <SlideWrap>
+      <STitle>Top AI Opportunities</STitle>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
+        {(data.opportunities || []).map((o, i) => (
+          <div key={i} style={{ background: OW, border: `1px solid ${LG}`, borderRadius: 12, padding: "1.25rem", borderTop: `3px solid ${priCol[o.priority] || TEAL}`, display: "flex", flexDirection: "column", gap: 10 }}>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {pill(o.priority === "HIGH" ? "High priority" : "Medium priority", priBg[o.priority] || TEAL_L, priCol[o.priority] || TEAL)}
+              {o.effort && pill(`${o.effort} effort`, effortBg[o.effort] || OW, effortCol[o.effort] || MG)}
+              {o.roi_horizon && (
+                <span style={{ background: "rgba(83,74,183,0.12)", color: "#A9A3E8", fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 20, letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{o.roi_horizon}</span>
+              )}
+            </div>
+            <h3 style={{ margin: 0, color: NAVY, fontSize: 14, fontWeight: 700, lineHeight: 1.3, fontFamily: "'Outfit', sans-serif" }}>{o.title}</h3>
+            <p style={{ margin: 0, color: MG, fontSize: 12.5, lineHeight: 1.55, fontFamily: "'DM Sans', sans-serif" }}>{o.problem}</p>
+            <p style={{ margin: 0, color: DG, fontSize: 12.5, lineHeight: 1.55, fontFamily: "'DM Sans', sans-serif" }}>{o.solution}</p>
+            {o.impact && (
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 7, padding: "8px 11px", background: "rgba(69,196,188,0.1)", borderRadius: 7, marginTop: "auto" }}>
+                <span style={{ color: SIGNAL, fontSize: 13, fontWeight: 700, flexShrink: 0 }}>→</span>
+                <span style={{ color: SIGNAL_D, fontSize: 12.5, fontWeight: 500, lineHeight: 1.5, fontFamily: "'DM Sans', sans-serif" }}>{o.impact}</span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 8: Roadmap ─────────────────────────────────────────────────── */
+function RoadmapSlide({ data }) {
+  const colours = [SIGNAL, PURPLE, GOLD];
+  return (
+    <SlideWrap>
+      <STitle>Implementation Roadmap</STitle>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+        {(data.roadmap || []).map((p, i) => (
+          <div key={i} style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 10, background: colours[i] || TEAL, color: WHITE, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 15, fontFamily: "'Outfit', sans-serif", flexShrink: 0, marginTop: 3 }}>{i + 1}</div>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                <h3 style={{ margin: 0, color: NAVY, fontSize: 15, fontWeight: 700, fontFamily: "'Outfit', sans-serif" }}>{p.phase}</h3>
+                <span style={{ background: LG, color: DG, fontSize: 11, padding: "2px 9px", borderRadius: 4, fontWeight: 500 }}>{p.timeline}</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                {(p.actions || []).map((a, j) => (
+                  <div key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                    <div style={{ width: 5, height: 5, borderRadius: "50%", background: colours[i] || TEAL, marginTop: 7, flexShrink: 0 }} />
+                    <p style={{ margin: 0, color: DG, fontSize: 13, lineHeight: 1.65, fontFamily: "'DM Sans', sans-serif" }}>{a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 9: Next Steps ─────────────────────────────────────────────── */
+function NextSlide({ data, onRestart }) {
+  return (
+    <div style={{ minHeight: "calc(100vh - 90px)", background: `linear-gradient(135deg, ${PURPLE_BG} 0%, #1E1B5E 60%, #17154D 100%)`, padding: "2.5rem", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <STitle light>What to Do Next</STitle>
+      <p style={{ color: MG, fontSize: 14, margin: "-1rem 0 1.75rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>Based on everything in this report, here are three things worth doing now.</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: "2rem" }}>
+        {(data.next_steps || []).map((s, i) => (
+          <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "1rem 1.25rem" }}>
+            <div style={{ width: 30, height: 30, borderRadius: 8, background: PURPLE, color: WHITE, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13, flexShrink: 0, fontFamily: "'Outfit', sans-serif" }}>{i + 1}</div>
+            <p style={{ margin: 0, color: OFFWHITE, fontSize: 13.5, lineHeight: 1.7, paddingTop: 4, fontFamily: "'DM Sans', sans-serif" }}>{s}</p>
+          </div>
+        ))}
+      </div>
+      <div style={{ background: "rgba(83,74,183,0.1)", border: "1px solid rgba(83,74,183,0.25)", borderRadius: 14, padding: "1.5rem" }}>
+        <p style={{ margin: "0 0 4px", color: OFFWHITE, fontWeight: 700, fontSize: 17, letterSpacing: "-0.01em", fontFamily: "'Outfit', sans-serif" }}>Ready to talk through your results?</p>
+        <p style={{ margin: "0 0 1.25rem", color: MG, fontSize: 13.5, lineHeight: 1.65, fontFamily: "'DM Sans', sans-serif" }}>Book a free 30-minute discovery call with Clinevo. We'll walk through this report with you, answer your questions, and show you exactly what's possible for {data.practice_name}.</p>
+        <a href="https://clinevo.ai" target="_blank" rel="noopener noreferrer"
+          style={{ display: "inline-block", background: PURPLE, color: WHITE, textDecoration: "none", borderRadius: 10, padding: "11px 28px", fontSize: 13, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", fontFamily: "'Outfit', sans-serif" }}>Book a Free Discovery Call →</a>
+      </div>
+      <button onClick={onRestart} style={{ background: "none", border: "none", color: "rgba(148,163,184,0.45)", fontSize: 12, cursor: "pointer", alignSelf: "flex-start", fontFamily: "'DM Sans', sans-serif", fontWeight: 500, marginTop: "1.25rem", padding: 0 }}>← Run the audit again</button>
+    </div>
+  );
+}
+/* ─── Slide 10: Risk Register ─────────────────────────────────────────── */
+function RiskSlide({ data }) {
+  const likCol = { LOW: GREEN,   MEDIUM: GOLD,   HIGH: RED };
+  const impCol = { LOW: GREEN,   MEDIUM: GOLD,   HIGH: RED, CRITICAL: "#7C3AED" };
+  const likBg  = { LOW: "#ECFDF5", MEDIUM: "#FFFBEB", HIGH: "#FEF2F2" };
+  const impBg  = { LOW: "#ECFDF5", MEDIUM: "#FFFBEB", HIGH: "#FEF2F2", CRITICAL: "#F5F3FF" };
+  return (
+    <SlideWrap>
+      <STitle>Risk Register</STitle>
+      <p style={{ color: MG, fontSize: 13.5, margin: "-1rem 0 1.75rem" }}>The most common risks in an AI implementation — and exactly how each one is managed.</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+        {(data.risks || []).map((r, i) => (
+          <div key={i} style={{ background: WHITE, border: `1px solid ${LG}`, borderRadius: 12, padding: "1rem 1.25rem", display: "grid", gridTemplateColumns: "1.5fr 100px 100px 2.5fr", gap: "1rem", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, fontFamily: "'Outfit', sans-serif" }}>Risk</div>
+              <div style={{ fontSize: 13.5, fontWeight: 700, color: NAVY, fontFamily: "'Outfit', sans-serif" }}>{r.risk}</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, fontFamily: "'Outfit', sans-serif" }}>Likelihood</div>
+              <span style={{ background: likBg[r.likelihood] || OW, color: likCol[r.likelihood] || MG, fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 10, textTransform: "uppercase" }}>{r.likelihood}</span>
+            </div>
+            <div>
+              <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, fontFamily: "'Outfit', sans-serif" }}>Impact</div>
+              <span style={{ background: impBg[r.impact] || OW, color: impCol[r.impact] || MG, fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 10, textTransform: "uppercase" }}>{r.impact}</span>
+            </div>
+            <div>
+              <div style={{ fontSize: 10, color: MG, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, fontFamily: "'Outfit', sans-serif" }}>How It's Managed</div>
+              <p style={{ margin: 0, color: DG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{r.mitigation}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: "1.25rem", padding: "11px 15px", background: "rgba(69,196,188,0.08)", borderRadius: 10, borderLeft: `4px solid ${SIGNAL}` }}>
+        <p style={{ margin: 0, color: DG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
+          <strong style={{ color: NAVY }}>Our approach:</strong> Every risk on this list is addressed before go-live, not after. Clinevo owns the implementation process end-to-end — you're never left to manage these issues on your own.
+        </p>
+      </div>
+    </SlideWrap>
+  );
+}
+/* ─── Slide 11: About Clinevo ─────────────────────────────────────────── */
+function AboutSlide() {
+  const pillars = [
+    { icon: "◎", title: "Education", col: SIGNAL, bg: "rgba(69,196,188,0.1)", border: "rgba(69,196,188,0.2)", desc: "Building practical AI literacy so clinical teams understand how to use AI well, where it adds value, and how to avoid misuse." },
+    { icon: "◈", title: "Consulting", col: "#A9A3E8", bg: "rgba(83,74,183,0.12)", border: "rgba(83,74,183,0.22)", desc: "Identifying where AI can genuinely improve the practice, prioritising high-impact opportunities, and defining what is worth building now versus later." },
+    { icon: "◆", title: "Development", col: GOLD, bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.2)", desc: "Designing and delivering AI systems aligned to clinical workflows, PMS systems, and commercial goals — with measurable return on investment." },
+  ];
+  return (
+    <div style={{ minHeight: "calc(100vh - 90px)", background: `linear-gradient(135deg, ${PURPLE_BG} 0%, #1E1B5E 100%)`, padding: "2.5rem", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <div style={{ width: 36, height: 4, background: SIGNAL, borderRadius: 2, marginBottom: 10 }} />
+      <h2 style={{ margin: "0 0 6px", color: OFFWHITE, fontSize: "clamp(1.3rem,3vw,1.9rem)", fontWeight: 700, letterSpacing: "-0.02em", fontFamily: "'Outfit', sans-serif" }}>About Clinevo</h2>
+      <p style={{ margin: "0 0 1.75rem", color: MG, fontSize: 14, lineHeight: 1.7, maxWidth: 580, fontFamily: "'DM Sans', sans-serif" }}>Clinevo is a clinical AI consultancy. We support veterinary, optical, and dental practices from AI understanding through to implementation — with clear return on investment.</p>
+      <p style={{ margin: "0 0 1.75rem", color: MG, fontSize: 13, lineHeight: 1.7, maxWidth: 580, borderLeft: `3px solid rgba(83,74,183,0.5)`, paddingLeft: 14, fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>We are not a software vendor. We are a specialist clinical AI consultancy — practical, responsible, and commercially grounded — that takes accountability for the outcomes we are engaged to deliver.</p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginBottom: "1.75rem" }}>
+        {pillars.map((p, i) => (
+          <div key={i} style={{ background: p.bg, border: `1px solid ${p.border}`, borderRadius: 12, padding: "1.15rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 9, marginBottom: 10 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ color: p.col, fontSize: 15, fontWeight: 900 }}>{p.icon}</span>
+              </div>
+              <span style={{ color: OFFWHITE, fontWeight: 700, fontSize: 13, fontFamily: "'Outfit', sans-serif" }}>{p.title}</span>
+            </div>
+            <p style={{ margin: 0, color: MG, fontSize: 12.5, lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(83,74,183,0.15)", border: "1px solid rgba(83,74,183,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ color: TEAL, fontWeight: 900, fontSize: 16 }}>J</span>
+        </div>
+        <div>
+          <div style={{ color: WHITE, fontWeight: 700, fontSize: 14 }}>Justin Samuel · Clinevo</div>
+          <div style={{ color: MG, fontSize: 13 }}>hello@clinevo.ai · clinevo.ai</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+/* ─── Root app ──────────────────────────────────────────────────────────── */
+function App() {
+  const [stage,      setStage]   = useState("intro");
+  const [idx,        setIdx]     = useState(0);
+  const [answers,    setAnswers] = useState({});
+  const [data,       setData]    = useState(null);
+  const [busy,       setBusy]    = useState(false);
+  const [err,        setErr]     = useState(null);
+  useEffect(() => {
+    const el = document.createElement("link");
+    el.rel = "stylesheet";
+    el.href = "https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap";
+    document.head.appendChild(el);
+  }, []);
+  const isLast = idx === SECTIONS.length - 1;
+  const setAnswer  = (id, v)  => setAnswers(p => ({ ...p, [id]: v }));
+  const toggleMulti = (id, v) => setAnswers(p => {
+    const cur = Array.isArray(p[id]) ? p[id] : [];
+    return { ...p, [id]: cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v] };
+  });
+  const buildSummary = () =>
+    SECTIONS.map(s =>
+      `## ${s.title}\n` + s.questions.map(q => {
+        const a = answers[q.id];
+        return `- ${q.label}: ${a ? (Array.isArray(a) ? (a.length ? a.join(", ") : "Not answered") : a) : "Not answered"}`;
+      }).join("\n")
+    ).join("\n\n");
+  const generate = async () => {
+    setBusy(true); setErr(null);
+    try {
+      const res  = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 8000,
+          system: SYSTEM_PROMPT,
+          messages: [{ role: "user", content: `Practice audit responses:\n\n${buildSummary()}` }]
+        })
+      });
+      const json = await res.json();
+      if (json.error) throw new Error(json.error.message);
+      const raw = json.content[0].text.replace(/```json\n?|\n?```/g, "").trim();
+      let parsed;
+      try {
+        parsed = JSON.parse(raw);
+      } catch (parseErr) {
+        const firstBrace = raw.indexOf("{");
+        if (firstBrace === -1) throw new Error("No JSON object found in response");
+        let trimmed = raw.slice(firstBrace);
+        let depth = 0;
+        let inStr = false;
+        let escape = false;
+        let lastCleanClose = 0;
+        for (let i = 0; i < trimmed.length; i++) {
+          const c = trimmed[i];
+          if (escape) { escape = false; continue; }
+          if (c === "\\") { escape = true; continue; }
+          if (c === '"' && !escape) { inStr = !inStr; continue; }
+          if (inStr) continue;
+          if (c === "{" || c === "[") depth++;
+          if (c === "}" || c === "]") { depth--; if (depth === 0) lastCleanClose = i; }
+        }
+        if (depth > 0) {
+          let closing = "";
+          for (let d = depth; d > 0; d--) closing += "}";
+          trimmed = trimmed.slice(0, lastCleanClose + 1);
+          const lastComma = trimmed.lastIndexOf(",");
+          if (lastComma > trimmed.length * 0.5) {
+            trimmed = trimmed.slice(0, lastComma) + "}";
+          } else {
+            trimmed += closing;
+          }
+        }
+        parsed = JSON.parse(trimmed);
+      }
+      setData(parsed);
+      setStage("presentation");
+    } catch (e) {
+      setErr(`Error generating report: ${e.message}. Please try again.`);
+    }
+    setBusy(false);
+  };
+  if (busy)                              return <Generating />;
+  if (stage === "intro")                 return <Intro onStart={() => setStage("audit")} />;
+  if (stage === "presentation" && data)  return <Presentation data={data} onRestart={() => { setStage("intro"); setAnswers({}); setData(null); setIdx(0); }} />;
+  return (
+    <AuditForm
+      idx={idx}
+      answers={answers}
+      setAnswer={setAnswer}
+      toggleMulti={toggleMulti}
+      isLast={isLast}
+      err={err}
+      onBack={()  => idx > 0 ? setIdx(i => i - 1) : setStage("intro")}
+      onNext={()  => isLast ? generate() : setIdx(i => i + 1)}
+    />
+  );
+}
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

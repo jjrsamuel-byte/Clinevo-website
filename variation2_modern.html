@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinevo - Variation 2: Modern & Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-teal: #1B4F5A;
+    --mid-teal: #2E8B9A;
+    --light-teal: #D6EEF2;
+    --accent: #45C4BC;
+    --white: #FFFFFF;
+    --off-white: #F4FAFB;
+    --text-dark: #1A2B2E;
+    --text-muted: #5A7A80;
+    --cream: #F0F7F8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 100; display: flex; align-items: center; gap: 40px;
+    padding: 12px 12px 12px 28px;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+    border-radius: 100px; border: 1px solid rgba(27,79,90,0.08);
+    box-shadow: 0 4px 24px rgba(27,79,90,0.06);
+  }
+  .nav-logo {
+    font-size: 22px; font-weight: 800; color: var(--dark-teal);
+    white-space: nowrap;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted); font-size: 14px;
+    font-weight: 500; transition: color 0.2s; white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--dark-teal); }
+  .nav-cta {
+    background: var(--dark-teal); color: white !important; padding: 10px 22px;
+    border-radius: 100px; font-weight: 600 !important; transition: all 0.2s !important;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--mid-teal) !important; }
+
+  /* HERO - Full width centered */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 140px 40px 60px; position: relative;
+    background: radial-gradient(ellipse at 50% 0%, var(--light-teal) 0%, var(--white) 60%);
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; border: 1px solid rgba(27,79,90,0.1);
+    padding: 8px 20px; border-radius: 100px; margin-bottom: 32px;
+    font-size: 14px; color: var(--text-muted); font-weight: 500;
+    box-shadow: 0 2px 12px rgba(27,79,90,0.04);
+  }
+  .hero-eyebrow .pill {
+    background: var(--accent); color: white; padding: 2px 10px;
+    border-radius: 100px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: 68px; line-height: 1.05; font-weight: 800;
+    color: var(--dark-teal); margin-bottom: 24px; letter-spacing: -2px;
+    max-width: 800px;
+  }
+  .hero h1 em {
+    font-style: normal; position: relative; display: inline-block;
+  }
+  .hero h1 em::after {
+    content: ''; position: absolute; bottom: 4px; left: 0; right: 0;
+    height: 12px; background: rgba(69,196,188,0.3); border-radius: 4px;
+    z-index: -1;
+  }
+  .hero p {
+    font-size: 19px; color: var(--text-muted); line-height: 1.7;
+    max-width: 560px; margin-bottom: 44px;
+  }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; margin-bottom: 80px; }
+
+  .btn-pill {
+    padding: 16px 36px; border-radius: 100px; font-size: 15px;
+    font-weight: 700; cursor: pointer; transition: all 0.25s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: none;
+  }
+  .btn-pill.primary {
+    background: var(--dark-teal); color: white;
+    box-shadow: 0 4px 16px rgba(27,79,90,0.2);
+  }
+  .btn-pill.primary:hover { background: var(--mid-teal); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(27,79,90,0.25); }
+  .btn-pill.ghost {
+    background: white; color: var(--dark-teal);
+    border: 2px solid rgba(27,79,90,0.15);
+  }
+  .btn-pill.ghost:hover { border-color: var(--mid-teal); }
+
+  /* Hero browser mockup */
+  .hero-browser {
+    width: 100%; max-width: 1000px; background: white;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 32px 80px rgba(27,79,90,0.12), 0 0 0 1px rgba(27,79,90,0.06);
+  }
+  .browser-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 20px; background: var(--cream);
+    border-bottom: 1px solid rgba(27,79,90,0.06);
+  }
+  .browser-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+  }
+  .browser-dot.red { background: #FF6059; }
+  .browser-dot.yellow { background: #FFBD2E; }
+  .browser-dot.green { background: #28CA42; }
+  .browser-url {
+    margin-left: 16px; background: white; border-radius: 8px;
+    padding: 6px 16px; font-size: 12px; color: var(--text-muted);
+    flex: 1; text-align: left;
+  }
+  .browser-content {
+    padding: 32px; min-height: 300px;
+    background: linear-gradient(135deg, var(--off-white), white);
+  }
+  .mock-dashboard {
+    display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+  }
+  .mock-sidebar {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .mock-sidebar-item {
+    padding: 10px 14px; border-radius: 8px; font-size: 13px;
+    color: var(--text-muted); text-align: left; font-weight: 500;
+  }
+  .mock-sidebar-item.active {
+    background: var(--light-teal); color: var(--dark-teal); font-weight: 600;
+  }
+  .mock-main { display: flex; flex-direction: column; gap: 16px; }
+  .mock-chart {
+    background: white; border-radius: 12px; padding: 20px;
+    border: 1px solid rgba(27,79,90,0.06); flex: 1;
+    display: flex; align-items: flex-end; gap: 12px; min-height: 160px;
+  }
+  .chart-bar {
+    flex: 1; border-radius: 6px 6px 0 0;
+    background: linear-gradient(to top, var(--mid-teal), var(--accent));
+    transition: height 0.5s ease;
+  }
+  .mock-stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .mock-stat {
+    background: white; border-radius: 12px; padding: 16px;
+    border: 1px solid rgba(27,79,90,0.06); text-align: left;
+  }
+  .mock-stat .val { font-size: 24px; font-weight: 800; color: var(--dark-teal); }
+  .mock-stat .lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* EXPLANATION SECTIONS (VetDodo-inspired) */
+  .explanation {
+    padding: 120px 60px; position: relative;
+  }
+  .explanation.alt { background: var(--cream); }
+  .explanation-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .explanation.reversed .explanation-inner {
+    direction: rtl;
+  }
+  .explanation.reversed .explanation-inner > * {
+    direction: ltr;
+  }
+  .explanation-tag {
+    display: inline-block; padding: 6px 14px; border-radius: 8px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 20px;
+    background: rgba(69,196,188,0.12); color: var(--mid-teal);
+  }
+  .explanation h2 {
+    font-size: 40px; font-weight: 800; color: var(--dark-teal);
+    line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px;
+  }
+  .explanation p {
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .explanation-features {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .explanation-feature {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 12px 0;
+  }
+  .check-circle {
+    width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
+    background: rgba(69,196,188,0.15); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; margin-top: 2px;
+  }
+  .explanation-feature span {
+    font-size: 15px; color: var(--text-dark); font-weight: 500;
+  }
+
+  /* Visual blocks */
+  .visual-block {
+    background: white; border-radius: 20px; padding: 32px;
+    box-shadow: 0 16px 48px rgba(27,79,90,0.08);
+    border: 1px solid rgba(27,79,90,0.06);
+    position: relative; overflow: hidden;
+  }
+  .visual-block::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--mid-teal), var(--accent));
+  }
+  .vb-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+  }
+  .vb-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--light-teal); display: flex;
+    align-items: center; justify-content: center; font-size: 18px;
+  }
+  .vb-title { font-size: 15px; font-weight: 700; color: var(--dark-teal); }
+  .vb-rows { display: flex; flex-direction: column; gap: 12px; }
+  .vb-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; background: var(--off-white); border-radius: 10px;
+  }
+  .vb-row .left { display: flex; align-items: center; gap: 10px; }
+  .vb-row .dot-status {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .vb-row .dot-status.green { background: #28CA42; }
+  .vb-row .dot-status.yellow { background: #F5A623; }
+  .vb-row .dot-status.blue { background: var(--mid-teal); }
+  .vb-row .name { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+  .vb-row .meta { font-size: 12px; color: var(--text-muted); }
+
+  /* Timeline visual */
+  .timeline-visual {
+    display: flex; flex-direction: column; gap: 0; padding: 8px 0;
+  }
+  .timeline-item {
+    display: flex; gap: 20px; position: relative;
+  }
+  .timeline-line {
+    display: flex; flex-direction: column; align-items: center; width: 24px;
+  }
+  .timeline-dot {
+    width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--accent);
+    background: white; z-index: 1;
+  }
+  .timeline-dot.filled { background: var(--accent); }
+  .timeline-connector {
+    width: 2px; flex: 1; background: rgba(69,196,188,0.25); min-height: 40px;
+  }
+  .timeline-content {
+    padding-bottom: 28px;
+  }
+  .timeline-content h4 {
+    font-size: 14px; font-weight: 700; color: var(--dark-teal); margin-bottom: 4px;
+  }
+  .timeline-content p {
+    font-size: 13px; color: var(--text-muted); margin-bottom: 0; line-height: 1.5;
+  }
+
+  /* Graph visual */
+  .graph-visual {
+    height: 180px; display: flex; align-items: flex-end; gap: 3px;
+    padding: 0; margin-top: 16px;
+  }
+  .graph-bar {
+    flex: 1; border-radius: 4px 4px 0 0; min-width: 8px;
+    transition: height 0.5s ease;
+  }
+  .graph-bar.teal { background: var(--mid-teal); }
+  .graph-bar.accent { background: var(--accent); }
+  .graph-bar.light { background: var(--light-teal); }
+
+  /* SOCIAL PROOF STRIP */
+  .social-strip {
+    padding: 80px 60px; background: var(--dark-teal);
+    text-align: center;
+  }
+  .social-strip h2 {
+    font-size: 36px; font-weight: 800; color: white;
+    margin-bottom: 12px; letter-spacing: -0.5px;
+  }
+  .social-strip .sub {
+    font-size: 17px; color: rgba(255,255,255,0.55); margin-bottom: 48px;
+  }
+  .metrics-row {
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+  }
+  .metric {
+    text-align: center;
+  }
+  .metric .val {
+    font-size: 52px; font-weight: 800; color: var(--accent);
+    letter-spacing: -1px; line-height: 1;
+  }
+  .metric .lbl {
+    font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* TESTIMONIAL CAROUSEL */
+  .testimonials-section {
+    padding: 100px 60px; background: var(--cream);
+  }
+  .testimonials-section .section-header {
+    text-align: center; max-width: 500px; margin: 0 auto 60px;
+  }
+  .testimonials-section .section-tag {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--mid-teal); font-weight: 700; margin-bottom: 12px;
+  }
+  .testimonials-section h2 {
+    font-size: 40px; font-weight: 800; color: var(--dark-teal);
+    letter-spacing: -1px;
+  }
+  .testimonial-cards {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .t-card {
+    background: white; border-radius: 16px; padding: 32px;
+    border: 1px solid rgba(27,79,90,0.06);
+  }
+  .t-card blockquote {
+    font-size: 15px; color: var(--text-dark); line-height: 1.7;
+    margin-bottom: 20px; font-style: normal;
+  }
+  .t-card .t-author {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .t-card .t-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--light-teal); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--dark-teal);
+  }
+  .t-card .t-name { font-size: 14px; font-weight: 600; color: var(--dark-teal); }
+  .t-card .t-role { font-size: 12px; color: var(--text-muted); }
+
+  /* CTA */
+  .cta {
+    padding: 120px 60px; text-align: center; position: relative;
+    background: white; overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; inset: 60px;
+    background: linear-gradient(135deg, var(--dark-teal), #1a6b7a);
+    border-radius: 32px;
+  }
+  .cta-inner {
+    position: relative; z-index: 1;
+  }
+  .cta h2 {
+    font-size: 44px; font-weight: 800; color: white;
+    margin-bottom: 16px; letter-spacing: -1px;
+  }
+  .cta p {
+    font-size: 18px; color: rgba(255,255,255,0.6); margin-bottom: 36px;
+    max-width: 450px; margin-left: auto; margin-right: auto;
+  }
+  .btn-glow {
+    padding: 18px 40px; background: var(--accent); color: white;
+    border: none; border-radius: 100px; font-size: 16px; font-weight: 700;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 20px rgba(69,196,188,0.4);
+  }
+  .btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(69,196,188,0.5);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 60px; background: var(--off-white);
+    border-top: 1px solid rgba(27,79,90,0.06);
+  }
+  .footer-row {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-row .nav-logo { font-size: 20px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    color: var(--text-muted); text-decoration: none; font-size: 14px;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--dark-teal); }
+  .footer-copy { font-size: 13px; color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    nav { top: 8px; padding: 10px 16px; gap: 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 120px 24px 60px; }
+    .hero h1 { font-size: 38px; }
+    .explanation { padding: 60px 24px; }
+    .explanation-inner { grid-template-columns: 1fr; gap: 40px; }
+    .explanation.reversed .explanation-inner { direction: ltr; }
+    .mock-dashboard { grid-template-columns: 1fr; }
+    .mock-sidebar { display: none; }
+    .testimonial-cards { grid-template-columns: 1fr; }
+    .cta::before { inset: 24px; }
+    .metrics-row { gap: 32px; }
+    .footer-row { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV (pill-shaped floating) -->
+<nav>
+  <div class="nav-logo">Clin<span>evo</span></div>
+  <div class="nav-links">
+    <a href="#platform">Platform</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#results">Results</a>
+    <a href="#" class="nav-cta">Get Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="pill">New</span>
+    AI-Powered Protocol Optimisation is here
+  </div>
+  <h1>The Future of<br><em>Clinical Trials</em></h1>
+  <p>Clinevo unifies trial design, patient recruitment, site management, and regulatory compliance into one intelligent platform.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn-pill primary">Start Free Trial &rarr;</a>
+    <a href="#" class="btn-pill ghost">See It In Action</a>
+  </div>
+
+  <!-- Browser mockup -->
+  <div class="hero-browser">
+    <div class="browser-bar">
+      <div class="browser-dot red"></div>
+      <div class="browser-dot yellow"></div>
+      <div class="browser-dot green"></div>
+      <div class="browser-url">&#128274; app.clinevo.io/dashboard</div>
+    </div>
+    <div class="browser-content">
+      <div class="mock-dashboard">
+        <div class="mock-sidebar">
+          <div class="mock-sidebar-item active">&#128202; Dashboard</div>
+          <div class="mock-sidebar-item">&#128101; Patients</div>
+          <div class="mock-sidebar-item">&#127973; Sites</div>
+          <div class="mock-sidebar-item">&#128196; Documents</div>
+          <div class="mock-sidebar-item">&#128300; Analytics</div>
+          <div class="mock-sidebar-item">&#9881; Settings</div>
+        </div>
+        <div class="mock-main">
+          <div class="mock-stats-row">
+            <div class="mock-stat"><div class="val">2,847</div><div class="lbl">Enrolled</div></div>
+            <div class="mock-stat"><div class="val">96.2%</div><div class="lbl">Retention</div></div>
+            <div class="mock-stat"><div class="val">24</div><div class="lbl">Active Sites</div></div>
+          </div>
+          <div class="mock-chart">
+            <div class="chart-bar" style="height:45%"></div>
+            <div class="chart-bar" style="height:62%"></div>
+            <div class="chart-bar" style="height:38%"></div>
+            <div class="chart-bar" style="height:78%"></div>
+            <div class="chart-bar" style="height:55%"></div>
+            <div class="chart-bar" style="height:85%"></div>
+            <div class="chart-bar" style="height:92%"></div>
+            <div class="chart-bar" style="height:68%"></div>
+            <div class="chart-bar" style="height:74%"></div>
+            <div class="chart-bar" style="height:88%"></div>
+            <div class="chart-bar" style="height:65%"></div>
+            <div class="chart-bar" style="height:95%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLANATION 1 -->
+<section class="explanation" id="platform">
+  <div class="explanation-inner">
+    <div>
+      <div class="explanation-tag">Intelligent Recruitment</div>
+      <h2>Find the right patients, faster</h2>
+      <p>Our AI scans eligibility criteria against real-world data sources to identify and pre-screen candidates — reducing recruitment timelines by up to 60%.</p>
+      <div class="explanation-features">
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>AI-powered patient-trial matching across EHR databases</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Diversity & inclusion optimisation for balanced cohorts</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Predictive enrollment forecasting with 95% accuracy</span>
+        </div>
+      </div>
+    </div>
+    <div class="visual-block">
+      <div class="vb-header">
+        <div class="vb-icon">&#128101;</div>
+        <div class="vb-title">Patient Matching Queue</div>
+      </div>
+      <div class="vb-rows">
+        <div class="vb-row">
+          <div class="left"><div class="dot-status green"></div><span class="name">Patient #4821</span></div>
+          <span class="meta">98% match &middot; Pre-screened</span>
+        </div>
+        <div class="vb-row">
+          <div class="left"><div class="dot-status green"></div><span class="name">Patient #4822</span></div>
+          <span class="meta">95% match &middot; Pre-screened</span>
+        </div>
+        <div class="vb-row">
+          <div class="left"><div class="dot-status yellow"></div><span class="name">Patient #4823</span></div>
+          <span class="meta">87% match &middot; Review needed</span>
+        </div>
+        <div class="vb-row">
+          <div class="left"><div class="dot-status blue"></div><span class="name">Patient #4824</span></div>
+          <span class="meta">91% match &middot; Contacting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLANATION 2 -->
+<section class="explanation alt reversed" id="solutions">
+  <div class="explanation-inner">
+    <div>
+      <div class="explanation-tag">Real-Time Monitoring</div>
+      <h2>Every site, every metric, one view</h2>
+      <p>Replace scattered spreadsheets with a unified command centre. Monitor site performance, flag risks early, and take action before problems escalate.</p>
+      <div class="explanation-features">
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Automated risk-based monitoring (RBM) dashboards</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Anomaly detection flags data quality issues instantly</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Configurable alerts via email, Slack, or SMS</span>
+        </div>
+      </div>
+    </div>
+    <div class="visual-block">
+      <div class="vb-header">
+        <div class="vb-icon">&#128200;</div>
+        <div class="vb-title">Site Performance Overview</div>
+      </div>
+      <div class="graph-visual">
+        <div class="graph-bar teal" style="height:45%"></div>
+        <div class="graph-bar accent" style="height:62%"></div>
+        <div class="graph-bar light" style="height:30%"></div>
+        <div class="graph-bar teal" style="height:78%"></div>
+        <div class="graph-bar accent" style="height:55%"></div>
+        <div class="graph-bar teal" style="height:88%"></div>
+        <div class="graph-bar light" style="height:40%"></div>
+        <div class="graph-bar accent" style="height:72%"></div>
+        <div class="graph-bar teal" style="height:65%"></div>
+        <div class="graph-bar accent" style="height:90%"></div>
+        <div class="graph-bar teal" style="height:50%"></div>
+        <div class="graph-bar accent" style="height:82%"></div>
+        <div class="graph-bar light" style="height:35%"></div>
+        <div class="graph-bar teal" style="height:95%"></div>
+        <div class="graph-bar accent" style="height:70%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLANATION 3 -->
+<section class="explanation">
+  <div class="explanation-inner">
+    <div>
+      <div class="explanation-tag">Regulatory Ready</div>
+      <h2>Submission-ready from day one</h2>
+      <p>Clinevo maintains a living audit trail and automates document assembly so you're always inspection-ready — no last-minute scrambles.</p>
+      <div class="explanation-features">
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>Auto-populated eTMF with version-controlled documents</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>ICH-GCP, FDA 21 CFR Part 11, and GDPR compliant</span>
+        </div>
+        <div class="explanation-feature">
+          <div class="check-circle">&#10003;</div>
+          <span>One-click regulatory submission package generation</span>
+        </div>
+      </div>
+    </div>
+    <div class="visual-block">
+      <div class="vb-header">
+        <div class="vb-icon">&#128196;</div>
+        <div class="vb-title">Submission Timeline</div>
+      </div>
+      <div class="timeline-visual">
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot filled"></div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>Protocol Finalised</h4>
+            <p>v3.2 approved by IRB committee</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot filled"></div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>eTMF Audit Complete</h4>
+            <p>412 documents verified &middot; 0 findings</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot filled"></div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>CSR Generated</h4>
+            <p>Clinical study report auto-assembled</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-line">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <h4>FDA Submission</h4>
+            <p>Package ready &middot; Pending approval</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="social-strip" id="results">
+  <h2>Measurable impact on every trial</h2>
+  <div class="sub">Results from 3,200+ clinical trials managed on Clinevo.</div>
+  <div class="metrics-row">
+    <div class="metric"><div class="val">40%</div><div class="lbl">Faster Enrollment</div></div>
+    <div class="metric"><div class="val">60%</div><div class="lbl">Less Manual Work</div></div>
+    <div class="metric"><div class="val">98.7%</div><div class="lbl">Data Accuracy</div></div>
+    <div class="metric"><div class="val">50+</div><div class="lbl">Countries</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="section-tag">What Teams Say</div>
+    <h2>Loved by clinical ops teams worldwide</h2>
+  </div>
+  <div class="testimonial-cards">
+    <div class="t-card">
+      <blockquote>"Clinevo's AI protocol assistant saved us 3 months of back-and-forth on our Phase II design. Incredible tool."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">SK</div>
+        <div><div class="t-name">Dr Sarah Kim</div><div class="t-role">VP Clinical Ops, NovaCure</div></div>
+      </div>
+    </div>
+    <div class="t-card">
+      <blockquote>"The real-time site monitoring caught a data quality issue at one of our sites before it became a protocol deviation."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">JR</div>
+        <div><div class="t-name">James Reeves</div><div class="t-role">Sr. CRA, BioGenix Research</div></div>
+      </div>
+    </div>
+    <div class="t-card">
+      <blockquote>"We went from 14 months to 8 months on enrollment for our rare disease trial. The patient matching is phenomenal."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">AL</div>
+        <div><div class="t-name">Dr Anika Larsson</div><div class="t-role">Head of Trials, MedVanta EU</div></div>
+      </div>
+    </div>
+    <div class="t-card">
+      <blockquote>"Finally, an eTMF that doesn't feel like it was built in 2005. The compliance automation alone is worth the switch."</blockquote>
+      <div class="t-author">
+        <div class="t-avatar">TC</div>
+        <div><div class="t-name">Tanya Chen</div><div class="t-role">Regulatory Director, PharmaCo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Start your smarter trial today</h2>
+    <p>Free 14-day trial. No credit card required. Full access to every feature.</p>
+    <a href="#" class="btn-glow">Get Started Free &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="nav-logo">Clin<span>evo</span></div>
+    <div class="footer-links">
+      <a href="#">Platform</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">Docs</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Clinevo</div>
+  </div>
+</footer>
+
+</body>
+</html>
