@@ -648,7 +648,7 @@ ${nav}
       <div class="sidebar-card">
         <div class="sidebar-card-top">
           <h3>Interested in AI for your practice?</h3>
-          <p>Book a free 30-minute consultation with Justin. No pitch. No pressure.</p>
+          <p>Book a free 30-minute consultation. No pitch. No pressure.</p>
         </div>
         <div class="sidebar-card-body">
           <a href="/consultation.html" class="btn btn-primary">Book a free consultation &rarr;</a>
