@@ -233,7 +233,7 @@ ${headExtras}
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.1;
-  color: var(--b-off-white);
+  color: #FFFFFF;
   margin-bottom: 20px;
   max-width: 800px;
 }
