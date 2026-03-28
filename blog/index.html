@@ -1125,28 +1125,24 @@ footer {
   border-color: rgba(83,74,183,0.22);
 }
 
-/* Dark banner top of each card */
+/* Subtle brand-tinted banner top of each card */
 .blog-card-banner {
   position: relative;
-  height: 120px;
+  height: 56px;
   overflow: hidden;
-}
-.blog-card-banner svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.06) 100%);
+  border-bottom: 1px solid rgba(83,74,183,0.08);
 }
 .blog-card-banner-date {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 16px;
   font-family: 'Outfit', sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #45C4BC;
+  color: #534AB7;
   z-index: 1;
 }
 
@@ -1251,12 +1247,6 @@ footer {
       
       <article class="blog-card">
         <div class="blog-card-banner" aria-hidden="true">
-          <svg viewBox="0 0 400 140" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="140" fill="#0F1923"/>
-            <ellipse cx="320" cy="50" rx="180" ry="120" fill="rgba(83,74,183,0.35)"/>
-            <ellipse cx="60" cy="110" rx="120" ry="80" fill="rgba(69,196,188,0.12)"/>
-            <line x1="0" y1="0" x2="400" y2="140" stroke="rgba(255,255,255,0.03)" stroke-width="60"/>
-          </svg>
           <span class="blog-card-banner-date">24 March 2026</span>
         </div>
         <a href="/blog/posts/why-ai-tools-fail-clinical-practices.html" class="blog-card-body">
