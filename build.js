@@ -132,6 +132,7 @@ function readPosts() {
         title:       data.title || slug,
         date:        data.date  || null,
         description: data.description || "",
+        illustration: data.illustration || "default",
         html:        marked.parse(content),
       };
     })
@@ -141,7 +142,128 @@ function readPosts() {
 
 // ─── Templates ───────────────────────────────────────────────────────────────
 
-function postPage({ slug, title, date, description, html }, { nav, footer, headExtras }) {
+// ─── Illustration SVGs ──────────────────────────────────────────────────────
+
+const ILLUSTRATIONS = {
+  default: `<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="40" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <line x1="110" y1="100" x2="190" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="250" y1="100" x2="330" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="390" y1="100" x2="470" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M 60 160 A 80 80 0 0 1 60 40" stroke="rgba(83,74,183,0.18)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 70 155 A 65 65 0 0 1 70 45" stroke="rgba(83,74,183,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="80" cy="100" r="28" fill="rgba(83,74,183,0.07)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="18" fill="rgba(83,74,183,0.1)" stroke="rgba(83,74,183,0.5)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="7" fill="#534AB7"/>
+          <path d="M195 97 L210 100 L195 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="220" cy="100" r="28" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <path d="M 208 84 A 20 20 0 0 1 232 84" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 208 116 A 20 20 0 0 0 232 116" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="220" cy="100" r="8" fill="none" stroke="#45C4BC" stroke-width="2"/>
+          <circle cx="220" cy="100" r="3" fill="#45C4BC"/>
+          <path d="M335 97 L350 100 L335 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="360" cy="100" r="30" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1"/>
+          <circle cx="360" cy="100" r="22" fill="rgba(83,74,183,0.08)" stroke="rgba(83,74,183,0.35)" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="14" fill="rgba(83,74,183,0.12)" stroke="#534AB7" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="6" fill="#534AB7"/>
+          <circle cx="360" cy="70" r="4" fill="rgba(69,196,188,0.7)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="386" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="334" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <line x1="360" y1="94" x2="360" y2="74" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="366" y1="95" x2="383" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="354" y1="95" x2="337" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <path d="M475 97 L490 100 L475 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="510" cy="100" r="28" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.3)" stroke-width="1.5"/>
+          <circle cx="510" cy="100" r="18" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.5)" stroke-width="1.5"/>
+          <path d="M500 100 L507 108 L522 90" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 530 40 A 50 50 0 0 1 580 90" stroke="rgba(69,196,188,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 540 40 A 38 38 0 0 1 578 78" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="55" r="5" fill="none" stroke="rgba(69,196,188,0.4)" stroke-width="1.5"/><circle cx="150" cy="55" r="2" fill="rgba(69,196,188,0.4)"/>
+          <circle cx="290" cy="60" r="4" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="430" cy="148" r="5" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/><circle cx="430" cy="148" r="2" fill="rgba(69,196,188,0.35)"/>
+          <circle cx="170" cy="145" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <text x="80" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">INTAKE</text>
+          <text x="220" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.5">WORKFLOW</text>
+          <text x="360" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">AI LAYER</text>
+          <text x="510" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.5)" font-weight="600" letter-spacing="0.5">OUTCOME</text>
+        </svg>`,
+
+  compliance: `<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/>
+
+          <!-- Timeline bar -->
+          <line x1="80" y1="100" x2="520" y2="100" stroke="rgba(83,74,183,0.2)" stroke-width="2"/>
+
+          <!-- 6 checkpoint nodes along timeline -->
+          <!-- 1: Price lists -->
+          <circle cx="115" cy="100" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <text x="115" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" fill="#534AB7" font-weight="700">£</text>
+          <text x="115" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">PRICES</text>
+
+          <!-- 2: Estimates -->
+          <circle cx="190" cy="100" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <rect x="183" y="93" width="14" height="14" rx="2" fill="none" stroke="#534AB7" stroke-width="1.5"/>
+          <line x1="186" y1="99" x2="193" y2="99" stroke="#534AB7" stroke-width="1.2"/>
+          <line x1="186" y1="103" x2="191" y2="103" stroke="#534AB7" stroke-width="1.2"/>
+          <text x="190" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">ESTIMATES</text>
+
+          <!-- 3: Rx fees -->
+          <circle cx="265" cy="100" r="14" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <text x="265" y="104" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#45C4BC" font-weight="700">Rx</text>
+          <text x="265" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">RX FEES</text>
+
+          <!-- 4: Ownership -->
+          <circle cx="340" cy="100" r="14" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <circle cx="340" cy="96" r="4.5" fill="none" stroke="#45C4BC" stroke-width="1.3"/>
+          <path d="M333 106 Q340 101 347 106" fill="none" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <text x="340" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">OWNERSHIP</text>
+
+          <!-- 5: RCVS site -->
+          <circle cx="415" cy="100" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="415" cy="98" r="6" fill="none" stroke="#534AB7" stroke-width="1.3"/>
+          <line x1="419" y1="103" x2="423" y2="107" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/>
+          <text x="415" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">RCVS SITE</text>
+
+          <!-- 6: Levy -->
+          <circle cx="490" cy="100" r="14" fill="rgba(15,110,86,0.06)" stroke="rgba(15,110,86,0.3)" stroke-width="1.5"/>
+          <text x="490" y="104" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#0F6E56" font-weight="700">£</text>
+          <text x="490" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(15,110,86,0.55)" font-weight="600" letter-spacing="0.3">LEVY</text>
+
+          <!-- Timeline endpoints with dates -->
+          <text x="80" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.4)" font-weight="500">MAR 2026</text>
+          <circle cx="80" cy="100" r="4" fill="#534AB7"/>
+          <text x="520" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(15,110,86,0.5)" font-weight="500">DEC 2026</text>
+          <circle cx="520" cy="100" r="4" fill="#0F6E56"/>
+
+          <!-- Deadline marker -->
+          <line x1="430" y1="80" x2="430" y2="100" stroke="rgba(83,74,183,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="430" y="74" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.45)" font-weight="500">SEP 2026</text>
+
+          <!-- Decorative arcs -->
+          <path d="M 50 35 A 40 40 0 0 1 50 75" stroke="rgba(83,74,183,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 555 130 A 35 35 0 0 0 555 165" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="150" cy="45" r="3" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.2"/>
+          <circle cx="310" cy="55" r="4" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/>
+          <circle cx="460" cy="50" r="3" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.2"/><circle cx="460" cy="50" r="1.2" fill="rgba(69,196,188,0.3)"/>
+          <circle cx="210" cy="160" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/>
+          <circle cx="370" cy="165" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="370" cy="165" r="1.2" fill="rgba(69,196,188,0.25)"/>
+        </svg>`,
+};
+
+function getIllustration(key) {
+  return ILLUSTRATIONS[key] || ILLUSTRATIONS.default;
+}
+
+function postPage({ slug, title, date, description, illustration, html }, { nav, footer, headExtras }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -593,51 +715,7 @@ ${nav}
   <div class="post-container">
     <main class="post-main">
       <div class="post-illustration">
-        <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="40" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/>
-          <circle cx="40" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/>
-          <circle cx="40" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/>
-          <circle cx="40" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/>
-          <line x1="110" y1="100" x2="190" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <line x1="250" y1="100" x2="330" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <line x1="390" y1="100" x2="470" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <path d="M 60 160 A 80 80 0 0 1 60 40" stroke="rgba(83,74,183,0.18)" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 70 155 A 65 65 0 0 1 70 45" stroke="rgba(83,74,183,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <circle cx="80" cy="100" r="28" fill="rgba(83,74,183,0.07)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
-          <circle cx="80" cy="100" r="18" fill="rgba(83,74,183,0.1)" stroke="rgba(83,74,183,0.5)" stroke-width="1.5"/>
-          <circle cx="80" cy="100" r="7" fill="#534AB7"/>
-          <path d="M195 97 L210 100 L195 103" fill="rgba(83,74,183,0.4)"/>
-          <circle cx="220" cy="100" r="28" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
-          <path d="M 208 84 A 20 20 0 0 1 232 84" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 208 116 A 20 20 0 0 0 232 116" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <circle cx="220" cy="100" r="8" fill="none" stroke="#45C4BC" stroke-width="2"/>
-          <circle cx="220" cy="100" r="3" fill="#45C4BC"/>
-          <path d="M335 97 L350 100 L335 103" fill="rgba(83,74,183,0.4)"/>
-          <circle cx="360" cy="100" r="30" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1"/>
-          <circle cx="360" cy="100" r="22" fill="rgba(83,74,183,0.08)" stroke="rgba(83,74,183,0.35)" stroke-width="1.5"/>
-          <circle cx="360" cy="100" r="14" fill="rgba(83,74,183,0.12)" stroke="#534AB7" stroke-width="1.5"/>
-          <circle cx="360" cy="100" r="6" fill="#534AB7"/>
-          <circle cx="360" cy="70" r="4" fill="rgba(69,196,188,0.7)" stroke="#45C4BC" stroke-width="1"/>
-          <circle cx="386" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
-          <circle cx="334" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
-          <line x1="360" y1="94" x2="360" y2="74" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
-          <line x1="366" y1="95" x2="383" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
-          <line x1="354" y1="95" x2="337" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
-          <path d="M475 97 L490 100 L475 103" fill="rgba(83,74,183,0.4)"/>
-          <circle cx="510" cy="100" r="28" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.3)" stroke-width="1.5"/>
-          <circle cx="510" cy="100" r="18" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.5)" stroke-width="1.5"/>
-          <path d="M500 100 L507 108 L522 90" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M 530 40 A 50 50 0 0 1 580 90" stroke="rgba(69,196,188,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 540 40 A 38 38 0 0 1 578 78" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <circle cx="150" cy="55" r="5" fill="none" stroke="rgba(69,196,188,0.4)" stroke-width="1.5"/><circle cx="150" cy="55" r="2" fill="rgba(69,196,188,0.4)"/>
-          <circle cx="290" cy="60" r="4" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
-          <circle cx="430" cy="148" r="5" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/><circle cx="430" cy="148" r="2" fill="rgba(69,196,188,0.35)"/>
-          <circle cx="170" cy="145" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
-          <text x="80" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">INTAKE</text>
-          <text x="220" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.5">WORKFLOW</text>
-          <text x="360" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">AI LAYER</text>
-          <text x="510" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.5)" font-weight="600" letter-spacing="0.5">OUTCOME</text>
-        </svg>
+        ${getIllustration(illustration)}
       </div>
       <div class="post-body">
         ${html}

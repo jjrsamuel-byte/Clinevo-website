@@ -3,6 +3,7 @@ title: "CMA veterinary report 2026: what independent practices need to do"
 date: "2026-03-30"
 description: "The CMA's final veterinary report brings six new requirements by September 2026. Here is what independent practices need to know without the panic or spin."
 slug: "cma-veterinary-report-2026-independent-practice-guide"
+illustration: "compliance"
 ---
 
 The Competition and Markets Authority published its final report on veterinary services on 24 March 2026. It is the most extensive review of the sector in a generation. Six specific remedies come into force by 23 September 2026. Independent practices get three months longer to comply than larger groups.
