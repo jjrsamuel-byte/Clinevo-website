@@ -133,6 +133,7 @@ function readPosts() {
         date:        data.date  || null,
         description: data.description || "",
         illustration: data.illustration || "default",
+        tag:         data.tag || "Clinical AI",
         html:        marked.parse(content),
       };
     })
@@ -204,7 +205,7 @@ const ILLUSTRATIONS = {
           <!-- 6 checkpoint nodes along timeline -->
           <!-- 1: Price lists -->
           <circle cx="115" cy="100" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
-          <text x="115" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" fill="#534AB7" font-weight="700">£</text>
+          <text x="115" y="103" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#534AB7" font-weight="700">£</text>
           <text x="115" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">PRICES</text>
 
           <!-- 2: Estimates -->
@@ -257,13 +258,73 @@ const ILLUSTRATIONS = {
           <circle cx="210" cy="160" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/>
           <circle cx="370" cy="165" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="370" cy="165" r="1.2" fill="rgba(69,196,188,0.25)"/>
         </svg>`,
+
+  cost: `<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/>
+
+          <!-- Left: stacked cost bar -->
+          <rect x="80" y="42" width="50" height="60" rx="3" fill="rgba(83,74,183,0.12)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <rect x="80" y="102" width="50" height="18" rx="0" fill="rgba(69,196,188,0.12)" stroke="rgba(69,196,188,0.3)" stroke-width="1"/>
+          <rect x="80" y="120" width="50" height="12" rx="0" fill="rgba(69,196,188,0.08)" stroke="rgba(69,196,188,0.2)" stroke-width="1"/>
+          <rect x="80" y="132" width="50" height="10" rx="0" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.25)" stroke-width="1"/>
+          <rect x="80" y="142" width="50" height="8" rx="0" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
+          <rect x="80" y="150" width="50" height="6" rx="0 0 3 3" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+
+          <!-- Bar labels -->
+          <text x="105" y="76" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.6)" font-weight="600">SALARY</text>
+          <text x="105" y="114" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(69,196,188,0.8)" font-weight="500">NI + PENSION</text>
+          <text x="105" y="129" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(69,196,188,0.7)" font-weight="500">COVER</text>
+          <text x="105" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="5.5" fill="rgba(15,110,86,0.6)" font-weight="500">TRAINING</text>
+
+          <!-- Bracket showing total -->
+          <path d="M140 42 L148 42 L148 156 L140 156" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.2"/>
+          <line x1="148" y1="100" x2="155" y2="100" stroke="rgba(83,74,183,0.3)" stroke-width="1.2"/>
+          <text x="160" y="97" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.5)" font-weight="600">TRUE</text>
+          <text x="160" y="107" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.5)" font-weight="600">COST</text>
+
+          <!-- Centre: multiplier visual -->
+          <text x="300" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="36" fill="rgba(83,74,183,0.15)" font-weight="700">154%</text>
+          <text x="300" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(83,74,183,0.4)" font-weight="500">of salary</text>
+
+          <!-- Rising cost arrow -->
+          <path d="M260 120 L300 108 L340 120" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="300" cy="108" r="3" fill="#45C4BC" opacity="0.5"/>
+
+          <!-- Right: comparison circles -->
+          <!-- Salary circle (smaller) -->
+          <circle cx="440" cy="90" r="24" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <text x="440" y="87" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.6)" font-weight="700">£25k</text>
+          <text x="440" y="98" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.4)" font-weight="500">SALARY</text>
+
+          <!-- True cost circle (larger, overlapping) -->
+          <circle cx="510" cy="95" r="34" fill="rgba(15,110,86,0.05)" stroke="rgba(15,110,86,0.25)" stroke-width="1.5"/>
+          <text x="510" y="91" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="rgba(15,110,86,0.7)" font-weight="700">£38.5k</text>
+          <text x="510" y="104" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.45)" font-weight="500">TRUE COST</text>
+
+          <!-- Connecting dashed arrow -->
+          <line x1="465" y1="90" x2="476" y2="93" stroke="rgba(83,74,183,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+
+          <!-- Decorative arcs -->
+          <path d="M 50 35 A 30 30 0 0 1 50 65" stroke="rgba(83,74,183,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 555 140 A 30 30 0 0 0 555 170" stroke="rgba(69,196,188,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="220" cy="45" r="3" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.2"/>
+          <circle cx="380" cy="55" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/><circle cx="380" cy="55" r="1.3" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="250" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="250" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
+          <circle cx="420" cy="155" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
+        </svg>`,
 };
 
 function getIllustration(key) {
   return ILLUSTRATIONS[key] || ILLUSTRATIONS.default;
 }
 
-function postPage({ slug, title, date, description, illustration, html }, { nav, footer, headExtras }) {
+function postPage({ slug, title, date, description, illustration, tag, html }, { nav, footer, headExtras }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -696,7 +757,7 @@ ${nav}
 <div class="post-hero">
   <div class="post-hero-inner">
     <div class="post-hero-meta">
-      <span class="post-hero-tag">Clinical AI</span>
+      <span class="post-hero-tag">${escHtml(tag)}</span>
       ${date ? `<span class="post-hero-date">${formatDate(date)}</span>` : ""}
     </div>
     <h1>${escHtml(title)}</h1>
@@ -761,13 +822,13 @@ ${footer}
 
 function blogIndexPage(posts, { nav, footer, headExtras }) {
   const postCards = posts.length
-    ? posts.map(({ slug, title, date, description }) => `
+    ? posts.map(({ slug, title, date, description, tag }) => `
       <article class="blog-card">
         <div class="blog-card-banner" aria-hidden="true">
           ${date ? `<span class="blog-card-banner-date">${formatDate(date)}</span>` : ""}
         </div>
         <a href="/blog/posts/${slug}.html" class="blog-card-body">
-          <span class="blog-card-tag">Clinical AI</span>
+          <span class="blog-card-tag">${escHtml(tag)}</span>
           <h2>${escHtml(title)}</h2>
           ${description ? `<p>${escHtml(description)}</p>` : ""}
           <span class="blog-card-link">Read article &rarr;</span>
