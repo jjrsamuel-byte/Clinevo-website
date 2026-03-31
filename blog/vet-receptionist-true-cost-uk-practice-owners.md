@@ -4,7 +4,7 @@ date: "2026-03-31"
 description: "The true cost of employing a vet receptionist goes far beyond salary. Here's the honest breakdown every UK practice owner needs to see."
 slug: "vet-receptionist-true-cost-uk-practice-owners"
 illustration: "cost"
-illustrationPosition: "bottom"
+illustrationPosition: "inline"
 tag: "Practice Management"
 ---
 
@@ -60,6 +60,8 @@ Let's add it up for that £25k receptionist:
 **Total annual cost: £38,545**
 
 That's 54% more than the salary figure. For every £100 you think you're spending on reception staff, you're actually spending £154.
+
+<!--illustration-->
 
 ## Why this matters for your practice
 

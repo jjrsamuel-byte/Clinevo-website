@@ -776,11 +776,11 @@ ${nav}
 <div class="blog-post-wrap">
   <div class="post-container">
     <main class="post-main">
-      ${illustrationPosition !== "bottom" ? `<div class="post-illustration">
+      ${illustrationPosition === "top" ? `<div class="post-illustration">
         ${getIllustration(illustration)}
       </div>` : ""}
       <div class="post-body">
-        ${html}
+        ${illustrationPosition === "inline" ? html.replace("<!--illustration-->", `</div><div class="post-illustration">${getIllustration(illustration)}</div><div class="post-body">`) : html}
       </div>
       ${illustrationPosition === "bottom" ? `<div class="post-illustration">
         ${getIllustration(illustration)}
