@@ -133,6 +133,7 @@ function readPosts() {
         date:        data.date  || null,
         description: data.description || "",
         illustration: data.illustration || "default",
+        illustrationPosition: data.illustrationPosition || "top",
         tag:         data.tag || "Clinical AI",
         html:        marked.parse(content),
       };
@@ -271,14 +272,14 @@ const ILLUSTRATIONS = {
           <rect x="80" y="102" width="50" height="18" rx="0" fill="rgba(69,196,188,0.12)" stroke="rgba(69,196,188,0.3)" stroke-width="1"/>
           <rect x="80" y="120" width="50" height="12" rx="0" fill="rgba(69,196,188,0.08)" stroke="rgba(69,196,188,0.2)" stroke-width="1"/>
           <rect x="80" y="132" width="50" height="10" rx="0" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.25)" stroke-width="1"/>
-          <rect x="80" y="142" width="50" height="8" rx="0" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
-          <rect x="80" y="150" width="50" height="6" rx="0 0 3 3" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <rect x="80" y="142" width="50" height="14" rx="0 0 3 3" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
 
           <!-- Bar labels -->
           <text x="105" y="76" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.6)" font-weight="600">SALARY</text>
           <text x="105" y="114" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(69,196,188,0.8)" font-weight="500">NI + PENSION</text>
           <text x="105" y="129" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(69,196,188,0.7)" font-weight="500">COVER</text>
           <text x="105" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="5.5" fill="rgba(15,110,86,0.6)" font-weight="500">TRAINING</text>
+          <text x="105" y="152" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="5" fill="rgba(15,110,86,0.5)" font-weight="500">EQUIP</text>
 
           <!-- Bracket showing total -->
           <path d="M140 42 L148 42 L148 156 L140 156" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.2"/>
@@ -324,7 +325,7 @@ function getIllustration(key) {
   return ILLUSTRATIONS[key] || ILLUSTRATIONS.default;
 }
 
-function postPage({ slug, title, date, description, illustration, tag, html }, { nav, footer, headExtras }) {
+function postPage({ slug, title, date, description, illustration, illustrationPosition, tag, html }, { nav, footer, headExtras }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -775,12 +776,15 @@ ${nav}
 <div class="blog-post-wrap">
   <div class="post-container">
     <main class="post-main">
-      <div class="post-illustration">
+      ${illustrationPosition !== "bottom" ? `<div class="post-illustration">
         ${getIllustration(illustration)}
-      </div>
+      </div>` : ""}
       <div class="post-body">
         ${html}
       </div>
+      ${illustrationPosition === "bottom" ? `<div class="post-illustration">
+        ${getIllustration(illustration)}
+      </div>` : ""}
     </main>
 
     <aside class="post-sidebar">

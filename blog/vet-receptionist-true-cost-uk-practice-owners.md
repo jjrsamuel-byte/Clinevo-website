@@ -4,6 +4,7 @@ date: "2026-03-31"
 description: "The true cost of employing a vet receptionist goes far beyond salary. Here's the honest breakdown every UK practice owner needs to see."
 slug: "vet-receptionist-true-cost-uk-practice-owners"
 illustration: "cost"
+illustrationPosition: "bottom"
 tag: "Practice Management"
 ---
 
