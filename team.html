@@ -8,24 +8,19 @@
 <script src="https://app.termly.io/resource-blocker/fd704718-0567-4638-bceb-07caafa9c98b?autoBlock=on"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<title>Book a Free AI Consultation — Clinevo | Veterinary, Optical & Dental</title>
-<meta name="description" content="Book a free 30-minute AI consultation with Clinevo. Discover how AI can reduce admin, recover missed calls, and grow revenue at your veterinary, optical, or dental practice.">
+<title>Meet the Team — Clinevo</title>
+<meta name="description" content="Meet the people behind Clinevo. Clinical operations expertise and healthcare technology experience, built for practices that care.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://clinevo.ai/consultation">
-<meta property="og:title" content="Book a Free AI Consultation — Clinevo">
-<meta property="og:description" content="Free 30-minute call to explore where AI can make a measurable difference at your practice.">
+<link rel="canonical" href="https://clinevo.ai/team">
+<meta property="og:title" content="Meet the Team — Clinevo">
+<meta property="og:description" content="Meet the people behind Clinevo. Clinical operations expertise and healthcare technology experience, built for practices that care.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://clinevo.ai/consultation">
+<meta property="og:url" content="https://clinevo.ai/team">
 <meta property="og:site_name" content="Clinevo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   CLINEVO — Brand-Accurate Colour System
-   ═══════════════════════════════════════════ */
 :root {
   --clinevo-purple: #534AB7;
   --signal-teal: #45C4BC;
@@ -181,9 +176,45 @@ nav {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(83, 74, 183, 0.25);
 }
+.btn-teal {
+  background: var(--signal-teal); color: var(--near-black);
+  font-weight: 700;
+}
+.btn-teal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(69, 196, 188, 0.3);
+}
+.btn-white {
+  background: white; color: var(--near-black); font-weight: 700;
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-ghost-light {
+  background: transparent; color: var(--off-white);
+  border: 1.5px solid rgba(220,224,236,0.2);
+}
+.btn-ghost-light:hover {
+  border-color: rgba(220,224,236,0.5);
+  background: rgba(255,255,255,0.04);
+}
+.coming-soon-badge {
+  display: inline-block;
+  background: #45C4BC;
+  color: #0F1923;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 
 /* ═══════════════════════════
-   PAGE HERO — Purple system
+   PAGE HERO
    ═══════════════════════════ */
 .page-hero {
   background: var(--bg-dark);
@@ -221,167 +252,46 @@ nav {
 .page-hero p {
   font-size: 18px; line-height: 1.75;
   color: rgba(220,224,236,0.55);
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
   position: relative; z-index: 1;
 }
 
-/* ═══════════════════════════════════════
-   CONSULTATION FORM SECTION
-   ═══════════════════════════════════════ */
-.consult-section {
-  padding: 80px 0 100px;
-}
-.consult-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
-  align-items: start;
-}
-
-/* Left side — benefits */
-.consult-benefits h2 {
-  font-size: 32px; letter-spacing: -1px;
-  color: var(--near-black);
-  margin-bottom: 12px;
-}
-.consult-benefits > p {
-  font-size: 16px; color: var(--text-secondary);
-  line-height: 1.75; margin-bottom: 36px;
-}
-.benefit-list {
-  display: flex; flex-direction: column; gap: 20px;
-  margin-bottom: 40px;
-}
-.benefit-item {
-  display: flex; align-items: flex-start; gap: 14px;
-}
-.benefit-icon {
-  width: 36px; height: 36px; min-width: 36px;
-  border-radius: 10px;
-  background: rgba(83,74,183,0.06);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--clinevo-purple);
-  font-size: 16px; font-weight: 700;
-  margin-top: 2px;
-}
-.benefit-item h4 {
-  font-size: 15px; font-weight: 600;
-  color: var(--near-black);
-  margin-bottom: 2px;
-}
-.benefit-item p {
-  font-size: 14px; color: var(--text-secondary);
-  line-height: 1.6;
-}
-.trust-row {
-  display: flex; gap: 24px; flex-wrap: wrap;
-}
-.trust-item {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--text-secondary); font-weight: 500;
-}
-.trust-item .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--signal-teal);
-}
-
-/* Right side — form */
-.consult-form-card {
-  background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 4px 24px rgba(83,74,183,0.06);
-  position: relative;
-  overflow: visible;
-}
-.consult-form-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal));
-}
-.form-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 20px; font-weight: 700;
-  color: var(--near-black);
-  margin-bottom: 4px;
-}
-.form-subtitle {
-  font-size: 14px; color: var(--text-secondary);
-  margin-bottom: 28px;
-}
-.form-group {
-  margin-bottom: 20px;
-}
-.form-group label {
-  display: block;
-  font-size: 13px; font-weight: 600;
-  color: var(--near-black);
-  margin-bottom: 6px;
-  letter-spacing: 0.2px;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1.5px solid rgba(83,74,183,0.12);
-  border-radius: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  color: var(--near-black);
-  background: var(--bg-panel);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--clinevo-purple);
-  box-shadow: 0 0 0 3px rgba(83,74,183,0.08);
-  background: white;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(74,85,104,0.4);
-}
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.form-submit {
-  width: 100%;
-  padding: 14px 28px;
-  border-radius: 10px;
-  background: var(--clinevo-purple);
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px; font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  margin-top: 8px;
-}
-.form-submit:hover {
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+.cta-section {
+  padding: 100px 0;
   background: var(--brand-purple);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(83,74,183,0.25);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.form-note {
-  font-size: 12px; color: var(--text-secondary);
-  margin-top: 12px; text-align: center;
-  opacity: 0.7;
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(83,74,183,0.3);
+}
+.cta-section h2 {
+  font-size: 44px; color: white;
+  letter-spacing: -1px; margin-bottom: 14px;
+  position: relative;
+}
+.cta-section p {
+  font-size: 17px; color: rgba(255,255,255,0.5);
+  max-width: 460px; margin: 0 auto 36px;
+  position: relative;
+}
+.cta-buttons {
+  display: flex; justify-content: center; gap: 14px;
+  position: relative;
 }
 
 /* ═══════════════════════════════════════
-   FOOTER — Reversed system (dark)
+   FOOTER
    ═══════════════════════════════════════ */
 footer {
   padding: 60px 0 40px;
@@ -438,6 +348,95 @@ footer {
 }
 .footer-bottom a:hover { color: var(--signal-teal); }
 
+/* ═══════════════════════════════════════
+   MEET THE TEAM
+   ═══════════════════════════════════════ */
+.team-section {
+  padding: 100px 0;
+  background: white;
+}
+.team-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.team-section-header .about-tag {
+  display: block;
+}
+.team-section-header h2 {
+  font-size: 38px; letter-spacing: -1px;
+  color: var(--near-black);
+  margin-bottom: 12px;
+}
+.team-section-header p {
+  font-size: 16px; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto; line-height: 1.75;
+}
+.about-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--clinevo-purple);
+  margin-bottom: 16px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.team-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(83,74,183,0.08);
+}
+.team-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal));
+}
+.team-card-header {
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 24px;
+}
+.team-avatar {
+  width: 64px; height: 64px; min-width: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clinevo-purple) 0%, var(--signal-teal) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px; font-weight: 700; color: white;
+}
+.team-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--near-black);
+  margin-bottom: 4px;
+}
+.team-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--clinevo-purple);
+  letter-spacing: 0.3px;
+}
+.team-bio p {
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 14px;
+}
+.team-bio p:last-child {
+  margin-bottom: 0;
+}
+
 /* ═══════════════════════════
    RESPONSIVE
    ═══════════════════════════ */
@@ -455,10 +454,11 @@ footer {
   .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
   .page-hero { padding: 120px 0 60px; }
   .page-hero h1 { font-size: 34px; }
-  .consult-grid { grid-template-columns: 1fr; gap: 40px; }
-  .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-section h2 { font-size: 32px; }
+  .team-grid { grid-template-columns: 1fr; gap: 40px; }
   .nav-dropdown-menu { position: static; transform: none; padding-top: 0; opacity: 1; visibility: visible; }
   .nav-dropdown-menu-inner { box-shadow: none; border: none; background: transparent; padding: 0; min-width: 0; }
   .nav-dropdown-menu a { padding: 14px 0 14px 16px; border-bottom: 1px solid rgba(83,74,183,0.06); border-radius: 0; }
@@ -496,7 +496,7 @@ footer {
       <a href="/services.html">Services</a>
       <a href="/sectors.html">Sectors</a>
       <div class="nav-dropdown">
-        <a href="/about.html">About</a>
+        <a href="/about.html" class="active">About</a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="/about.html">About us</a>
@@ -514,165 +514,85 @@ footer {
      PAGE HERO
      ═══════════════════════════ -->
 <section class="page-hero">
-  <h1>Let's talk about <span class="accent">your practice.</span></h1>
-  <p>A 30-minute conversation. No obligation. No jargon. Just a clear, honest assessment of where AI fits.</p>
+  <h1>Meet the <span class="accent">team.</span></h1>
+  <p>Clinical operations experience and healthcare technology expertise. Built for practices, by people who understand them.</p>
 </section>
 
+<!-- Breadcrumb -->
+<div class="container" style="padding-top: 40px;">
+  <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-secondary);">
+    <a href="/index.html" style="color: var(--clinevo-purple); text-decoration: none;">Home</a>
+    <span style="margin: 0 8px; opacity: 0.4;">&#8250;</span>
+    <a href="/about.html" style="color: var(--clinevo-purple); text-decoration: none;">About</a>
+    <span style="margin: 0 8px; opacity: 0.4;">&#8250;</span>
+    <span>Meet the team</span>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════
-     CONSULTATION FORM SECTION
+     MEET THE TEAM
      ═══════════════════════════════════════ -->
-<section class="consult-section">
+<section class="team-section" id="team">
   <div class="container">
-    <div class="consult-grid">
+    <div class="team-section-header">
+      <div class="about-tag">Meet the team</div>
+      <h2>The people behind Clinevo.</h2>
+      <p>Clinical operations experience and healthcare technology expertise. Built for practices, by people who understand them.</p>
+    </div>
+    <div class="team-grid">
 
-      <!-- Left — benefits -->
-      <div class="consult-benefits">
-        <h2>What to expect</h2>
-        <p>Every conversation starts the same way. We listen first, then give you an honest assessment of where AI can (and can't) help your practice.</p>
-
-        <div class="benefit-list">
-          <div class="benefit-item">
-            <div class="benefit-icon">1</div>
-            <div>
-              <h4>Understand your practice</h4>
-              <p>We learn about your workflows, team, and commercial goals before recommending anything.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">2</div>
-            <div>
-              <h4>Honest assessment</h4>
-              <p>Not every practice needs AI. We will tell you where it genuinely makes a difference, and where it does not.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">3</div>
-            <div>
-              <h4>Clear next steps</h4>
-              <p>You will leave with a practical recommendation, not a sales pitch. No obligation to proceed.</p>
-            </div>
+      <!-- Justin -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">JS</div>
+          <div>
+            <div class="team-name">Justin Samuel</div>
+            <div class="team-role">Founder &amp; CEO</div>
           </div>
         </div>
-
-        <div class="trust-row">
-          <div class="trust-item"><div class="dot"></div> No obligation</div>
-          <div class="trust-item"><div class="dot"></div> 30 minutes</div>
-          <div class="trust-item"><div class="dot"></div> UK-based team</div>
-          <div class="trust-item"><div class="dot"></div> Free of charge</div>
+        <div class="team-bio">
+          <p>Justin has spent 15 years working with healthcare and technology businesses, developing a deep understanding of how operational challenges hold great teams back from doing their best work.</p>
+          <p>Having worked closely with clinics, practices, and regulated healthcare environments, he saw the same problem recurring: brilliant, dedicated people spending too much time on calls, admin, and front-of-house friction instead of focusing on patient care.</p>
+          <p>That observation became Clinevo. Built specifically for independent veterinary, dental, and optical practices, Clinevo delivers intelligent AI receptionist and front-of-house automation that works the way a clinic actually works. Not the way a tech company thinks it does.</p>
         </div>
       </div>
 
-      <!-- Right — form -->
-      <div class="consult-form-card">
-        <div class="form-title">Book your free consultation</div>
-        <div class="form-subtitle">Fill in your details and we will be in touch within one working day.</div>
-
-        <form id="consult-form" action="#" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="e.g. Sarah" required>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="e.g. Mitchell" required>
-            </div>
+      <!-- Donna -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">D</div>
+          <div>
+            <div class="team-name">Donna</div>
+            <div class="team-role">Clinical Operations Consultant</div>
           </div>
-
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="you@yourpractice.co.uk" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="e.g. 07700 900 000">
-          </div>
-
-          <div class="form-group">
-            <label for="practice-name">Practice name</label>
-            <input type="text" id="practice-name" name="practice_name" placeholder="e.g. Riverside Vets">
-          </div>
-
-          <div class="form-group">
-            <label for="message">What are you hoping AI can help with?</label>
-            <textarea id="message" name="message" placeholder="e.g. We are losing calls outside hours, struggling with recall compliance, interested in AI receptionist..."></textarea>
-          </div>
-
-          <button type="submit" class="form-submit" id="submit-btn">Book my free consultation &rarr;</button>
-          <p class="form-note">We will respond within one working day. No spam, no mailing lists.</p>
-        </form>
-        <div id="form-success" style="display:none; text-align:center; padding:1.5rem 0 0;">
-          <div style="width:48px; height:48px; border-radius:50%; background:var(--signal-teal); color:white; display:flex; align-items:center; justify-content:center; margin:0 auto 0.75rem; font-size:20px; font-weight:700;">&#10003;</div>
-          <h3 style="color:var(--near-black); font-family:'Outfit',sans-serif; margin:0 0 6px; font-size:18px;">Details received!</h3>
-          <p style="color:var(--fade); font-size:14px; margin:0 0 1.25rem;">Now pick a time that works for you.</p>
-          <div id="calendly-container" style="min-width:280px; height:630px;"></div>
         </div>
-        <div id="form-error" style="display:none; padding:10px 14px; background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; color:#EF4444; font-size:13px; margin-top:10px;">Something went wrong. Please email us at hello@clinevo.ai instead.</div>
-
-<script>
-document.getElementById('consult-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  var btn = document.getElementById('submit-btn');
-  var form = this;
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-  document.getElementById('form-error').style.display = 'none';
-
-  var payload = {
-    portalId: '148041287',
-    formGuid: '0d277608-b55e-4955-bd70-9cdbd6da1a83',
-    fields: [
-      { name: 'firstname', value: document.getElementById('first-name').value },
-      { name: 'lastname', value: document.getElementById('last-name').value },
-      { name: 'email', value: document.getElementById('email').value },
-      { name: 'phone', value: document.getElementById('phone').value },
-      { name: 'practice_name', value: document.getElementById('practice-name').value },
-      { name: 'message', value: document.getElementById('message').value }
-    ],
-    context: {
-      pageUri: window.location.href,
-      pageName: 'Book a Free Consultation'
-    }
-  };
-
-  // Capture values before form hides
-  var firstName = document.getElementById('first-name').value;
-  var lastName = document.getElementById('last-name').value;
-  var emailVal = document.getElementById('email').value;
-
-  // Submit to HubSpot in background (don't block Calendly if it fails)
-  fetch('https://api-eu1.hsforms.com/submissions/v3/integration/submit/148041287/0d277608-b55e-4955-bd70-9cdbd6da1a83', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(function() {});
-
-  // Always show Calendly
-  form.style.display = 'none';
-  var successDiv = document.getElementById('form-success');
-  successDiv.style.display = 'block';
-  var calUrl = 'https://calendly.com/justin-clinevo/30min?hide_gdpr_banner=1&background_color=fafafa&text_color=0f1923&primary_color=534ab7&name=' + encodeURIComponent(firstName + ' ' + lastName) + '&email=' + encodeURIComponent(emailVal);
-  var container = document.getElementById('calendly-container');
-  function loadCalendly() {
-    if (window.Calendly) {
-      Calendly.initInlineWidget({ url: calUrl, parentElement: container });
-    } else {
-      setTimeout(loadCalendly, 200);
-    }
-  }
-  loadCalendly();
-  successDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
-</script>
+        <div class="team-bio">
+          <p>With over 13 years in clinical and healthcare operations, Donna brings deep, hands-on expertise in exactly the challenges Clinevo is built to solve.</p>
+          <p>As Operations Manager, she led facilities, team management, process improvement, and staff wellbeing across a fast-paced clinical environment. Experience that gives her a genuine understanding of what front-of-house teams face every day.</p>
+          <p>From managing complex workflows and coordinating across departments, to implementing wellbeing initiatives and driving operational efficiency, Donna has lived the operational realities that independent practices deal with at scale. She knows what good operations look like from the inside. And she knows where AI can take the friction away.</p>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to find out where AI fits your practice?</h2>
+    <p>A 30-minute conversation. No obligation. No jargon. Just a clear, honest assessment.</p>
+    <div class="cta-buttons">
+      <a href="/consultation.html" class="btn btn-white">Book your free consultation &rarr;</a>
+      <span class="btn btn-ghost-light" style="cursor: default; opacity: 0.7;">Take the AI readiness test <span class="coming-soon-badge">Coming Soon</span></span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════
-     FOOTER — Reversed system (dark)
+     FOOTER
      ═══════════════════════════════════════ -->
 <footer>
   <div class="container">
@@ -694,6 +614,7 @@ document.getElementById('consult-form').addEventListener('submit', async functio
       <div class="footer-col">
         <h4>Company</h4>
         <a href="/about.html">About</a>
+        <a href="/team.html">Meet the team</a>
         <a href="/consultation.html">Contact</a>
       </div>
       <div class="footer-col">
