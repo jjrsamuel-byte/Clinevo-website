@@ -611,6 +611,88 @@ footer {
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .cta-buttons { flex-direction: column; align-items: center; }
   .cta-section h2 { font-size: 32px; }
+  .team-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ═══════════════════════════════════════
+   MEET THE TEAM
+   ═══════════════════════════════════════ */
+.team-section {
+  padding: 100px 0;
+  background: var(--bg-panel);
+}
+.team-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.team-section-header .about-tag {
+  display: block;
+}
+.team-section-header h2 {
+  font-size: 38px; letter-spacing: -1px;
+  color: var(--near-black);
+  margin-bottom: 12px;
+}
+.team-section-header p {
+  font-size: 16px; color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto; line-height: 1.75;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.team-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(83,74,183,0.08);
+}
+.team-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clinevo-purple), var(--signal-teal));
+}
+.team-card-header {
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 24px;
+}
+.team-avatar {
+  width: 64px; height: 64px; min-width: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clinevo-purple) 0%, var(--signal-teal) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px; font-weight: 700; color: white;
+}
+.team-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--near-black);
+  margin-bottom: 4px;
+}
+.team-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--clinevo-purple);
+  letter-spacing: 0.3px;
+}
+.team-bio p {
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 14px;
+}
+.team-bio p:last-child {
+  margin-bottom: 0;
 }
 </style>
 </head>
@@ -834,6 +916,54 @@ footer {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MEET THE TEAM
+     ═══════════════════════════════════════ -->
+<section class="team-section" id="team">
+  <div class="container">
+    <div class="team-section-header">
+      <div class="about-tag">Meet the team</div>
+      <h2>The people behind Clinevo.</h2>
+      <p>Clinical operations experience and healthcare technology expertise. Built for practices, by people who understand them.</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- Justin -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">JS</div>
+          <div>
+            <div class="team-name">Justin Samuel</div>
+            <div class="team-role">Founder &amp; CEO</div>
+          </div>
+        </div>
+        <div class="team-bio">
+          <p>Justin has spent 15 years working with healthcare and technology businesses, developing a deep understanding of how operational challenges hold great teams back from doing their best work.</p>
+          <p>Having worked closely with clinics, practices, and regulated healthcare environments, he saw the same problem recurring: brilliant, dedicated people spending too much time on calls, admin, and front-of-house friction instead of focusing on patient care.</p>
+          <p>That observation became Clinevo. Built specifically for independent veterinary, dental, and optical practices, Clinevo delivers intelligent AI receptionist and front-of-house automation that works the way a clinic actually works. Not the way a tech company thinks it does.</p>
+        </div>
+      </div>
+
+      <!-- Donna -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">D</div>
+          <div>
+            <div class="team-name">Donna</div>
+            <div class="team-role">Clinical Operations Consultant</div>
+          </div>
+        </div>
+        <div class="team-bio">
+          <p>With over 13 years in clinical and healthcare operations, Donna brings deep, hands-on expertise in exactly the challenges Clinevo is built to solve.</p>
+          <p>As Operations Manager, she led facilities, team management, process improvement, and staff wellbeing across a fast-paced clinical environment. Experience that gives her a genuine understanding of what front-of-house teams face every day.</p>
+          <p>From managing complex workflows and coordinating across departments, to implementing wellbeing initiatives and driving operational efficiency, Donna has lived the operational realities that independent practices deal with at scale. She knows what good operations look like from the inside. And she knows where AI can take the friction away.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
