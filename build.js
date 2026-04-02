@@ -330,6 +330,7 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escHtml(title)} | Clinevo Blog</title>
 <meta name="description" content="${escHtml(description)}">
@@ -844,6 +845,7 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog | Clinevo — Clinical AI Insights</title>
 <meta name="description" content="Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.">
