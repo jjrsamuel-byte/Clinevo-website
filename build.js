@@ -134,7 +134,7 @@ function readPosts() {
         description: data.description || "",
         illustration: data.illustration || "default",
         illustrationPosition: data.illustrationPosition || "top",
-        sectorTag:   data.sectorTag || "Veterinary",
+        sectorTag:   data.sectorTag || "",
         topicTag:    data.topicTag || data.tag || "Clinical AI",
         html:        marked.parse(content),
       };
@@ -766,7 +766,7 @@ ${nav}
 <div class="post-hero">
   <div class="post-hero-inner">
     <div class="post-hero-meta">
-      <span class="post-hero-tag sector">${escHtml(sectorTag)}</span>
+      ${sectorTag ? `<span class="post-hero-tag sector">${escHtml(sectorTag)}</span>` : ""}
       <span class="post-hero-tag topic">${escHtml(topicTag)}</span>
       ${date ? `<span class="post-hero-date">${formatDate(date)}</span>` : ""}
     </div>
@@ -842,7 +842,7 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
         </div>
         <a href="/blog/posts/${slug}.html" class="blog-card-body">
           <span class="blog-card-tags">
-            <span class="blog-card-tag sector">${escHtml(sectorTag)}</span>
+            ${sectorTag ? `<span class="blog-card-tag sector">${escHtml(sectorTag)}</span>` : ""}
             <span class="blog-card-tag topic">${escHtml(topicTag)}</span>
           </span>
           <h2>${escHtml(title)}</h2>
