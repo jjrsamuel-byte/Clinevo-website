@@ -134,7 +134,8 @@ function readPosts() {
         description: data.description || "",
         illustration: data.illustration || "default",
         illustrationPosition: data.illustrationPosition || "top",
-        tag:         data.tag || "Clinical AI",
+        sectorTag:   data.sectorTag || "Veterinary",
+        topicTag:    data.topicTag || data.tag || "Clinical AI",
         html:        marked.parse(content),
       };
     })
@@ -325,7 +326,7 @@ function getIllustration(key) {
   return ILLUSTRATIONS[key] || ILLUSTRATIONS.default;
 }
 
-function postPage({ slug, title, date, description, illustration, illustrationPosition, tag, html }, { nav, footer, headExtras }) {
+function postPage({ slug, title, date, description, illustration, illustrationPosition, sectorTag, topicTag, html }, { nav, footer, headExtras }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -400,10 +401,16 @@ ${headExtras}
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--b-near-black);
-  background: var(--b-signal);
   padding: 5px 14px;
   border-radius: 100px;
+}
+.post-hero-tag.sector {
+  color: var(--b-near-black);
+  background: var(--b-signal);
+}
+.post-hero-tag.topic {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
 }
 .post-hero-date {
   font-family: var(--f-display);
@@ -759,7 +766,8 @@ ${nav}
 <div class="post-hero">
   <div class="post-hero-inner">
     <div class="post-hero-meta">
-      <span class="post-hero-tag">${escHtml(tag)}</span>
+      <span class="post-hero-tag sector">${escHtml(sectorTag)}</span>
+      <span class="post-hero-tag topic">${escHtml(topicTag)}</span>
       ${date ? `<span class="post-hero-date">${formatDate(date)}</span>` : ""}
     </div>
     <h1>${escHtml(title)}</h1>
@@ -827,13 +835,16 @@ ${footer}
 
 function blogIndexPage(posts, { nav, footer, headExtras }) {
   const postCards = posts.length
-    ? posts.map(({ slug, title, date, description, tag }) => `
+    ? posts.map(({ slug, title, date, description, sectorTag, topicTag }) => `
       <article class="blog-card">
         <div class="blog-card-banner" aria-hidden="true">
           ${date ? `<span class="blog-card-banner-date">${formatDate(date)}</span>` : ""}
         </div>
         <a href="/blog/posts/${slug}.html" class="blog-card-body">
-          <span class="blog-card-tag">${escHtml(tag)}</span>
+          <span class="blog-card-tags">
+            <span class="blog-card-tag sector">${escHtml(sectorTag)}</span>
+            <span class="blog-card-tag topic">${escHtml(topicTag)}</span>
+          </span>
           <h2>${escHtml(title)}</h2>
           ${description ? `<p>${escHtml(description)}</p>` : ""}
           <span class="blog-card-link">Read article &rarr;</span>
@@ -973,6 +984,12 @@ ${headExtras}
   padding: 20px 24px 24px;
   text-decoration: none;
 }
+.blog-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
 .blog-card-tag {
   display: inline-block;
   font-family: 'Outfit', sans-serif;
@@ -980,11 +997,16 @@ ${headExtras}
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #534AB7;
-  background: rgba(83,74,183,0.08);
   padding: 3px 10px;
   border-radius: 100px;
-  margin-bottom: 12px;
+}
+.blog-card-tag.sector {
+  color: #0F6E56;
+  background: rgba(69,196,188,0.12);
+}
+.blog-card-tag.topic {
+  color: #534AB7;
+  background: rgba(83,74,183,0.08);
 }
 .blog-card h2 {
   font-family: 'Outfit', sans-serif;

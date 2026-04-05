@@ -4,7 +4,8 @@ date: "2026-03-24"
 description: "Most AI tools fail in clinical practices not because the technology is bad, but because no one asked the right questions before switching them on. A practical guide from Clinevo."
 slug: "why-ai-tools-fail-clinical-practices"
 illustration: "default"
-tag: "Clinical AI"
+sectorTag: "Veterinary"
+topicTag: "Clinical AI"
 ---
 
 Most AI tools that land in clinical practices do not fail because the technology is bad. They fail because no one asked the right questions before switching them on.

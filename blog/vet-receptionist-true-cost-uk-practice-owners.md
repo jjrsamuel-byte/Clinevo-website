@@ -5,7 +5,8 @@ description: "The true cost of employing a vet receptionist goes far beyond sala
 slug: "vet-receptionist-true-cost-uk-practice-owners"
 illustration: "cost"
 illustrationPosition: "inline"
-tag: "Practice Management"
+sectorTag: "Veterinary"
+topicTag: "Practice Management"
 ---
 
 You know your receptionist's salary. But do you know what they actually cost your practice?
