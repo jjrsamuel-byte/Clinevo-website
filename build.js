@@ -678,6 +678,31 @@ ${headExtras}
   border-top: 1px solid var(--b-border);
   margin: 48px 0;
 }
+.post-body .sources {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(15,25,35,0.4);
+  margin-top: -12px;
+}
+.post-body .sources strong {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(15,25,35,0.35);
+}
+.post-body .sources ul {
+  margin: 8px 0 0;
+  padding: 0;
+}
+.post-body .sources ul li {
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: none;
+  color: rgba(15,25,35,0.4);
+}
+.post-body .sources ul li::before {
+  color: rgba(15,25,35,0.2);
+}
 
 /* Pull quote — coloured box */
 .post-body blockquote {

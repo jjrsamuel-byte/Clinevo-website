@@ -88,6 +88,8 @@ AI is not coming for your reception team. It is coming for the chaos they deal w
 
 ---
 
+<div class="sources">
+
 **Sources**
 
 - Frontiers in AI — Perceptions of AI among healthcare staff
@@ -98,3 +100,5 @@ AI is not coming for your reception team. It is coming for the chaos they deal w
 - Arini — No-show reduction data
 - IntuitionLabs — AI adoption in private practice
 - Master of Code — AI in healthcare statistics
+
+</div>
