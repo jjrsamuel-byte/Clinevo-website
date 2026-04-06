@@ -5,6 +5,7 @@ description: "Most practice teams fear AI means redundancies. The data tells a v
 slug: "ai-not-here-to-replace-your-reception-team"
 illustration: "teamai"
 topicTag: "Clinical AI"
+author: "Donna"
 ---
 
 "We're not interested."

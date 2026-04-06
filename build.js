@@ -136,6 +136,7 @@ function readPosts() {
         illustrationPosition: data.illustrationPosition || "top",
         sectorTag:   data.sectorTag || "",
         topicTag:    data.topicTag || data.tag || "Clinical AI",
+        author:      data.author || "",
         html:        marked.parse(content),
       };
     })
@@ -397,7 +398,13 @@ function getIllustration(key) {
   return ILLUSTRATIONS[key] || ILLUSTRATIONS.default;
 }
 
-function postPage({ slug, title, date, description, illustration, illustrationPosition, sectorTag, topicTag, html }, { nav, footer, headExtras }) {
+const AUTHORS = {
+  "donna": { name: "Donna R.", initials: "DR", role: "Clinical Operations Consultant" },
+  "justin": { name: "Justin Samuel", initials: "JS", role: "Founder & CEO" },
+};
+
+function postPage({ slug, title, date, description, illustration, illustrationPosition, sectorTag, topicTag, author, html }, { nav, footer, headExtras }) {
+  const authorInfo = AUTHORS[author?.toLowerCase()] || { name: "Clinevo Team", initials: "C", role: "Clinevo \u00b7 Clinical AI Consultancy" };
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -885,10 +892,10 @@ ${nav}
 <div class="post-footer-strip">
   <div class="post-footer-strip-inner">
     <div class="post-author">
-      <div class="post-author-avatar">C</div>
+      <div class="post-author-avatar">${escHtml(authorInfo.initials)}</div>
       <div>
-        <span class="post-author-name">Clinevo Team</span>
-        <span class="post-author-role">Clinevo · Clinical AI Consultancy</span>
+        <span class="post-author-name">${escHtml(authorInfo.name)}</span>
+        <span class="post-author-role">${escHtml(authorInfo.role)}</span>
       </div>
     </div>
     <div class="post-footer-cta">
