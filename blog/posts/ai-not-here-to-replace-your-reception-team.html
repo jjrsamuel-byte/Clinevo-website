@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Clinevo — Clinical AI Insights</title>
-<meta name="description" content="Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.">
+<title>AI is not here to replace your reception team. Here is what it actually does. | Clinevo Blog</title>
+<meta name="description" content="Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://clinevo.ai/blog/index.html">
-<meta property="og:title" content="Blog | Clinevo">
-<meta property="og:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://clinevo.ai/blog/index.html">
+<link rel="canonical" href="https://clinevo.ai/blog/posts/ai-not-here-to-replace-your-reception-team.html">
+<meta property="og:title" content="AI is not here to replace your reception team. Here is what it actually does.">
+<meta property="og:description" content="Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinevo.ai/blog/posts/ai-not-here-to-replace-your-reception-team.html">
 <meta property="og:site_name" content="Clinevo">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1TJ6NS70"></script>
 <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-SX1TJ6NS70');</script>
@@ -1100,180 +1100,417 @@ footer {
 }
 </style>
 <style>
-/* ── Blog index ── */
-.blog-hero {
+:root {
+  --b-purple:     #534AB7;
+  --b-purple-bg:  #2C2870;
+  --b-signal:     #45C4BC;
+  --b-near-black: #0F1923;
+  --b-off-white:  #DCE0EC;
+  --b-light-bg:   #F0F1F8;
+  --b-body-color: #4A5A70;
+  --b-border:     rgba(83,74,183,0.1);
+  --f-display:    'Outfit', sans-serif;
+  --f-body:       'DM Sans', sans-serif;
+}
+
+/* ── Hero banner ── */
+.post-hero {
   padding-top: 82px;
-  background: #0F1923;
+  background: var(--b-near-black);
   position: relative;
   overflow: hidden;
 }
-.blog-hero::before {
+.post-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 100% at 90% 50%, rgba(83,74,183,0.3) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 80% at 5% 80%, rgba(69,196,188,0.1) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(83,74,183,0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(69,196,188,0.12) 0%, transparent 60%);
+  pointer-events: none;
 }
-.blog-hero::after {
+/* SVG grid pattern */
+.post-hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'%3E%3Cpath d='M60 0L0 0 0 60'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
-.blog-hero-inner {
+.post-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 56px 40px 60px;
   position: relative;
   z-index: 1;
 }
-.blog-hero-tag {
-  display: inline-block;
-  font-family: 'Outfit', sans-serif;
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.post-hero-tag {
+  font-family: var(--f-display);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #0F1923;
-  background: #45C4BC;
   padding: 5px 14px;
   border-radius: 100px;
-  margin-bottom: 24px;
 }
-.blog-hero-inner h1 {
-  font-family: 'Outfit', sans-serif;
+.post-hero-tag.sector {
+  color: var(--b-near-black);
+  background: var(--b-signal);
+}
+.post-hero-tag.topic {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+.post-hero-date {
+  font-family: var(--f-display);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(220,224,236,0.45);
+  letter-spacing: 0.04em;
+}
+.post-hero h1 {
+  font-family: var(--f-display);
   font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.1;
-  color: #DCE0EC;
-  margin-bottom: 16px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  max-width: 800px;
 }
-.blog-hero-inner p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
+.post-hero-desc {
+  font-family: var(--f-body);
+  font-size: 17px;
   font-weight: 300;
-  color: rgba(220,224,236,0.5);
-  max-width: 52ch;
+  color: rgba(220,224,236,0.6);
   line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 32px;
 }
+.post-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.post-hero-breadcrumb a {
+  color: rgba(220,224,236,0.45);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.post-hero-breadcrumb a:hover { color: var(--b-signal); }
+.post-hero-breadcrumb span { opacity: 0.3; }
 
-/* Grid */
-.blog-index-wrap {
-  background: #F4F5FA;
-  padding: 56px 40px 100px;
+/* ── Page body ── */
+.blog-post-wrap {
+  background: #FAFAFA;
 }
-.blog-index-inner {
+.post-container {
   max-width: 1200px;
   margin: 0 auto;
-}
-.blog-grid {
+  padding: 64px 40px 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 300px;
+  gap: 80px;
+  align-items: start;
 }
 
-/* Cards */
-.blog-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(83,74,183,0.1);
+/* Decorative illustration */
+.post-illustration {
+  margin-bottom: 48px;
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s;
-  box-shadow: 0 2px 8px rgba(83,74,183,0.06);
-}
-.blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(83,74,183,0.12);
-  border-color: rgba(83,74,183,0.22);
-}
-
-/* Subtle brand-tinted banner top of each card */
-.blog-card-banner {
-  position: relative;
-  height: 56px;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.06) 100%);
-  border-bottom: 1px solid rgba(83,74,183,0.08);
-}
-.blog-card-banner-date {
-  position: absolute;
-  bottom: 10px;
-  left: 16px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #534AB7;
-  z-index: 1;
-}
-
-.blog-card-body {
-  display: block;
-  padding: 20px 24px 24px;
-  text-decoration: none;
-}
-.blog-card-tags {
+  background: linear-gradient(135deg, rgba(83,74,183,0.05) 0%, rgba(69,196,188,0.05) 100%);
+  border: 1px solid var(--b-border);
+  padding: 40px;
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+  justify-content: center;
+  align-items: center;
 }
-.blog-card-tag {
-  display: inline-block;
-  font-family: 'Outfit', sans-serif;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 100px;
-}
-.blog-card-tag.sector {
-  color: #0F6E56;
-  background: rgba(69,196,188,0.12);
-}
-.blog-card-tag.topic {
-  color: #534AB7;
-  background: rgba(83,74,183,0.08);
-}
-.blog-card h2 {
-  font-family: 'Outfit', sans-serif;
+.post-illustration svg { width: 100%; max-width: 600px; height: auto; }
+
+/* Body copy */
+.post-body p {
+  font-family: var(--f-body);
   font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  margin-bottom: 22px;
+}
+
+/* H2 with teal accent bar */
+.post-body h2 {
+  font-family: var(--f-display);
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.2px;
-  line-height: 1.3;
-  color: #0F1923;
-  margin-bottom: 10px;
+  line-height: 1.25;
+  color: var(--b-near-black);
+  margin: 48px 0 16px;
+  padding-top: 8px;
+  position: relative;
 }
-.blog-card p {
-  font-family: 'DM Sans', sans-serif;
+.post-body h2::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--b-signal);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+/* H3 with purple left accent */
+.post-body h3 {
+  font-family: var(--f-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--b-purple);
+  margin: 32px 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid rgba(83,74,183,0.2);
+}
+
+.post-body strong { color: var(--b-near-black); font-weight: 600; }
+.post-body a { color: var(--b-purple); text-decoration: underline; text-underline-offset: 3px; }
+.post-body a:hover { color: var(--b-purple-bg); }
+
+/* Unordered lists with teal dot markers */
+.post-body ul {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+}
+.post-body ul li {
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
+}
+.post-body ul li:last-child { border-bottom: none; }
+.post-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--b-signal);
+}
+
+/* Ordered lists with purple numbered circles */
+.post-body ol {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+  counter-reset: post-counter;
+}
+.post-body ol li {
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  padding: 10px 0 10px 44px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
+  counter-increment: post-counter;
+}
+.post-body ol li:last-child { border-bottom: none; }
+.post-body ol li::before {
+  content: counter(post-counter);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--b-purple);
+  color: white;
+  font-family: var(--f-display);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--b-border);
+  margin: 48px 0;
+}
+
+/* Pull quote — coloured box */
+.post-body blockquote {
+  border-left: 4px solid var(--b-purple);
+  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.04) 100%);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.post-body blockquote p {
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--b-purple);
+  line-height: 1.55;
+  margin-bottom: 0;
+  font-style: normal;
+}
+
+.post-body code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  background: var(--b-light-bg);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: var(--b-purple);
+}
+.post-body pre {
+  background: var(--b-near-black);
+  border-radius: 10px;
+  padding: 24px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+.post-body pre code { background: none; color: var(--b-off-white); font-size: 14px; padding: 0; }
+
+/* Sidebar */
+.sidebar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--b-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 2px 12px rgba(83,74,183,0.07);
+}
+.sidebar-card-top {
+  background: var(--b-purple-bg);
+  padding: 24px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-card-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 100% at 80% 50%, rgba(69,196,188,0.2) 0%, transparent 65%);
+}
+.sidebar-card-top h3 {
+  font-family: var(--f-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.3;
+}
+.sidebar-card-top p {
+  font-family: var(--f-body);
   font-size: 13px;
   font-weight: 300;
-  line-height: 1.7;
-  color: #4A5A70;
-  margin-bottom: 18px;
+  color: rgba(220,224,236,0.65);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
 }
-.blog-card-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: #534AB7;
-  letter-spacing: 0.01em;
+.sidebar-card-body {
+  padding: 20px 24px 24px;
 }
-.blog-empty {
-  font-family: 'DM Sans', sans-serif;
+.sidebar-card-body .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+  display: flex;
+}
+
+/* Related / author strip */
+.post-footer-strip {
+  background: var(--b-near-black);
+  padding: 56px 40px;
+  margin-top: 0;
+}
+.post-footer-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.post-author-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--b-purple) 0%, var(--b-signal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.post-author-name {
+  font-family: var(--f-display);
   font-size: 15px;
-  color: #4A5A70;
-  grid-column: 1 / -1;
+  font-weight: 600;
+  color: var(--b-off-white);
+  display: block;
+  margin-bottom: 3px;
+}
+.post-author-role {
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(220,224,236,0.4);
+}
+.post-footer-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.post-footer-cta p {
+  font-family: var(--f-body);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(220,224,236,0.5);
+  max-width: 280px;
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {
-  .blog-hero-inner { padding: 40px 24px 48px; }
-  .blog-index-wrap { padding: 40px 24px 60px; }
-  .blog-grid { grid-template-columns: 1fr; }
+  .post-hero-inner { padding: 40px 24px 48px; }
+  .post-container { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px 60px; }
+  .sidebar-card { position: static; }
+  .post-footer-strip { padding: 40px 24px; }
+  .post-footer-strip-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
 </style>
 </head>
@@ -1316,77 +1553,148 @@ footer {
   </div>
 </nav>
 
-<div class="blog-hero">
-  <div class="blog-hero-inner">
-    <span class="blog-hero-tag">Clinevo Blog</span>
-    <h1>Clinical AI Insights</h1>
-    <p>Practical articles for practice owners and managers. No hype. Just what actually works.</p>
+<!-- Dark hero banner with brand gradients -->
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <div class="post-hero-meta">
+      
+      <span class="post-hero-tag topic">Clinical AI</span>
+      <span class="post-hero-date">6 April 2026</span>
+    </div>
+    <h1>AI is not here to replace your reception team. Here is what it actually does.</h1>
+    <p class="post-hero-desc">Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still.</p>
+    <div class="post-hero-breadcrumb">
+      <a href="/index.html">Home</a>
+      <span>›</span>
+      <a href="/blog/index.html">Blog</a>
+      <span>›</span>
+      <span>AI is not here to replace your reception team. Here is what it actually does.</span>
+    </div>
   </div>
 </div>
 
-<div class="blog-index-wrap">
-  <div class="blog-index-inner">
-    <div class="blog-grid">
+<div class="blog-post-wrap">
+  <div class="post-container">
+    <main class="post-main">
+      <div class="post-illustration">
+        <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="40" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="40" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="80" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="120" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="40" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="80" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="120" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="160" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="200" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="240" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="280" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="320" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="360" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="400" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="440" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="480" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="520" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/><circle cx="560" cy="160" r="1.5" fill="rgba(83,74,183,0.2)"/>
+          <line x1="110" y1="100" x2="190" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="250" y1="100" x2="330" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="390" y1="100" x2="470" y2="100" stroke="rgba(83,74,183,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M 60 160 A 80 80 0 0 1 60 40" stroke="rgba(83,74,183,0.18)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 70 155 A 65 65 0 0 1 70 45" stroke="rgba(83,74,183,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="80" cy="100" r="28" fill="rgba(83,74,183,0.07)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="18" fill="rgba(83,74,183,0.1)" stroke="rgba(83,74,183,0.5)" stroke-width="1.5"/>
+          <circle cx="80" cy="100" r="7" fill="#534AB7"/>
+          <path d="M195 97 L210 100 L195 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="220" cy="100" r="28" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <path d="M 208 84 A 20 20 0 0 1 232 84" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 208 116 A 20 20 0 0 0 232 116" stroke="#45C4BC" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="220" cy="100" r="8" fill="none" stroke="#45C4BC" stroke-width="2"/>
+          <circle cx="220" cy="100" r="3" fill="#45C4BC"/>
+          <path d="M335 97 L350 100 L335 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="360" cy="100" r="30" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1"/>
+          <circle cx="360" cy="100" r="22" fill="rgba(83,74,183,0.08)" stroke="rgba(83,74,183,0.35)" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="14" fill="rgba(83,74,183,0.12)" stroke="#534AB7" stroke-width="1.5"/>
+          <circle cx="360" cy="100" r="6" fill="#534AB7"/>
+          <circle cx="360" cy="70" r="4" fill="rgba(69,196,188,0.7)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="386" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <circle cx="334" cy="88" r="3" fill="rgba(69,196,188,0.5)" stroke="#45C4BC" stroke-width="1"/>
+          <line x1="360" y1="94" x2="360" y2="74" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="366" y1="95" x2="383" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <line x1="354" y1="95" x2="337" y2="91" stroke="rgba(69,196,188,0.4)" stroke-width="1"/>
+          <path d="M475 97 L490 100 L475 103" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="510" cy="100" r="28" fill="rgba(15,110,86,0.07)" stroke="rgba(15,110,86,0.3)" stroke-width="1.5"/>
+          <circle cx="510" cy="100" r="18" fill="rgba(15,110,86,0.1)" stroke="rgba(15,110,86,0.5)" stroke-width="1.5"/>
+          <path d="M500 100 L507 108 L522 90" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 530 40 A 50 50 0 0 1 580 90" stroke="rgba(69,196,188,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 540 40 A 38 38 0 0 1 578 78" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="55" r="5" fill="none" stroke="rgba(69,196,188,0.4)" stroke-width="1.5"/><circle cx="150" cy="55" r="2" fill="rgba(69,196,188,0.4)"/>
+          <circle cx="290" cy="60" r="4" fill="none" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <circle cx="430" cy="148" r="5" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/><circle cx="430" cy="148" r="2" fill="rgba(69,196,188,0.35)"/>
+          <circle cx="170" cy="145" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <text x="80" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">INTAKE</text>
+          <text x="220" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.5">WORKFLOW</text>
+          <text x="360" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.5">AI LAYER</text>
+          <text x="510" y="140" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.5)" font-weight="600" letter-spacing="0.5">OUTCOME</text>
+        </svg>
+      </div>
+      <div class="post-body">
+        <p>&quot;We&#39;re not interested.&quot;</p>
+<p>&quot;We don&#39;t need it.&quot;</p>
+<p>If you run a veterinary, dental, or optical practice, you have probably heard your reception team say something like this when AI comes up. Maybe you have said it yourself. The hesitation is understandable. When most people hear &quot;AI in the workplace,&quot; they picture redundancies, not relief.</p>
+<p>But the data tells a very different story. And practices that ignore it are already falling behind.</p>
+<h2>The fear is real. The threat is not.</h2>
+<p>A <a href="https://www.frontiersin.org/journals/artificial-intelligence">Frontiers in Artificial Intelligence</a> study found that poor knowledge of AI, fear of job loss, and resistance to change are the three biggest barriers to adoption in clinical settings. A separate survey showed 85% of healthcare leaders worry about automation in the workplace.</p>
+<p>Here is what those same leaders say when asked what AI actually does: 88% of hospital leaders expect administrative support tools to be the most impactful AI application in their organisation. Not clinical replacement. Not diagnostic automation. Admin support. The tasks your reception team already struggles to keep on top of.</p>
+<p>AI in a clinical practice does not sit in someone&#39;s chair. It picks up the phone at 7pm when nobody else can. It confirms tomorrow&#39;s appointments while your team is triaging a walk-in. It handles the fifth call about opening hours so your receptionist can deal with the anxious client in front of them.</p>
+<p>That is not replacement. That is backup.</p>
+<h2>What clinics are actually losing right now</h2>
+<p>The average veterinary practice receives between 75 and 150 phone calls per day. Industry data shows that practices miss 20 to 30% of those calls during business hours. During peak periods, that figure can climb above 35%.</p>
+<p>The consequences are not abstract. 85% of callers who do not get through will not call back. 48% immediately search for a competitor. 72% of after-hours callers will not leave a voicemail. They simply disappear.</p>
+<p>For dental practices handling high volumes of NHS and private bookings, the picture is similar. Optical practices running recall-heavy models lose clients not because the service was poor, but because nobody answered the phone.</p>
+<p>The revenue impact is significant. Research suggests medical practices lose an average of £120,000 per year to missed calls and scheduling inefficiency. Each unanswered call represents between £80 and £950 in lost revenue, depending on the service.</p>
+<p>Your reception team is not failing. They are overwhelmed. And asking them to work harder is not a strategy. Giving them better tools is.</p>
+<h2>AI as the enabler, not the replacement</h2>
+<p>When a practice introduces AI to handle front-of-house tasks, the admin team does not shrink. Their day changes.</p>
+<p>Instead of spending 60% of their time on the phone answering repetitive questions, they spend it on the work that actually requires a human. Complex client queries. Sensitive conversations. In-person care. The things they trained for and the things that make them good at their job.</p>
+<p>The numbers support this. 94% of healthcare executives surveyed believe AI-driven tools improve productivity and free staff for higher-value tasks. Practices using AI-assisted scheduling and call handling report 40 to 60% cost reductions in reception-related expenses. Not because they fired anyone. Because the waste disappeared. Fewer missed calls. Fewer no-shows. Fewer double bookings. Less time on hold.</p>
+<p>Automated appointment reminders alone reduce no-show rates by 29 to 36%, recovering between £35,000 and £72,000 annually for a mid-size practice. That is money that was already being lost. AI simply stops the leak.</p>
+<h2>The brand perception shift</h2>
+<p>Here is something practice owners rarely consider. The client experience of calling your practice is your brand.</p>
+<p>When a pet owner calls at 8pm about a limping dog and gets a voicemail, that is a brand experience. When a dental patient tries to rebook a cancelled appointment and sits on hold for twelve minutes, that is a brand experience. When an optical client calls to ask about their prescription and never gets through, that is a brand experience.</p>
+<p>41% of patients in one study reported switching providers at least partly due to difficulty reaching their practice by phone. They did not leave because the clinical care was poor. They left because nobody picked up.</p>
+<p>Practices that answer every call, confirm every appointment, and respond outside hours are not doing anything extraordinary. They are simply meeting the expectation that every other service industry already meets. AI makes that possible without tripling your reception headcount.</p>
+<h2>The practices that move first will move furthest</h2>
+<p>AI adoption in healthcare has increased tenfold since 2023. 22% of healthcare organisations have now implemented domain-specific AI tools. That number was 3% two years ago.</p>
+<p>A Deloitte report on AI in healthcare warns that early adopters are forming a reinforcing cycle. Greater readiness leads to more confident investment, which delivers larger savings, which funds deeper process redesign. The competitive implication is clear. Practices that adopt early capture productivity gains and reinvest them into growth, experience, and resilience. Practices that wait arrive later to a lower return ceiling.</p>
+<p>Morgan Stanley estimates that AI tools in healthcare can deliver 10 to 20% cost savings in staffing, scheduling, and operations. For a practice spending £180,000 a year on front-of-house operations, that is £18,000 to £36,000 back in the budget. Not from cutting staff. From cutting waste.</p>
+<p>The gap between early adopters and late movers is not closing. It is widening. And in a market where independent practices compete against consolidators with deeper pockets and bigger teams, efficiency is not optional. It is survival.</p>
+<h2>What &quot;we don&#39;t need it&quot; really means</h2>
+<p>When a receptionist says &quot;we don&#39;t need AI,&quot; they are usually saying something else entirely. &quot;I don&#39;t understand what it does.&quot; &quot;I&#39;m worried it means I&#39;m not needed.&quot; &quot;Nobody has explained how this helps me.&quot;</p>
+<p>Those are fair concerns. And they deserve honest answers, not a sales pitch.</p>
+<p>AI does not learn to do your job. It learns to do the parts of your job that stop you from doing your job well. The hold music. The voicemail. The sixth call about parking. The 3am hang-up. The no-show that could have been prevented with a text reminder sent at the right time.</p>
+<p>The practices getting this right are not forcing AI on their teams. They are involving them from day one. Showing them what changes and what does not. Letting them see the data. When reception staff see 30% fewer missed calls and a lighter phone queue by lunchtime, the conversation shifts quickly from &quot;we don&#39;t need it&quot; to &quot;why didn&#39;t we do this sooner.&quot;</p>
+<h2>The real risk is standing still</h2>
+<p>The objection is never really about AI. It is about change. And change feels risky when you are already stretched thin.</p>
+<p>But the data is unambiguous. Practices adopting AI for front-of-house operations are seeing lower costs, higher revenue, better client retention, and less staff burnout. Practices that wait are losing clients to missed calls, losing revenue to no-shows, and losing staff to workloads that never let up.</p>
+<p>AI is not coming for your reception team. It is coming for the chaos they deal with every day. The only question is whether your practice gives them that advantage now, or watches competitors do it first.</p>
+
+      </div>
       
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">6 April 2026</span>
-        </div>
-        <a href="/blog/posts/ai-not-here-to-replace-your-reception-team.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            
-            <span class="blog-card-tag topic">Clinical AI</span>
-          </span>
-          <h2>AI is not here to replace your reception team. Here is what it actually does.</h2>
-          <p>Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+    </main>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">31 March 2026</span>
+    <aside class="post-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-top">
+          <h3>Interested in AI for your practice?</h3>
+          <p>Book a free 30-minute consultation. No pitch. No pressure.</p>
         </div>
-        <a href="/blog/posts/vet-receptionist-true-cost-uk-practice-owners.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Veterinary</span>
-            <span class="blog-card-tag topic">Practice Management</span>
-          </span>
-          <h2>What does a vet receptionist really cost? The numbers every practice owner should know</h2>
-          <p>The true cost of employing a vet receptionist goes far beyond salary. Here's the honest breakdown every UK practice owner needs to see.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+        <div class="sidebar-card-body">
+          <a href="/consultation.html" class="btn btn-primary">Book a free consultation &rarr;</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">30 March 2026</span>
-        </div>
-        <a href="/blog/posts/cma-veterinary-report-2026-independent-practice-guide.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Veterinary</span>
-            <span class="blog-card-tag topic">Practice Management</span>
-          </span>
-          <h2>CMA veterinary report 2026: what independent practices need to do</h2>
-          <p>The CMA's final veterinary report brings six new requirements by September 2026. Here is what independent practices need to know without the panic or spin.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">24 March 2026</span>
-        </div>
-        <a href="/blog/posts/why-ai-tools-fail-clinical-practices.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            
-            <span class="blog-card-tag topic">Clinical AI</span>
-          </span>
-          <h2>Why Most AI Tools Fail in Clinical Practices</h2>
-          <p>Most AI tools fail in clinical practices not because the technology is bad, but because no one asked the right questions before switching them on. A practical guide from Clinevo.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+<!-- Author / CTA footer strip -->
+<div class="post-footer-strip">
+  <div class="post-footer-strip-inner">
+    <div class="post-author">
+      <div class="post-author-avatar">C</div>
+      <div>
+        <span class="post-author-name">Clinevo Team</span>
+        <span class="post-author-role">Clinevo · Clinical AI Consultancy</span>
+      </div>
+    </div>
+    <div class="post-footer-cta">
+      <p>Clinevo helps veterinary, optical, and dental practices implement AI that actually works.</p>
+      <a href="/consultation.html" class="btn btn-teal">Free consultation &rarr;</a>
     </div>
   </div>
 </div>
