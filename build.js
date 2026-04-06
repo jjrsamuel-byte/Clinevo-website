@@ -696,12 +696,15 @@ ${headExtras}
 }
 .post-body .sources ul li {
   font-size: 12px;
-  padding: 4px 0;
+  padding: 3px 0 3px 16px;
   border-bottom: none;
   color: rgba(15,25,35,0.4);
 }
 .post-body .sources ul li::before {
-  color: rgba(15,25,35,0.2);
+  width: 5px;
+  height: 5px;
+  top: 10px;
+  background: rgba(15,25,35,0.18);
 }
 
 /* Pull quote — coloured box */
