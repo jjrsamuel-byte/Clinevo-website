@@ -85,3 +85,16 @@ The objection is never really about AI. It is about change. And change feels ris
 But the data is unambiguous. Practices adopting AI for front-of-house operations are seeing lower costs, higher revenue, better client retention, and less staff burnout. Practices that wait are losing clients to missed calls, losing revenue to no-shows, and losing staff to workloads that never let up.
 
 AI is not coming for your reception team. It is coming for the chaos they deal with every day. The only question is whether your practice gives them that advantage now, or watches competitors do it first.
+
+---
+
+**Sources**
+
+- Frontiers in AI — Perceptions of AI among healthcare staff
+- Deloitte — Agentic AI in healthcare
+- Menlo Ventures — 2025 State of AI in Healthcare
+- AgentZap — Veterinary practice phone statistics
+- AgentZap — Medical practice phone statistics
+- Arini — No-show reduction data
+- IntuitionLabs — AI adoption in private practice
+- Master of Code — AI in healthcare statistics
