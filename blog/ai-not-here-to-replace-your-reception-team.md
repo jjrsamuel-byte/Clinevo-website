@@ -3,7 +3,7 @@ title: "AI is not here to replace your reception team. Here is what it actually 
 date: "2026-04-06"
 description: "Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still."
 slug: "ai-not-here-to-replace-your-reception-team"
-illustration: "default"
+illustration: "teamai"
 topicTag: "Clinical AI"
 ---
 

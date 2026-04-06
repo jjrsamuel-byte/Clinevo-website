@@ -320,6 +320,77 @@ const ILLUSTRATIONS = {
           <circle cx="250" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="250" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
           <circle cx="420" cy="155" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
         </svg>`,
+  teamai: `<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="30" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="70" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="110" r="1.5" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="40" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="80" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="120" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="160" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="200" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="240" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="280" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="320" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="360" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="400" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="440" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="480" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="520" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/><circle cx="560" cy="150" r="1.5" fill="rgba(83,74,183,0.15)"/>
+
+          <!-- Connecting arc between person and AI -->
+          <path d="M195 85 Q300 30 405 85" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M205 80 Q300 40 395 80" fill="none" stroke="rgba(69,196,188,0.15)" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Data flow pulses along arc -->
+          <circle cx="250" cy="52" r="3" fill="rgba(69,196,188,0.5)"/>
+          <circle cx="300" cy="40" r="2.5" fill="rgba(83,74,183,0.4)"/>
+          <circle cx="350" cy="52" r="3" fill="rgba(69,196,188,0.5)"/>
+
+          <!-- Left: Person icon (reception team) -->
+          <circle cx="170" cy="95" r="38" fill="rgba(83,74,183,0.05)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <circle cx="170" cy="95" r="28" fill="rgba(83,74,183,0.07)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <!-- Head -->
+          <circle cx="170" cy="82" r="9" fill="none" stroke="#534AB7" stroke-width="2"/>
+          <!-- Shoulders -->
+          <path d="M152 112 Q161 100 170 98 Q179 100 188 112" fill="none" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <!-- Label -->
+          <text x="170" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.4">YOUR TEAM</text>
+
+          <!-- Centre: Plus symbol -->
+          <circle cx="300" cy="95" r="16" fill="rgba(69,196,188,0.08)" stroke="rgba(69,196,188,0.3)" stroke-width="1.5"/>
+          <line x1="293" y1="95" x2="307" y2="95" stroke="#45C4BC" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="300" y1="88" x2="300" y2="102" stroke="#45C4BC" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Right: AI icon -->
+          <circle cx="430" cy="95" r="38" fill="rgba(15,110,86,0.04)" stroke="rgba(15,110,86,0.12)" stroke-width="1"/>
+          <circle cx="430" cy="95" r="28" fill="rgba(15,110,86,0.06)" stroke="rgba(15,110,86,0.25)" stroke-width="1.5"/>
+          <!-- Bot face outline -->
+          <rect x="414" y="80" width="32" height="24" rx="6" fill="none" stroke="#0F6E56" stroke-width="2"/>
+          <!-- Eyes -->
+          <circle cx="423" cy="91" r="3" fill="#0F6E56"/>
+          <circle cx="437" cy="91" r="3" fill="#0F6E56"/>
+          <!-- Antenna -->
+          <line x1="430" y1="80" x2="430" y2="72" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="430" cy="70" r="2.5" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+          <!-- Signal arcs from antenna -->
+          <path d="M423 66 A10 10 0 0 1 437 66" fill="none" stroke="rgba(15,110,86,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M419 62 A15 15 0 0 1 441 62" fill="none" stroke="rgba(15,110,86,0.2)" stroke-width="1" stroke-linecap="round"/>
+          <!-- Label -->
+          <text x="430" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" fill="rgba(15,110,86,0.55)" font-weight="600" letter-spacing="0.4">AI BACKUP</text>
+
+          <!-- Bottom: task flow icons -->
+          <circle cx="120" cy="170" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.2"/>
+          <line x1="128" y1="170" x2="168" y2="170" stroke="rgba(83,74,183,0.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="176" cy="170" r="4" fill="none" stroke="rgba(69,196,188,0.35)" stroke-width="1.2"/><circle cx="176" cy="170" r="1.5" fill="rgba(69,196,188,0.35)"/>
+          <line x1="184" y1="170" x2="224" y2="170" stroke="rgba(69,196,188,0.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="232" cy="170" r="4" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="1.2"/>
+
+          <circle cx="368" cy="170" r="4" fill="none" stroke="rgba(15,110,86,0.25)" stroke-width="1.2"/>
+          <line x1="376" y1="170" x2="416" y2="170" stroke="rgba(15,110,86,0.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="424" cy="170" r="4" fill="none" stroke="rgba(15,110,86,0.35)" stroke-width="1.2"/><circle cx="424" cy="170" r="1.5" fill="rgba(15,110,86,0.35)"/>
+          <line x1="432" y1="170" x2="472" y2="170" stroke="rgba(15,110,86,0.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="480" cy="170" r="4" fill="none" stroke="rgba(15,110,86,0.25)" stroke-width="1.2"/>
+
+          <!-- Decorative arcs -->
+          <path d="M 50 35 A 30 30 0 0 1 50 65" stroke="rgba(83,74,183,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 555 130 A 30 30 0 0 0 555 165" stroke="rgba(69,196,188,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="100" cy="45" r="3" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.2"/>
+          <circle cx="500" cy="45" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/><circle cx="500" cy="45" r="1.3" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="540" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="540" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
+          <circle cx="60" cy="155" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
+        </svg>`,
 };
 
 function getIllustration(key) {
