@@ -53,6 +53,62 @@
   "serviceType": ["AI Consultancy", "Clinical AI Implementation", "AI Readiness Assessment", "AI Receptionist", "Recall Automation"]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI receptionist for veterinary practices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI receptionist answers incoming calls, books appointments, triages urgent cases, and handles routine enquiries — 24 hours a day, 7 days a week. It works alongside your existing team, picking up the calls they cannot get to, so no client is left on hold or sent to voicemail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will AI replace my reception staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. AI handles overflow and out-of-hours calls so your team can focus on in-person care and complex queries. Practices that adopt AI reception typically see staff satisfaction increase because repetitive tasks are reduced, not jobs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does an AI receptionist cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clinevo's AI receptionist starts from a one-off setup fee followed by a monthly managed service. The exact cost depends on call volume and the features you need. Most practices see a return on investment within 60 to 90 days through recovered missed calls alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AI reception GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Clinevo is a UK-based company and all systems are designed to comply with UK GDPR and the Data Protection Act 2018. Patient data is processed securely and never used to train third-party AI models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which types of practice does Clinevo work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clinevo works exclusively with veterinary, optical, and dental practices in the United Kingdom. Our AI tools and consulting services are built specifically for clinical environments — not generic business automation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to set up an AI receptionist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A typical AI receptionist deployment takes two to four weeks from initial consultation to go-live. This includes discovery, configuration to your practice workflows, testing, and staff onboarding."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1007,6 +1063,53 @@ nav {
 }
 
 /* ═══════════════════════════════════════════
+   FAQ
+   ═══════════════════════════════════════════ */
+.faq { padding: 100px 0; background: var(--bg-light); }
+.faq .section-header { text-align: center; margin-bottom: 48px; }
+.faq .section-header h2 { font-size: 36px; color: var(--near-black); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+  padding: 0;
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 24px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--clinevo-purple);
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item summary h3 {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--near-black);
+  line-height: 1.5;
+  margin: 0;
+}
+.faq-item p {
+  padding: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 680px;
+}
+
+/* ═══════════════════════════════════════════
    CTA — Brand Purple system (hero moment)
    ═══════════════════════════════════════════ */
 .cta-section {
@@ -1632,8 +1735,41 @@ footer {
 </section>
 
 <!-- ═══════════════════════════════════════
-     TESTIMONIALS — Primary system
+     FAQ — Primary system
      ═══════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><h3>What is an AI receptionist for veterinary practices?</h3></summary>
+        <p>An AI receptionist answers incoming calls, books appointments, triages urgent cases, and handles routine enquiries — 24 hours a day, 7 days a week. It works alongside your existing team, picking up the calls they cannot get to, so no client is left on hold or sent to voicemail.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Will AI replace my reception staff?</h3></summary>
+        <p>No. AI handles overflow and out-of-hours calls so your team can focus on in-person care and complex queries. Practices that adopt AI reception typically see staff satisfaction increase because repetitive tasks are reduced, not jobs.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>How much does an AI receptionist cost?</h3></summary>
+        <p>Clinevo's AI receptionist starts from a one-off setup fee followed by a monthly managed service. The exact cost depends on call volume and the features you need. Most practices see a return on investment within 60 to 90 days through recovered missed calls alone.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Is AI reception GDPR compliant?</h3></summary>
+        <p>Yes. Clinevo is a UK-based company and all systems are designed to comply with UK GDPR and the Data Protection Act 2018. Patient data is processed securely and never used to train third-party AI models.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Which types of practice does Clinevo work with?</h3></summary>
+        <p>Clinevo works exclusively with veterinary, optical, and dental practices in the United Kingdom. Our AI tools and consulting services are built specifically for clinical environments — not generic business automation.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>How long does it take to set up an AI receptionist?</h3></summary>
+        <p>A typical AI receptionist deployment takes two to four weeks from initial consultation to go-live. This includes discovery, configuration to your practice workflows, testing, and staff onboarding.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════
      CTA — Brand Purple system (hero moment)
