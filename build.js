@@ -41,7 +41,7 @@ function formatDate(str) {
   if (!str) return "";
   const d = new Date(str);
   if (isNaN(d.getTime())) return "";
-  return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  return d.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
 }
 
 // ─── Extract shared components from index.html ──────────────────────────────
