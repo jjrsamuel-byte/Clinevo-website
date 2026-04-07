@@ -420,6 +420,36 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinevo.ai/blog/posts/${slug}.html">
 <meta property="og:site_name" content="Clinevo">
+<meta property="og:image" content="https://clinevo.ai/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escHtml(title)}">
+<meta name="twitter:description" content="${escHtml(description)}">
+<meta name="twitter:image" content="https://clinevo.ai/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "${escHtml(title)}",
+  "description": "${escHtml(description)}",
+  "url": "https://clinevo.ai/blog/posts/${slug}.html",
+  "datePublished": "${date || ''}",
+  "author": {
+    "@type": "Person",
+    "name": "${escHtml(author || 'Clinevo Team')}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clinevo",
+    "url": "https://clinevo.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://clinevo.ai/favicon.svg"
+    }
+  },
+  "image": "https://clinevo.ai/og-default.png",
+  "mainEntityOfPage": "https://clinevo.ai/blog/posts/${slug}.html"
+}
+</script>
 ${headExtras}
 <style>
 :root {
@@ -973,6 +1003,25 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clinevo.ai/blog/index.html">
 <meta property="og:site_name" content="Clinevo">
+<meta property="og:image" content="https://clinevo.ai/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Clinevo — Clinical AI Insights">
+<meta name="twitter:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
+<meta name="twitter:image" content="https://clinevo.ai/og-default.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Clinevo Blog",
+  "url": "https://clinevo.ai/blog/index.html",
+  "description": "Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clinevo",
+    "url": "https://clinevo.ai"
+  }
+}
+</script>
 ${headExtras}
 <style>
 /* ── Blog index ── */
