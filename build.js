@@ -392,6 +392,152 @@ const ILLUSTRATIONS = {
           <circle cx="540" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="540" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
           <circle cx="60" cy="155" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
         </svg>`,
+
+  kshape: `<svg viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="70" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="110" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="150" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="190" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="230" r="1.2" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="270" r="1.2" fill="rgba(83,74,183,0.12)"/>
+
+          <!-- ═══ LEFT: Clinic building icon (starting point) ═══ -->
+          <rect x="48" y="120" width="50" height="40" rx="4" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.3)" stroke-width="1.5"/>
+          <!-- Door -->
+          <rect x="65" y="140" width="16" height="20" rx="2" fill="rgba(83,74,183,0.1)" stroke="rgba(83,74,183,0.35)" stroke-width="1"/>
+          <!-- Cross on building -->
+          <line x1="73" y1="125" x2="73" y2="137" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <line x1="67" y1="131" x2="79" y2="131" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+          <!-- Roof line -->
+          <path d="M45 120 L73 105 L101 120" fill="none" stroke="rgba(83,74,183,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="73" y="175" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">YOUR CLINIC</text>
+
+          <!-- ═══ Shared horizontal line (pre-divergence) ═══ -->
+          <line x1="105" y1="140" x2="195" y2="140" stroke="rgba(83,74,183,0.25)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Animated-look pulse dots on shared path -->
+          <circle cx="130" cy="140" r="2.5" fill="rgba(83,74,183,0.35)"/>
+          <circle cx="155" cy="140" r="2" fill="rgba(69,196,188,0.4)"/>
+          <circle cx="175" cy="140" r="2.5" fill="rgba(83,74,183,0.3)"/>
+
+          <!-- ═══ DIVERGENCE POINT ═══ -->
+          <circle cx="200" cy="140" r="14" fill="rgba(83,74,183,0.05)" stroke="rgba(83,74,183,0.2)" stroke-width="1"/>
+          <circle cx="200" cy="140" r="9" fill="rgba(83,74,183,0.08)" stroke="rgba(83,74,183,0.35)" stroke-width="1.5"/>
+          <circle cx="200" cy="140" r="4" fill="#534AB7"/>
+          <text x="200" y="170" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.4">AI DECISION</text>
+
+          <!-- ═══ UPPER PATH: AI adopters rising ═══ -->
+          <!-- Glow -->
+          <path d="M210 135 Q260 105 310 75 Q360 50 410 35" stroke="rgba(15,110,86,0.1)" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- Main line -->
+          <path d="M210 135 Q260 105 310 75 Q360 50 410 35" stroke="#0F6E56" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Upper icon 1: Phone answered (24/7 calls) -->
+          <circle cx="265" cy="98" r="18" fill="rgba(15,110,86,0.05)" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
+          <circle cx="265" cy="98" r="12" fill="rgba(15,110,86,0.08)" stroke="rgba(15,110,86,0.35)" stroke-width="1.5"/>
+          <!-- Phone handset -->
+          <path d="M259 93 Q259 89 262 89 L264 89 Q265 89 265 90 L265 94 Q265 95 264 95 L262 95" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M271 101 Q271 105 268 105 L266 105 Q265 105 265 104 L265 100 Q265 99 266 99 L268 99" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M262 95 Q256 98 268 99" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Tick beside phone -->
+          <path d="M275 94 L277 97 L282 90" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text x="265" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.2">24/7 CALLS</text>
+
+          <!-- Upper icon 2: Calendar full (bookings) -->
+          <circle cx="345" cy="58" r="18" fill="rgba(69,196,188,0.05)" stroke="rgba(69,196,188,0.2)" stroke-width="1"/>
+          <circle cx="345" cy="58" r="12" fill="rgba(69,196,188,0.08)" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/>
+          <!-- Calendar shape -->
+          <rect x="338" y="52" width="14" height="12" rx="2" fill="none" stroke="#45C4BC" stroke-width="1.5"/>
+          <line x1="338" y1="56" x2="352" y2="56" stroke="#45C4BC" stroke-width="1.2"/>
+          <!-- Calendar dots (filled slots) -->
+          <circle cx="342" cy="59" r="1.2" fill="#45C4BC"/><circle cx="345" cy="59" r="1.2" fill="#45C4BC"/><circle cx="348" cy="59" r="1.2" fill="#45C4BC"/>
+          <circle cx="342" cy="62" r="1.2" fill="#45C4BC"/><circle cx="345" cy="62" r="1.2" fill="#45C4BC"/><circle cx="348" cy="62" r="1.2" fill="#0F6E56"/>
+          <!-- Calendar handles -->
+          <line x1="342" y1="50" x2="342" y2="53" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="348" y1="50" x2="348" y2="53" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <text x="345" y="84" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.2">FULL DIARY</text>
+
+          <!-- Upper icon 3: Revenue up (growth) -->
+          <circle cx="430" cy="32" r="20" fill="rgba(15,110,86,0.05)" stroke="rgba(15,110,86,0.25)" stroke-width="1"/>
+          <circle cx="430" cy="32" r="14" fill="rgba(15,110,86,0.08)" stroke="rgba(15,110,86,0.4)" stroke-width="1.5"/>
+          <!-- Pound sign with up arrow -->
+          <text x="426" y="37" font-family="DM Sans, sans-serif" font-size="14" fill="#0F6E56" font-weight="700">£</text>
+          <path d="M437 36 L440 30 L443 36" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="440" y1="30" x2="440" y2="40" stroke="#45C4BC" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="430" y="60" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.2">REVENUE UP</text>
+
+          <!-- Upper result label -->
+          <rect x="470" y="18" width="100" height="28" rx="6" fill="rgba(15,110,86,0.06)" stroke="rgba(15,110,86,0.25)" stroke-width="1"/>
+          <text x="520" y="30" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.7)" font-weight="700" letter-spacing="0.3">AI ADOPTERS</text>
+          <text x="520" y="40" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(15,110,86,0.5)" font-weight="500">Growing, efficient, resilient</text>
+
+          <!-- ═══ LOWER PATH: Non-adopters declining ═══ -->
+          <!-- Glow -->
+          <path d="M210 145 Q260 175 310 205 Q360 230 410 245" stroke="rgba(83,74,183,0.06)" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- Main line (dashed) -->
+          <path d="M210 145 Q260 175 310 205 Q360 230 410 245" stroke="rgba(83,74,183,0.3)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="8 5"/>
+
+          <!-- Lower icon 1: Missed calls -->
+          <circle cx="265" cy="182" r="18" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <circle cx="265" cy="182" r="12" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <!-- Phone with X -->
+          <path d="M259 177 Q259 173 262 173 L264 173 Q265 173 265 174 L265 178 Q265 179 264 179 L262 179" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M271 185 Q271 189 268 189 L266 189 Q265 189 265 188 L265 184 Q265 183 266 183 L268 183" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M262 179 Q256 182 268 183" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- X mark -->
+          <line x1="274" y1="175" x2="280" y2="181" stroke="rgba(183,74,74,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="280" y1="175" x2="274" y2="181" stroke="rgba(183,74,74,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+          <text x="265" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.4)" font-weight="600" letter-spacing="0.2">MISSED CALLS</text>
+
+          <!-- Lower icon 2: Empty diary -->
+          <circle cx="345" cy="222" r="18" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <circle cx="345" cy="222" r="12" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1.5"/>
+          <!-- Empty calendar -->
+          <rect x="338" y="216" width="14" height="12" rx="2" fill="none" stroke="rgba(83,74,183,0.4)" stroke-width="1.5"/>
+          <line x1="338" y1="220" x2="352" y2="220" stroke="rgba(83,74,183,0.4)" stroke-width="1.2"/>
+          <!-- Empty dots -->
+          <circle cx="342" cy="223" r="1.2" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="0.8"/><circle cx="345" cy="223" r="1.2" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="0.8"/><circle cx="348" cy="223" r="1.2" fill="none" stroke="rgba(83,74,183,0.25)" stroke-width="0.8"/>
+          <circle cx="342" cy="226" r="1.2" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="0.8"/><circle cx="345" cy="226" r="1.2" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="0.8"/>
+          <line x1="342" y1="214" x2="342" y2="217" stroke="rgba(83,74,183,0.35)" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="348" y1="214" x2="348" y2="217" stroke="rgba(83,74,183,0.35)" stroke-width="1.3" stroke-linecap="round"/>
+          <text x="345" y="248" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.35)" font-weight="600" letter-spacing="0.2">NO-SHOWS</text>
+
+          <!-- Lower icon 3: Revenue down -->
+          <circle cx="420" cy="248" r="20" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <circle cx="420" cy="248" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1.5"/>
+          <text x="416" y="253" font-family="DM Sans, sans-serif" font-size="14" fill="rgba(83,74,183,0.4)" font-weight="700">£</text>
+          <path d="M427 245 L430 251 L433 245" stroke="rgba(183,74,74,0.45)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="430" y1="243" x2="430" y2="253" stroke="rgba(183,74,74,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="420" y="276" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.35)" font-weight="600" letter-spacing="0.2">REVENUE DOWN</text>
+
+          <!-- Lower result label -->
+          <rect x="455" y="236" width="110" height="28" rx="6" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
+          <text x="510" y="248" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.4)" font-weight="700" letter-spacing="0.3">STILL WAITING</text>
+          <text x="510" y="258" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6" fill="rgba(83,74,183,0.3)" font-weight="500">Stretched, reactive, losing ground</text>
+
+          <!-- ═══ Connecting data-flow pulses ═══ -->
+          <!-- Upper path pulses -->
+          <circle cx="235" cy="118" r="3" fill="rgba(69,196,188,0.5)"/>
+          <circle cx="305" cy="78" r="2.5" fill="rgba(15,110,86,0.45)"/>
+          <circle cx="385" cy="42" r="2.5" fill="rgba(15,110,86,0.35)"/>
+          <!-- Lower path pulses -->
+          <circle cx="235" cy="162" r="2.5" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="305" cy="200" r="2" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="385" cy="238" r="2" fill="rgba(83,74,183,0.12)"/>
+
+          <!-- ═══ Decorative arcs ═══ -->
+          <path d="M 30 100 A 30 30 0 0 1 30 135" stroke="rgba(83,74,183,0.08)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 570 50 A 25 25 0 0 0 570 80" stroke="rgba(15,110,86,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 570 220 A 25 25 0 0 1 570 250" stroke="rgba(83,74,183,0.08)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="140" cy="50" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/>
+          <circle cx="155" cy="250" r="3.5" fill="none" stroke="rgba(83,74,183,0.15)" stroke-width="1.2"/><circle cx="155" cy="250" r="1.3" fill="rgba(83,74,183,0.15)"/>
+          <circle cx="555" cy="140" r="3" fill="none" stroke="rgba(69,196,188,0.2)" stroke-width="1.2"/><circle cx="555" cy="140" r="1.2" fill="rgba(69,196,188,0.2)"/>
+          <circle cx="490" cy="80" r="2.5" fill="none" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
+          <circle cx="480" cy="200" r="2.5" fill="none" stroke="rgba(83,74,183,0.12)" stroke-width="1"/>
+        </svg>`,
 };
 
 function getIllustration(key) {
