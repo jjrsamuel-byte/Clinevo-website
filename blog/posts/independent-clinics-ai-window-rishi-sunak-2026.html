@@ -1731,35 +1731,38 @@ footer {
           <!-- Upper icon 1: Phone answered (24/7 calls) -->
           <circle cx="265" cy="98" r="18" fill="rgba(15,110,86,0.05)" stroke="rgba(15,110,86,0.2)" stroke-width="1"/>
           <circle cx="265" cy="98" r="12" fill="rgba(15,110,86,0.08)" stroke="rgba(15,110,86,0.35)" stroke-width="1.5"/>
-          <!-- Phone handset -->
-          <path d="M259 93 Q259 89 262 89 L264 89 Q265 89 265 90 L265 94 Q265 95 264 95 L262 95" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M271 101 Q271 105 268 105 L266 105 Q265 105 265 104 L265 100 Q265 99 266 99 L268 99" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M262 95 Q256 98 268 99" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Phone icon (classic handset) -->
+          <rect x="259" y="90" width="12" height="16" rx="3" fill="none" stroke="#0F6E56" stroke-width="1.8"/>
+          <line x1="262" y1="90" x2="268" y2="90" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="263" y1="103" x2="267" y2="103" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="265" cy="97" r="2" fill="none" stroke="#0F6E56" stroke-width="1.3"/>
           <!-- Tick beside phone -->
-          <path d="M275 94 L277 97 L282 90" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M274 93 L277 97 L283 89" stroke="#45C4BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <text x="265" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.2">24/7 CALLS</text>
 
           <!-- Upper icon 2: Calendar full (bookings) -->
           <circle cx="345" cy="58" r="18" fill="rgba(69,196,188,0.05)" stroke="rgba(69,196,188,0.2)" stroke-width="1"/>
           <circle cx="345" cy="58" r="12" fill="rgba(69,196,188,0.08)" stroke="rgba(69,196,188,0.35)" stroke-width="1.5"/>
           <!-- Calendar shape -->
-          <rect x="338" y="52" width="14" height="12" rx="2" fill="none" stroke="#45C4BC" stroke-width="1.5"/>
-          <line x1="338" y1="56" x2="352" y2="56" stroke="#45C4BC" stroke-width="1.2"/>
-          <!-- Calendar dots (filled slots) -->
-          <circle cx="342" cy="59" r="1.2" fill="#45C4BC"/><circle cx="345" cy="59" r="1.2" fill="#45C4BC"/><circle cx="348" cy="59" r="1.2" fill="#45C4BC"/>
-          <circle cx="342" cy="62" r="1.2" fill="#45C4BC"/><circle cx="345" cy="62" r="1.2" fill="#45C4BC"/><circle cx="348" cy="62" r="1.2" fill="#0F6E56"/>
+          <rect x="336" y="51" width="18" height="15" rx="2.5" fill="none" stroke="#45C4BC" stroke-width="1.8"/>
+          <line x1="336" y1="56" x2="354" y2="56" stroke="#45C4BC" stroke-width="1.5"/>
           <!-- Calendar handles -->
-          <line x1="342" y1="50" x2="342" y2="53" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="348" y1="50" x2="348" y2="53" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="341" y1="48" x2="341" y2="53" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="349" y1="48" x2="349" y2="53" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Filled slot rows (ticks for booked) -->
+          <path d="M339 59 L341 61 L344 58" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M346 59 L348 61 L351 58" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M339 63 L341 65 L344 62" stroke="#45C4BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M346 63 L348 65 L351 62" stroke="#45C4BC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <text x="345" y="84" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.2">FULL DIARY</text>
 
           <!-- Upper icon 3: Revenue up (growth) -->
           <circle cx="430" cy="32" r="20" fill="rgba(15,110,86,0.05)" stroke="rgba(15,110,86,0.25)" stroke-width="1"/>
           <circle cx="430" cy="32" r="14" fill="rgba(15,110,86,0.08)" stroke="rgba(15,110,86,0.4)" stroke-width="1.5"/>
           <!-- Pound sign with up arrow -->
-          <text x="426" y="37" font-family="DM Sans, sans-serif" font-size="14" fill="#0F6E56" font-weight="700">£</text>
-          <path d="M437 36 L440 30 L443 36" stroke="#45C4BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <line x1="440" y1="30" x2="440" y2="40" stroke="#45C4BC" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="423" y="38" font-family="DM Sans, sans-serif" font-size="15" fill="#0F6E56" font-weight="700">£</text>
+          <line x1="439" y1="40" x2="439" y2="26" stroke="#45C4BC" stroke-width="2.2" stroke-linecap="round"/>
+          <polyline points="434,31 439,25 444,31" stroke="#45C4BC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <text x="430" y="60" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.2">REVENUE UP</text>
 
           <!-- Upper result label -->
@@ -1776,13 +1779,14 @@ footer {
           <!-- Lower icon 1: Missed calls -->
           <circle cx="265" cy="182" r="18" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
           <circle cx="265" cy="182" r="12" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
-          <!-- Phone with X -->
-          <path d="M259 177 Q259 173 262 173 L264 173 Q265 173 265 174 L265 178 Q265 179 264 179 L262 179" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M271 185 Q271 189 268 189 L266 189 Q265 189 265 188 L265 184 Q265 183 266 183 L268 183" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M262 179 Q256 182 268 183" fill="none" stroke="rgba(83,74,183,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Phone icon (missed) -->
+          <rect x="259" y="174" width="12" height="16" rx="3" fill="none" stroke="rgba(83,74,183,0.45)" stroke-width="1.8"/>
+          <line x1="262" y1="174" x2="268" y2="174" stroke="rgba(83,74,183,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="263" y1="187" x2="267" y2="187" stroke="rgba(83,74,183,0.4)" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="265" cy="181" r="2" fill="none" stroke="rgba(83,74,183,0.4)" stroke-width="1.3"/>
           <!-- X mark -->
-          <line x1="274" y1="175" x2="280" y2="181" stroke="rgba(183,74,74,0.6)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="280" y1="175" x2="274" y2="181" stroke="rgba(183,74,74,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="274" y1="176" x2="281" y2="183" stroke="rgba(183,74,74,0.6)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="281" y1="176" x2="274" y2="183" stroke="rgba(183,74,74,0.6)" stroke-width="2" stroke-linecap="round"/>
           <text x="265" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.4)" font-weight="600" letter-spacing="0.2">MISSED CALLS</text>
 
           <!-- Lower icon 2: Empty diary -->
@@ -1801,9 +1805,9 @@ footer {
           <!-- Lower icon 3: Revenue down -->
           <circle cx="420" cy="248" r="20" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1"/>
           <circle cx="420" cy="248" r="14" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1.5"/>
-          <text x="416" y="253" font-family="DM Sans, sans-serif" font-size="14" fill="rgba(83,74,183,0.4)" font-weight="700">£</text>
-          <path d="M427 245 L430 251 L433 245" stroke="rgba(183,74,74,0.45)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <line x1="430" y1="243" x2="430" y2="253" stroke="rgba(183,74,74,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="413" y="254" font-family="DM Sans, sans-serif" font-size="15" fill="rgba(83,74,183,0.4)" font-weight="700">£</text>
+          <line x1="429" y1="242" x2="429" y2="256" stroke="rgba(183,74,74,0.5)" stroke-width="2.2" stroke-linecap="round"/>
+          <polyline points="424,251 429,257 434,251" stroke="rgba(183,74,74,0.5)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <text x="420" y="276" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="6.5" fill="rgba(83,74,183,0.35)" font-weight="600" letter-spacing="0.2">REVENUE DOWN</text>
 
           <!-- Lower result label -->
