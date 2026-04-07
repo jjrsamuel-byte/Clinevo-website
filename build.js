@@ -1261,6 +1261,40 @@ function build() {
   fs.writeFileSync(indexOut, blogIndexPage(posts, shared), "utf8");
   console.log(`   ✓  /blog/index.html`);
 
+  // ─── Generate sitemap.xml ──────────────────────────────────────────────────
+  const SITE = "https://clinevo.ai";
+  const today = new Date().toISOString().split("T")[0];
+
+  // Static pages: [path, changefreq, priority]
+  const staticPages = [
+    ["/",             "weekly",  "1.0"],
+    ["/about",        "monthly", "0.8"],
+    ["/services",     "monthly", "0.9"],
+    ["/sectors",      "monthly", "0.8"],
+    ["/team",         "monthly", "0.7"],
+    ["/consultation", "monthly", "0.8"],
+    ["/audit",        "monthly", "0.8"],
+    ["/privacy",      "yearly",  "0.3"],
+    ["/blog/",        "weekly",  "0.7"],
+  ];
+
+  let urls = staticPages.map(([loc, changefreq, priority]) =>
+    `  <url>\n    <loc>${SITE}${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
+  );
+
+  // Blog post pages
+  for (const post of posts) {
+    const lastmod = post.date || today;
+    urls.push(
+      `  <url>\n    <loc>${SITE}/blog/posts/${post.slug}.html</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
+    );
+  }
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
+  const sitemapOut = path.join(ROOT, "sitemap.xml");
+  fs.writeFileSync(sitemapOut, sitemap, "utf8");
+  console.log(`   ✓  /sitemap.xml (${staticPages.length + posts.length} URLs)`);
+
   console.log("✅ Blog build complete.");
 }
 
