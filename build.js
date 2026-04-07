@@ -1282,6 +1282,7 @@ function build() {
     ["/team",         "monthly", "0.7"],
     ["/consultation", "monthly", "0.8"],
     ["/audit",        "monthly", "0.8"],
+    ["/faq",          "monthly", "0.7"],
     ["/privacy",      "yearly",  "0.3"],
     ["/blog/",        "weekly",  "0.7"],
   ];
