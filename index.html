@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clinevo — AI for clinics that care | Veterinary, Optical & Dental AI Consultancy</title>
+<title>Clinevo — AI for Veterinary, Optical & Dental Clinics</title>
 <meta name="description" content="Clinevo is a UK clinical AI consultancy for veterinary, optical, and dental practices. From AI readiness assessment to implementation — with measurable ROI.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clinevo.ai/">
@@ -18,6 +18,9 @@
 <meta property="og:url" content="https://clinevo.ai/">
 <meta property="og:site_name" content="Clinevo">
 <meta property="og:image" content="https://clinevo.ai/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Clinevo — AI for clinics that care">
 <meta name="twitter:description" content="UK clinical AI consultancy for veterinary, optical, and dental practices.">
@@ -25,16 +28,17 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "name": "Clinevo",
   "url": "https://clinevo.ai",
-  "logo": "https://clinevo.ai/favicon.svg",
+  "logo": "https://clinevo.ai/og-default.png",
   "description": "UK clinical AI consultancy for veterinary, optical, and dental practices. Education, consulting, and development — with measurable ROI.",
   "email": "hello@clinevo.ai",
   "image": "https://clinevo.ai/og-default.png",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "United Kingdom",
     "addressCountry": "GB"
   },
   "sameAs": [
@@ -45,7 +49,8 @@
     "@type": "Country",
     "name": "United Kingdom"
   },
-  "serviceType": ["AI Consultancy", "Clinical AI Implementation", "AI Readiness Assessment"]
+  "knowsAbout": ["Artificial Intelligence", "Clinical Practice Management", "Veterinary Technology", "Dental Technology", "Optical Practice Technology"],
+  "serviceType": ["AI Consultancy", "Clinical AI Implementation", "AI Readiness Assessment", "AI Receptionist", "Recall Automation"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -386,8 +391,8 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 28px;
 }
-.dash-header h3 {
-  font-size: 15px; font-weight: 600; color: var(--off-white);
+.dash-header h3, .dash-header .dash-title {
+  font-size: 15px; font-weight: 600; color: var(--off-white); font-family: 'Outfit', sans-serif;
 }
 .live-badge {
   display: flex; align-items: center; gap: 6px;
@@ -1211,7 +1216,7 @@ footer {
         </div>
         <div class="dash-card">
           <div class="dash-header">
-            <h3>AI receptionist - live</h3>
+            <p class="dash-title">AI receptionist - live</p>
             <div class="live-badge"><span class="live-dot"></span> Active</div>
           </div>
           <div class="dash-metrics">

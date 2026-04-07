@@ -411,7 +411,7 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escHtml(title)} | Clinevo Blog</title>
+<title>${escHtml(title)} | Clinevo</title>
 <meta name="description" content="${escHtml(description)}">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clinevo.ai/blog/posts/${slug}.html">
@@ -421,6 +421,10 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
 <meta property="og:url" content="https://clinevo.ai/blog/posts/${slug}.html">
 <meta property="og:site_name" content="Clinevo">
 <meta property="og:image" content="https://clinevo.ai/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="article:published_time" content="${date || ''}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escHtml(title)}">
 <meta name="twitter:description" content="${escHtml(description)}">
@@ -433,6 +437,7 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
   "description": "${escHtml(description)}",
   "url": "https://clinevo.ai/blog/posts/${slug}.html",
   "datePublished": "${date || ''}",
+  "dateModified": "${date || ''}",
   "author": {
     "@type": "Person",
     "name": "${escHtml(author || 'Clinevo Team')}"
@@ -443,7 +448,7 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
     "url": "https://clinevo.ai",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://clinevo.ai/favicon.svg"
+      "url": "https://clinevo.ai/og-default.png"
     }
   },
   "image": "https://clinevo.ai/og-default.png",
@@ -997,13 +1002,16 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
 <title>Blog | Clinevo — Clinical AI Insights</title>
 <meta name="description" content="Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://clinevo.ai/blog/index.html">
+<link rel="canonical" href="https://clinevo.ai/blog/">
 <meta property="og:title" content="Blog | Clinevo">
 <meta property="og:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://clinevo.ai/blog/index.html">
+<meta property="og:url" content="https://clinevo.ai/blog/">
 <meta property="og:site_name" content="Clinevo">
 <meta property="og:image" content="https://clinevo.ai/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blog | Clinevo — Clinical AI Insights">
 <meta name="twitter:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
