@@ -97,6 +97,7 @@ function extractFromIndex() {
     const s = scriptMatch[0];
     // Include tracking scripts (gtag, analytics, reb2b) but not JSON-LD or inline app logic
     if (
+      s.includes("termly") ||
       s.includes("googletagmanager") ||
       s.includes("gtag(") ||
       s.includes("reb2b") ||
@@ -558,6 +559,7 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
+${headExtras}
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -598,14 +600,13 @@ function postPage({ slug, title, date, description, illustration, illustrationPo
     "url": "https://clinevo.ai",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://clinevo.ai/og-default.png"
+      "url": "https://clinevo.ai/logo.png"
     }
   },
   "image": "https://clinevo.ai/og-default.png",
   "mainEntityOfPage": "https://clinevo.ai/blog/posts/${slug}.html"
 }
 </script>
-${headExtras}
 <style>
 :root {
   --b-purple:     #534AB7;
@@ -1146,6 +1147,7 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
   return `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
+${headExtras}
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1180,7 +1182,6 @@ function blogIndexPage(posts, { nav, footer, headExtras }) {
   }
 }
 </script>
-${headExtras}
 <style>
 /* ── Blog index ── */
 .blog-hero {
