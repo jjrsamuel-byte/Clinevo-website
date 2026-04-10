@@ -521,6 +521,38 @@ nav {
 .float-badge:hover .fb-icon.teal { background: rgba(69,196,188,0.2); }
 
 /* ═══════════════════════════════
+   TRUST STRIP — reassurance bar
+   ═══════════════════════════════ */
+.trust-strip {
+  background: var(--bg-panel);
+  padding: 22px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.trust-strip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.trust-strip-item {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--near-black);
+  letter-spacing: 0.01em;
+}
+.trust-strip-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border-light);
+}
+@media (max-width: 720px) {
+  .trust-strip-row { flex-direction: column; gap: 10px; }
+  .trust-strip-divider { display: none; }
+}
+
+/* ═══════════════════════════════
    LOGOS STRIP — Primary system
    ═══════════════════════════════ */
 .logos {
@@ -1324,6 +1356,21 @@ footer {
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     TRUST STRIP — reassurance bar
+     ═══════════════════════════════════════ -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-strip-row">
+      <div class="trust-strip-item">UK-built, UK-managed</div>
+      <div class="trust-strip-divider"></div>
+      <div class="trust-strip-item">UK GDPR &amp; Data Protection Act 2018</div>
+      <div class="trust-strip-divider"></div>
+      <div class="trust-strip-item">Clinical-grade security posture</div>
+    </div>
+  </div>
+</section>
+
 <!-- LOGOS -->
 <section class="logos">
   <div class="container">
@@ -1369,150 +1416,27 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     ABOUT — Primary system
-     ═══════════════════════════════════════ -->
-<section class="explanation" id="about">
+<!-- ═══════════════════════════
+     STATS — Reversed system
+     ═══════════════════════════ -->
+<section class="stats">
   <div class="container">
-    <div class="explanation-grid">
-      <div>
-        <div class="exp-tag">About Clinevo</div>
-        <h2>We help clinics work smarter, not harder.</h2>
-        <p class="desc">Clinevo is a UK-based clinical AI consultancy. We work exclusively with veterinary, optical, and dental practices, helping them understand, adopt, and benefit from AI that is designed around how clinics actually operate.</p>
-        <p class="desc">We are not a software vendor selling licences. We are a strategic partner that takes accountability for outcomes, from initial AI readiness assessment through to live implementation and ongoing performance management.</p>
-        <div class="check-list">
-          <div class="check-item">
-            <div class="check-icon">&#10003;</div>
-            <span>Built by people who understand how clinical practices actually work</span>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">&#10003;</div>
-            <span>Every engagement measured by commercial return, not technical output</span>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">&#10003;</div>
-            <span>UK-built, UK-managed. Your data never leaves the country</span>
-          </div>
-        </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="num">1 in 3</div>
+        <div class="lbl">Practice calls go unanswered</div>
       </div>
-      <div class="vis-block">
-        <div class="vis-header">
-          <div class="vis-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="8" stroke="#534AB7" stroke-width="1.5" fill="none"/>
-              <path d="M10 6v4l3 2" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="vis-title">Our approach</div>
-        </div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
-            <div class="tl-content">
-              <h4>Understand your practice</h4>
-              <p>We start with your workflows, your team, your commercial goals</p>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
-            <div class="tl-content">
-              <h4>Identify what moves the needle</h4>
-              <p>Honest assessment of where AI genuinely adds value</p>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
-            <div class="tl-content">
-              <h4>Build and implement</h4>
-              <p>Configured to your PMS, your team, your clinical persona</p>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-track"><div class="tl-dot"></div></div>
-            <div class="tl-content">
-              <h4>Stay accountable</h4>
-              <p>Ongoing management, reporting, and optimisation</p>
-            </div>
-          </div>
-        </div>
+      <div class="stat">
+        <div class="num">75%</div>
+        <div class="lbl">Of missed callers never ring back</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     FAQ — Primary system
-     ═══════════════════════════════════════ -->
-<section class="faq" id="faq">
-  <div class="container">
-    <div class="section-header">
-      <h2>Frequently asked questions</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary><h3>Will AI replace my reception staff?</h3></summary>
-        <p>No. In some practices the AI receptionist handles the majority of calls, or even all of them, while in others it covers overflow and out-of-hours only. Either way, your team is freed up to focus on in-person care and complex queries. Practices that adopt AI reception typically see staff satisfaction increase because repetitive tasks are reduced, not jobs.</p>
-      </details>
-      <details class="faq-item">
-        <summary><h3>How much does an AI receptionist cost?</h3></summary>
-        <p>Clinevo's AI receptionist starts from a one-off setup fee followed by a monthly managed service. The exact cost depends on call volume and the features you need. Most practices see a return on investment within 60 to 90 days through recovered missed calls alone.</p>
-      </details>
-      <details class="faq-item">
-        <summary><h3>Is AI reception GDPR and HIPAA compliant?</h3></summary>
-        <p>Yes. Clinevo is a UK-based company and all systems are designed to comply with UK GDPR, the Data Protection Act 2018, and HIPAA requirements. Patient data is processed securely, encrypted at rest and in transit, and never used to train third-party AI models.</p>
-      </details>
-    </div>
-    <div style="text-align:center; margin-top:32px;">
-      <a href="/faq.html" style="color:var(--primary); font-weight:600; text-decoration:none;">See all FAQs →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     THREE PILLARS — Primary system
-     ═══════════════════════════════════════ -->
-<section class="pillars" id="pillars">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">How we help</div>
-      <h2>Education. Consulting. Development.</h2>
-      <p>Three pillars that take your practice from AI curiosity to measurable impact.</p>
-    </div>
-    <div class="pillars-grid">
-      <!-- Education -->
-      <div class="pillar-card education">
-        <span class="pillar-symbol">&#9673;</span>
-        <div class="pillar-label">Pillar 1 &middot; Education</div>
-        <h3>Capability</h3>
-        <p>Teams that understand AI adopt it faster and get more from it. We build practical AI literacy so your clinical team knows what works, what doesn't, and why.</p>
-        <ul class="pillar-features">
-          <li>Practice AI readiness assessment</li>
-          <li>Staff AI literacy workshops</li>
-          <li>Revenue and data audit</li>
-        </ul>
+      <div class="stat">
+        <div class="num">42%</div>
+        <div class="lbl">Fewer no-shows with automation</div>
       </div>
-      <!-- Consulting -->
-      <div class="pillar-card consulting">
-        <span class="pillar-symbol">&#9672;</span>
-        <div class="pillar-label">Pillar 2 &middot; Consulting</div>
-        <h3>Direction</h3>
-        <p>Strategy before software. We identify where AI genuinely moves the needle for your practice, prioritise by commercial impact, and define what to build first.</p>
-        <ul class="pillar-features">
-          <li>AI audit and strategic roadmap</li>
-          <li>Fractional AI Officer retainer</li>
-          <li>Multi-site group packages</li>
-        </ul>
-      </div>
-      <!-- Development -->
-      <div class="pillar-card development">
-        <span class="pillar-symbol">&#9670;</span>
-        <div class="pillar-label">Pillar 3 &middot; Development</div>
-        <h3>Impact</h3>
-        <p>AI systems configured to your workflows, your PMS, and your commercial goals, with measurable outcomes agreed before we start.</p>
-        <ul class="pillar-features">
-          <li>AI voice receptionist</li>
-          <li>Recall and client comms automation</li>
-        </ul>
+      <div class="stat">
+        <div class="num">&pound;150k</div>
+        <div class="lbl">Lost per practice yearly to missed calls</div>
       </div>
     </div>
   </div>
@@ -1638,6 +1562,56 @@ footer {
 </section>
 
 <!-- ═══════════════════════════════════════
+     THREE PILLARS — Primary system
+     ═══════════════════════════════════════ -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">How we help</div>
+      <h2>Education. Consulting. Development.</h2>
+      <p>Three pillars that take your practice from AI curiosity to measurable impact.</p>
+    </div>
+    <div class="pillars-grid">
+      <!-- Education -->
+      <div class="pillar-card education">
+        <span class="pillar-symbol">&#9673;</span>
+        <div class="pillar-label">Pillar 1 &middot; Education</div>
+        <h3>Capability</h3>
+        <p>Teams that understand AI adopt it faster and get more from it. We build practical AI literacy so your clinical team knows what works, what doesn't, and why.</p>
+        <ul class="pillar-features">
+          <li>Practice AI readiness assessment</li>
+          <li>Staff AI literacy workshops</li>
+          <li>Revenue and data audit</li>
+        </ul>
+      </div>
+      <!-- Consulting -->
+      <div class="pillar-card consulting">
+        <span class="pillar-symbol">&#9672;</span>
+        <div class="pillar-label">Pillar 2 &middot; Consulting</div>
+        <h3>Direction</h3>
+        <p>Strategy before software. We identify where AI genuinely moves the needle for your practice, prioritise by commercial impact, and define what to build first.</p>
+        <ul class="pillar-features">
+          <li>AI audit and strategic roadmap</li>
+          <li>Fractional AI Officer retainer</li>
+          <li>Multi-site group packages</li>
+        </ul>
+      </div>
+      <!-- Development -->
+      <div class="pillar-card development">
+        <span class="pillar-symbol">&#9670;</span>
+        <div class="pillar-label">Pillar 3 &middot; Development</div>
+        <h3>Impact</h3>
+        <p>AI systems configured to your workflows, your PMS, and your commercial goals, with measurable outcomes agreed before we start.</p>
+        <ul class="pillar-features">
+          <li>AI voice receptionist</li>
+          <li>Recall and client comms automation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
      VERTICALS — Primary system
      ═══════════════════════════════════════ -->
 <section class="verticals alt" id="verticals" style="background: var(--bg-panel); padding: 100px 0;">
@@ -1662,6 +1636,77 @@ footer {
         <span class="vert-badge">Dental</span>
         <h3>Dental</h3>
         <p>Optimise appointment utilisation, reduce FTA rates, grow plan membership revenue. The largest UK clinical market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT — Primary system
+     ═══════════════════════════════════════ -->
+<section class="explanation" id="about">
+  <div class="container">
+    <div class="explanation-grid">
+      <div>
+        <div class="exp-tag">About Clinevo</div>
+        <h2>We help clinics work smarter, not harder.</h2>
+        <p class="desc">Clinevo is a UK-based clinical AI consultancy. We work exclusively with veterinary, optical, and dental practices, helping them understand, adopt, and benefit from AI that is designed around how clinics actually operate.</p>
+        <p class="desc">We are not a software vendor selling licences. We are a strategic partner that takes accountability for outcomes, from initial AI readiness assessment through to live implementation and ongoing performance management.</p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>Built by people who understand how clinical practices actually work</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>Every engagement measured by commercial return, not technical output</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">&#10003;</div>
+            <span>UK-built, UK-managed. Your data never leaves the country</span>
+          </div>
+        </div>
+      </div>
+      <div class="vis-block">
+        <div class="vis-header">
+          <div class="vis-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" stroke="#534AB7" stroke-width="1.5" fill="none"/>
+              <path d="M10 6v4l3 2" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="vis-title">Our approach</div>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <h4>Understand your practice</h4>
+              <p>We start with your workflows, your team, your commercial goals</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <h4>Identify what moves the needle</h4>
+              <p>Honest assessment of where AI genuinely adds value</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-track"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <h4>Build and implement</h4>
+              <p>Configured to your PMS, your team, your clinical persona</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-track"><div class="tl-dot"></div></div>
+            <div class="tl-content">
+              <h4>Stay accountable</h4>
+              <p>Ongoing management, reporting, and optimisation</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1697,28 +1742,30 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════
-     STATS — Reversed system
-     ═══════════════════════════ -->
-<section class="stats">
+<!-- ═══════════════════════════════════════
+     FAQ — Primary system
+     ═══════════════════════════════════════ -->
+<section class="faq" id="faq">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="num">1 in 3</div>
-        <div class="lbl">Practice calls go unanswered</div>
-      </div>
-      <div class="stat">
-        <div class="num">75%</div>
-        <div class="lbl">Of missed callers never ring back</div>
-      </div>
-      <div class="stat">
-        <div class="num">42%</div>
-        <div class="lbl">Fewer no-shows with automation</div>
-      </div>
-      <div class="stat">
-        <div class="num">&pound;150k</div>
-        <div class="lbl">Lost per practice yearly to missed calls</div>
-      </div>
+    <div class="section-header">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><h3>Will AI replace my reception staff?</h3></summary>
+        <p>No. In some practices the AI receptionist handles the majority of calls, or even all of them, while in others it covers overflow and out-of-hours only. Either way, your team is freed up to focus on in-person care and complex queries. Practices that adopt AI reception typically see staff satisfaction increase because repetitive tasks are reduced, not jobs.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>How much does an AI receptionist cost?</h3></summary>
+        <p>Clinevo's AI receptionist starts from a one-off setup fee followed by a monthly managed service. The exact cost depends on call volume and the features you need. Most practices see a return on investment within 60 to 90 days through recovered missed calls alone.</p>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Is AI reception GDPR and HIPAA compliant?</h3></summary>
+        <p>Yes. Clinevo is a UK-based company and all systems are designed to comply with UK GDPR, the Data Protection Act 2018, and HIPAA requirements. Patient data is processed securely, encrypted at rest and in transit, and never used to train third-party AI models.</p>
+      </details>
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <a href="/faq.html" style="color:var(--primary); font-weight:600; text-decoration:none;">See all FAQs →</a>
     </div>
   </div>
 </section>

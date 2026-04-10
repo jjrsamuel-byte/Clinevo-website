@@ -440,6 +440,38 @@ nav {
 .float-badge:hover .fb-icon.teal { background: rgba(69,196,188,0.2); }
 
 /* ═══════════════════════════════
+   TRUST STRIP — reassurance bar
+   ═══════════════════════════════ */
+.trust-strip {
+  background: var(--bg-panel);
+  padding: 22px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.trust-strip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.trust-strip-item {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--near-black);
+  letter-spacing: 0.01em;
+}
+.trust-strip-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border-light);
+}
+@media (max-width: 720px) {
+  .trust-strip-row { flex-direction: column; gap: 10px; }
+  .trust-strip-divider { display: none; }
+}
+
+/* ═══════════════════════════════
    LOGOS STRIP — Primary system
    ═══════════════════════════════ */
 .logos {
