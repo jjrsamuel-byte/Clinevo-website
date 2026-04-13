@@ -394,6 +394,88 @@ const ILLUSTRATIONS = {
           <circle cx="60" cy="155" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
         </svg>`,
 
+  churn: `<svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/>
+
+          <!-- LEFT: Declining client graph -->
+          <rect x="60" y="40" width="140" height="120" rx="8" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1.2"/>
+          <text x="130" y="56" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.3">ACTIVE CLIENTS</text>
+          <!-- Grid lines -->
+          <line x1="75" y1="70" x2="185" y2="70" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="90" x2="185" y2="90" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="110" x2="185" y2="110" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="130" x2="185" y2="130" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <!-- Declining line -->
+          <path d="M80 75 L100 78 L120 83 L140 90 L160 100 L180 112" fill="none" stroke="#534AB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Shaded area under line -->
+          <path d="M80 75 L100 78 L120 83 L140 90 L160 100 L180 112 L180 145 L80 145 Z" fill="rgba(83,74,183,0.06)"/>
+          <!-- Data points -->
+          <circle cx="80" cy="75" r="3" fill="#534AB7" opacity="0.6"/>
+          <circle cx="120" cy="83" r="3" fill="#534AB7" opacity="0.5"/>
+          <circle cx="160" cy="100" r="3" fill="#534AB7" opacity="0.4"/>
+          <circle cx="180" cy="112" r="3" fill="#534AB7" opacity="0.3"/>
+          <!-- Q labels -->
+          <text x="80" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q1</text>
+          <text x="120" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q2</text>
+          <text x="160" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q3</text>
+
+          <!-- CENTRE: Three gap icons -->
+          <!-- Missed recall -->
+          <circle cx="280" cy="55" r="20" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.25)" stroke-width="1.5"/>
+          <circle cx="280" cy="51" r="7" fill="none" stroke="#45C4BC" stroke-width="1.5"/>
+          <path d="M280 54 L280 48" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M280 54 L284 56" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="275" y1="63" x2="285" y2="63" stroke="rgba(69,196,188,0.4)" stroke-width="1" stroke-dasharray="2 2"/>
+          <text x="280" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">MISSED</text>
+          <text x="280" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">RECALL</text>
+
+          <!-- Unanswered call -->
+          <circle cx="340" cy="55" r="20" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <path d="M333 48 Q333 58 338 60 L342 60 Q347 58 347 48" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="340" y1="62" x2="340" y2="66" stroke="rgba(83,74,183,0.4)" stroke-width="1.2"/>
+          <line x1="337" y1="66" x2="343" y2="66" stroke="rgba(83,74,183,0.4)" stroke-width="1.2"/>
+          <text x="340" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">MISSED</text>
+          <text x="340" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">CALL</text>
+
+          <!-- No follow-up -->
+          <circle cx="400" cy="55" r="20" fill="rgba(15,110,86,0.06)" stroke="rgba(15,110,86,0.25)" stroke-width="1.5"/>
+          <rect x="392" y="46" width="16" height="12" rx="2" fill="none" stroke="#0F6E56" stroke-width="1.3"/>
+          <line x1="392" y1="50" x2="408" y2="50" stroke="#0F6E56" stroke-width="1"/>
+          <line x1="395" y1="53" x2="403" y2="53" stroke="rgba(15,110,86,0.4)" stroke-width="0.8"/>
+          <line x1="395" y1="55.5" x2="401" y2="55.5" stroke="rgba(15,110,86,0.3)" stroke-width="0.8"/>
+          <text x="400" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.3">NO</text>
+          <text x="400" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.3">FOLLOW-UP</text>
+
+          <!-- Arrows from gaps down to churn -->
+          <line x1="280" y1="98" x2="310" y2="120" stroke="rgba(69,196,188,0.25)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="340" y1="98" x2="340" y2="120" stroke="rgba(83,74,183,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="400" y1="98" x2="370" y2="120" stroke="rgba(15,110,86,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+
+          <!-- Bottom: Churn result -->
+          <rect x="290" y="120" width="100" height="36" rx="6" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1.5"/>
+          <text x="340" y="135" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="rgba(83,74,183,0.5)" font-weight="700">10-15%</text>
+          <text x="340" y="149" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.4)" font-weight="500">ANNUAL CHURN</text>
+
+          <!-- RIGHT: Cost multiplier -->
+          <text x="520" y="78" text-anchor="middle" font-family="Outfit, sans-serif" font-size="28" fill="rgba(15,110,86,0.15)" font-weight="700">5-7x</text>
+          <text x="520" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.45)" font-weight="500">cost to replace</text>
+          <text x="520" y="107" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.45)" font-weight="500">vs. retain</text>
+
+          <!-- Decorative arcs -->
+          <path d="M 50 165 A 25 25 0 0 1 50 190" stroke="rgba(83,74,183,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 555 35 A 25 25 0 0 0 555 60" stroke="rgba(69,196,188,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="230" cy="140" r="3" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.2"/>
+          <circle cx="460" cy="140" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/><circle cx="460" cy="140" r="1.3" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="500" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="500" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
+          <circle cx="240" cy="45" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
+        </svg>`,
+
   kshape: `<svg viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <!-- Dot grid background -->
           <circle cx="40" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="30" r="1.2" fill="rgba(83,74,183,0.12)"/>

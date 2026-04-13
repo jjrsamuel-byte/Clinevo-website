@@ -1153,212 +1153,490 @@ footer {
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Clinevo — Clinical AI Insights</title>
-<meta name="description" content="Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.">
+<title>The clients your practice is losing without realising it | Clinevo</title>
+<meta name="description" content="The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://clinevo.ai/blog/">
-<meta property="og:title" content="Blog | Clinevo">
-<meta property="og:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://clinevo.ai/blog/">
+<link rel="canonical" href="https://clinevo.ai/blog/posts/clients-your-practice-is-losing-without-realising.html">
+<meta property="og:title" content="The clients your practice is losing without realising it">
+<meta property="og:description" content="The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinevo.ai/blog/posts/clients-your-practice-is-losing-without-realising.html">
 <meta property="og:site_name" content="Clinevo">
 <meta property="og:image" content="https://clinevo.ai/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
+<meta property="article:published_time" content="2026-04-13">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog | Clinevo — Clinical AI Insights">
-<meta name="twitter:description" content="Practical articles on AI for veterinary, optical, and dental practices.">
+<meta name="twitter:title" content="The clients your practice is losing without realising it">
+<meta name="twitter:description" content="The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.">
 <meta name="twitter:image" content="https://clinevo.ai/og-default.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Clinevo Blog",
-  "url": "https://clinevo.ai/blog/index.html",
-  "description": "Practical articles on AI for veterinary, optical, and dental practices. No hype. Just what works.",
+  "@type": "Article",
+  "headline": "The clients your practice is losing without realising it",
+  "description": "The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.",
+  "url": "https://clinevo.ai/blog/posts/clients-your-practice-is-losing-without-realising.html",
+  "datePublished": "2026-04-13",
+  "dateModified": "2026-04-13",
+  "author": {
+    "@type": "Person",
+    "name": "Donna"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Clinevo",
-    "url": "https://clinevo.ai"
-  }
+    "url": "https://clinevo.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://clinevo.ai/logo.png"
+    }
+  },
+  "image": "https://clinevo.ai/og-default.png",
+  "mainEntityOfPage": "https://clinevo.ai/blog/posts/clients-your-practice-is-losing-without-realising.html"
 }
 </script>
 <style>
-/* ── Blog index ── */
-.blog-hero {
+:root {
+  --b-purple:     #534AB7;
+  --b-purple-bg:  #2C2870;
+  --b-signal:     #45C4BC;
+  --b-near-black: #0F1923;
+  --b-off-white:  #DCE0EC;
+  --b-light-bg:   #F0F1F8;
+  --b-body-color: #4A5A70;
+  --b-border:     rgba(83,74,183,0.1);
+  --f-display:    'Outfit', sans-serif;
+  --f-body:       'DM Sans', sans-serif;
+}
+
+/* ── Hero banner ── */
+.post-hero {
   padding-top: 82px;
-  background: #0F1923;
+  background: var(--b-near-black);
   position: relative;
   overflow: hidden;
 }
-.blog-hero::before {
+.post-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 100% at 90% 50%, rgba(83,74,183,0.3) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 80% at 5% 80%, rgba(69,196,188,0.1) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(83,74,183,0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(69,196,188,0.12) 0%, transparent 60%);
+  pointer-events: none;
 }
-.blog-hero::after {
+/* SVG grid pattern */
+.post-hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'%3E%3Cpath d='M60 0L0 0 0 60'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
-.blog-hero-inner {
+.post-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 56px 40px 60px;
   position: relative;
   z-index: 1;
 }
-.blog-hero-tag {
-  display: inline-block;
-  font-family: 'Outfit', sans-serif;
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.post-hero-tag {
+  font-family: var(--f-display);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #0F1923;
-  background: #45C4BC;
   padding: 5px 14px;
   border-radius: 100px;
-  margin-bottom: 24px;
 }
-.blog-hero-inner h1 {
-  font-family: 'Outfit', sans-serif;
+.post-hero-tag.sector {
+  color: var(--b-near-black);
+  background: var(--b-signal);
+}
+.post-hero-tag.topic {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+.post-hero-date {
+  font-family: var(--f-display);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(220,224,236,0.45);
+  letter-spacing: 0.04em;
+}
+.post-hero h1 {
+  font-family: var(--f-display);
   font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.1;
-  color: #DCE0EC;
-  margin-bottom: 16px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  max-width: 800px;
 }
-.blog-hero-inner p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
+.post-hero-desc {
+  font-family: var(--f-body);
+  font-size: 17px;
   font-weight: 300;
-  color: rgba(220,224,236,0.5);
-  max-width: 52ch;
+  color: rgba(220,224,236,0.6);
   line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 32px;
 }
+.post-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.post-hero-breadcrumb a {
+  color: rgba(220,224,236,0.45);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.post-hero-breadcrumb a:hover { color: var(--b-signal); }
+.post-hero-breadcrumb span { opacity: 0.3; }
 
-/* Grid */
-.blog-index-wrap {
-  background: #F4F5FA;
-  padding: 56px 40px 100px;
+/* ── Page body ── */
+.blog-post-wrap {
+  background: #FAFAFA;
 }
-.blog-index-inner {
+.post-container {
   max-width: 1200px;
   margin: 0 auto;
-}
-.blog-grid {
+  padding: 64px 40px 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 300px;
+  gap: 80px;
+  align-items: start;
 }
 
-/* Cards */
-.blog-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(83,74,183,0.1);
+/* Decorative illustration */
+.post-illustration {
+  margin-bottom: 48px;
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s;
-  box-shadow: 0 2px 8px rgba(83,74,183,0.06);
-}
-.blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(83,74,183,0.12);
-  border-color: rgba(83,74,183,0.22);
-}
-
-/* Subtle brand-tinted banner top of each card */
-.blog-card-banner {
-  position: relative;
-  height: 56px;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.06) 100%);
-  border-bottom: 1px solid rgba(83,74,183,0.08);
-}
-.blog-card-banner-date {
-  position: absolute;
-  bottom: 10px;
-  left: 16px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #534AB7;
-  z-index: 1;
-}
-
-.blog-card-body {
-  display: block;
-  padding: 20px 24px 24px;
-  text-decoration: none;
-}
-.blog-card-tags {
+  background: linear-gradient(135deg, rgba(83,74,183,0.05) 0%, rgba(69,196,188,0.05) 100%);
+  border: 1px solid var(--b-border);
+  padding: 40px;
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+  justify-content: center;
+  align-items: center;
 }
-.blog-card-tag {
-  display: inline-block;
-  font-family: 'Outfit', sans-serif;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 100px;
-}
-.blog-card-tag.sector {
-  color: #0F6E56;
-  background: rgba(69,196,188,0.12);
-}
-.blog-card-tag.topic {
-  color: #534AB7;
-  background: rgba(83,74,183,0.08);
-}
-.blog-card h2 {
-  font-family: 'Outfit', sans-serif;
+.post-illustration svg { width: 100%; max-width: 600px; height: auto; }
+
+/* Body copy */
+.post-body p {
+  font-family: var(--f-body);
   font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  margin-bottom: 22px;
+}
+
+/* H2 with teal accent bar */
+.post-body h2 {
+  font-family: var(--f-display);
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.2px;
-  line-height: 1.3;
-  color: #0F1923;
-  margin-bottom: 10px;
+  line-height: 1.25;
+  color: var(--b-near-black);
+  margin: 48px 0 16px;
+  padding-top: 8px;
+  position: relative;
 }
-.blog-card p {
-  font-family: 'DM Sans', sans-serif;
+.post-body h2::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--b-signal);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+/* H3 with purple left accent */
+.post-body h3 {
+  font-family: var(--f-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--b-purple);
+  margin: 32px 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid rgba(83,74,183,0.2);
+}
+
+.post-body strong { color: var(--b-near-black); font-weight: 600; }
+.post-body a { color: var(--b-purple); text-decoration: underline; text-underline-offset: 3px; }
+.post-body a:hover { color: var(--b-purple-bg); }
+
+/* Unordered lists with teal dot markers */
+.post-body ul {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+}
+.post-body ul li {
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
+}
+.post-body ul li:last-child { border-bottom: none; }
+.post-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--b-signal);
+}
+
+/* Ordered lists with purple numbered circles */
+.post-body ol {
+  padding: 0;
+  margin: 4px 0 24px 0;
+  list-style: none;
+  counter-reset: post-counter;
+}
+.post-body ol li {
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--b-body-color);
+  padding: 10px 0 10px 44px;
+  position: relative;
+  border-bottom: 1px solid rgba(83,74,183,0.05);
+  counter-increment: post-counter;
+}
+.post-body ol li:last-child { border-bottom: none; }
+.post-body ol li::before {
+  content: counter(post-counter);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--b-purple);
+  color: white;
+  font-family: var(--f-display);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--b-border);
+  margin: 48px 0;
+}
+.post-body .sources {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(15,25,35,0.4);
+  margin-top: -12px;
+}
+.post-body .sources strong {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(15,25,35,0.35);
+}
+.post-body .sources ul {
+  margin: 8px 0 0;
+  padding: 0;
+}
+.post-body .sources ul li {
+  font-size: 12px;
+  padding: 3px 0 3px 16px;
+  border-bottom: none;
+  color: rgba(15,25,35,0.4);
+}
+.post-body .sources ul li::before {
+  width: 5px;
+  height: 5px;
+  top: 10px;
+  background: rgba(15,25,35,0.18);
+}
+
+/* Pull quote — coloured box */
+.post-body blockquote {
+  border-left: 4px solid var(--b-purple);
+  background: linear-gradient(135deg, rgba(83,74,183,0.06) 0%, rgba(69,196,188,0.04) 100%);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.post-body blockquote p {
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--b-purple);
+  line-height: 1.55;
+  margin-bottom: 0;
+  font-style: normal;
+}
+
+.post-body code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  background: var(--b-light-bg);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: var(--b-purple);
+}
+.post-body pre {
+  background: var(--b-near-black);
+  border-radius: 10px;
+  padding: 24px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+.post-body pre code { background: none; color: var(--b-off-white); font-size: 14px; padding: 0; }
+
+/* Sidebar */
+.sidebar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--b-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 2px 12px rgba(83,74,183,0.07);
+}
+.sidebar-card-top {
+  background: var(--b-purple-bg);
+  padding: 24px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-card-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 100% at 80% 50%, rgba(69,196,188,0.2) 0%, transparent 65%);
+}
+.sidebar-card-top h3 {
+  font-family: var(--f-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.3;
+}
+.sidebar-card-top p {
+  font-family: var(--f-body);
   font-size: 13px;
   font-weight: 300;
-  line-height: 1.7;
-  color: #4A5A70;
-  margin-bottom: 18px;
+  color: rgba(220,224,236,0.65);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
 }
-.blog-card-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: #534AB7;
-  letter-spacing: 0.01em;
+.sidebar-card-body {
+  padding: 20px 24px 24px;
 }
-.blog-empty {
-  font-family: 'DM Sans', sans-serif;
+.sidebar-card-body .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+  display: flex;
+}
+
+/* Related / author strip */
+.post-footer-strip {
+  background: var(--b-near-black);
+  padding: 56px 40px;
+  margin-top: 0;
+}
+.post-footer-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.post-author-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--b-purple) 0%, var(--b-signal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.post-author-name {
+  font-family: var(--f-display);
   font-size: 15px;
-  color: #4A5A70;
-  grid-column: 1 / -1;
+  font-weight: 600;
+  color: var(--b-off-white);
+  display: block;
+  margin-bottom: 3px;
+}
+.post-author-role {
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(220,224,236,0.4);
+}
+.post-footer-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.post-footer-cta p {
+  font-family: var(--f-body);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(220,224,236,0.5);
+  max-width: 280px;
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {
-  .blog-hero-inner { padding: 40px 24px 48px; }
-  .blog-index-wrap { padding: 40px 24px 60px; }
-  .blog-grid { grid-template-columns: 1fr; }
+  .post-hero-inner { padding: 40px 24px 48px; }
+  .post-container { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px 60px; }
+  .sidebar-card { position: static; }
+  .post-footer-strip { padding: 40px 24px; }
+  .post-footer-strip-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
 </style>
 </head>
@@ -1402,107 +1680,182 @@ footer {
   </div>
 </nav>
 
-<div class="blog-hero">
-  <div class="blog-hero-inner">
-    <span class="blog-hero-tag">Clinevo Blog</span>
-    <h1>Clinical AI Insights</h1>
-    <p>Practical articles for practice owners and managers. No hype. Just what actually works.</p>
+<!-- Dark hero banner with brand gradients -->
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <div class="post-hero-meta">
+      <span class="post-hero-tag sector">Veterinary</span>
+      <span class="post-hero-tag topic">Client Retention</span>
+      <span class="post-hero-date">April 2026</span>
+    </div>
+    <h1>The clients your practice is losing without realising it</h1>
+    <p class="post-hero-desc">The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.</p>
+    <div class="post-hero-breadcrumb">
+      <a href="/index.html">Home</a>
+      <span>›</span>
+      <a href="/blog/index.html">Blog</a>
+      <span>›</span>
+      <span>The clients your practice is losing without realising it</span>
+    </div>
   </div>
 </div>
 
-<div class="blog-index-wrap">
-  <div class="blog-index-inner">
-    <div class="blog-grid">
+<div class="blog-post-wrap">
+  <div class="post-container">
+    <main class="post-main">
       
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">April 2026</span>
-        </div>
-        <a href="/blog/posts/clients-your-practice-is-losing-without-realising.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Veterinary</span>
-            <span class="blog-card-tag topic">Client Retention</span>
-          </span>
-          <h2>The clients your practice is losing without realising it</h2>
-          <p>The average UK veterinary practice loses 10-15% of its active client base every year. Not because clients are unhappy. They just quietly stop coming back.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+      <div class="post-body">
+        <p>Most veterinary practices measure success by new client registrations. A good month means more new faces through the door. A slow month means something needs fixing in the marketing.</p>
+<p>But the numbers tell a different story.</p>
+<p>The average UK veterinary practice loses between 10% and 15% of its active client base every year. Not because clients are unhappy. Not because a competitor opened down the road. They just quietly stop coming back.</p>
+<p>No complaint. No phone call. No dramatic exit. They simply lapse.</p>
+<p>And the cost of replacing those clients is between five and seven times higher than keeping them would have been.</p>
+<p>This is the churn that nobody talks about in team meetings. Because it does not look like a problem. It looks like nothing at all.</p>
+<h2>The missed recall</h2>
+<p>Here is a scenario every practice manager will recognise.</p>
+<p>A dog comes in for its annual booster in March. The vet recommends a follow-up dental check in six weeks. Reception is busy. The reminder gets set manually, or it does not get set at all.</p>
+<p>Six weeks pass. No reminder goes out. The owner forgets. By the time the next annual booster reminder lands, they have already registered at another practice closer to home.</p>
+<p>That is not one lost appointment. That is a client gone for good. Along with every future consultation, every product sale, every referral they might have made.</p>
+<p>Multiply that by even five clients a month and you are looking at tens of thousands in lost lifetime revenue every year.</p>
+</div><div class="post-illustration"><svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dot grid background -->
+          <circle cx="40" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="30" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="70" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="110" r="1.5" fill="rgba(83,74,183,0.12)"/>
+          <circle cx="40" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="80" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="120" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="160" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="200" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="240" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="280" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="320" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="360" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="400" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="440" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="480" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="520" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/><circle cx="560" cy="150" r="1.5" fill="rgba(83,74,183,0.12)"/>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">April 2026</span>
-        </div>
-        <a href="/blog/posts/independent-clinics-ai-window-rishi-sunak-2026.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Practice Management</span>
-            <span class="blog-card-tag topic">Clinical AI</span>
-          </span>
-          <h2>Independent clinics and the AI window: reflections on Rishi Sunak's 2026 small business address</h2>
-          <p>Rishi Sunak told small business leaders that AI adoption is everything. For independent veterinary, dental, optical, and specialist clinics, the window to act is closing fast.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+          <!-- LEFT: Declining client graph -->
+          <rect x="60" y="40" width="140" height="120" rx="8" fill="rgba(83,74,183,0.04)" stroke="rgba(83,74,183,0.15)" stroke-width="1.2"/>
+          <text x="130" y="56" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(83,74,183,0.5)" font-weight="600" letter-spacing="0.3">ACTIVE CLIENTS</text>
+          <!-- Grid lines -->
+          <line x1="75" y1="70" x2="185" y2="70" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="90" x2="185" y2="90" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="110" x2="185" y2="110" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <line x1="75" y1="130" x2="185" y2="130" stroke="rgba(83,74,183,0.06)" stroke-width="0.8"/>
+          <!-- Declining line -->
+          <path d="M80 75 L100 78 L120 83 L140 90 L160 100 L180 112" fill="none" stroke="#534AB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Shaded area under line -->
+          <path d="M80 75 L100 78 L120 83 L140 90 L160 100 L180 112 L180 145 L80 145 Z" fill="rgba(83,74,183,0.06)"/>
+          <!-- Data points -->
+          <circle cx="80" cy="75" r="3" fill="#534AB7" opacity="0.6"/>
+          <circle cx="120" cy="83" r="3" fill="#534AB7" opacity="0.5"/>
+          <circle cx="160" cy="100" r="3" fill="#534AB7" opacity="0.4"/>
+          <circle cx="180" cy="112" r="3" fill="#534AB7" opacity="0.3"/>
+          <!-- Q labels -->
+          <text x="80" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q1</text>
+          <text x="120" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q2</text>
+          <text x="160" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.35)" font-weight="500">Q3</text>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">April 2026</span>
-        </div>
-        <a href="/blog/posts/ai-not-here-to-replace-your-reception-team.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            
-            <span class="blog-card-tag topic">Clinical AI</span>
-          </span>
-          <h2>AI is not here to replace your reception team. Here is what it actually does.</h2>
-          <p>Most practice teams fear AI means redundancies. The data tells a very different story. Here is what AI actually does in a clinical practice and why the real risk is standing still.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+          <!-- CENTRE: Three gap icons -->
+          <!-- Missed recall -->
+          <circle cx="280" cy="55" r="20" fill="rgba(69,196,188,0.06)" stroke="rgba(69,196,188,0.25)" stroke-width="1.5"/>
+          <circle cx="280" cy="51" r="7" fill="none" stroke="#45C4BC" stroke-width="1.5"/>
+          <path d="M280 54 L280 48" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M280 54 L284 56" stroke="#45C4BC" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="275" y1="63" x2="285" y2="63" stroke="rgba(69,196,188,0.4)" stroke-width="1" stroke-dasharray="2 2"/>
+          <text x="280" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">MISSED</text>
+          <text x="280" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(69,196,188,0.7)" font-weight="600" letter-spacing="0.3">RECALL</text>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">March 2026</span>
-        </div>
-        <a href="/blog/posts/vet-receptionist-true-cost-uk-practice-owners.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Veterinary</span>
-            <span class="blog-card-tag topic">Practice Management</span>
-          </span>
-          <h2>What does a vet receptionist really cost? The numbers every practice owner should know</h2>
-          <p>The true cost of employing a vet receptionist goes far beyond salary. Here's the honest breakdown every UK practice owner needs to see.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+          <!-- Unanswered call -->
+          <circle cx="340" cy="55" r="20" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.25)" stroke-width="1.5"/>
+          <path d="M333 48 Q333 58 338 60 L342 60 Q347 58 347 48" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="340" y1="62" x2="340" y2="66" stroke="rgba(83,74,183,0.4)" stroke-width="1.2"/>
+          <line x1="337" y1="66" x2="343" y2="66" stroke="rgba(83,74,183,0.4)" stroke-width="1.2"/>
+          <text x="340" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">MISSED</text>
+          <text x="340" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(83,74,183,0.55)" font-weight="600" letter-spacing="0.3">CALL</text>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">March 2026</span>
-        </div>
-        <a href="/blog/posts/cma-veterinary-report-2026-independent-practice-guide.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            <span class="blog-card-tag sector">Veterinary</span>
-            <span class="blog-card-tag topic">Practice Management</span>
-          </span>
-          <h2>CMA veterinary report 2026: what independent practices need to do</h2>
-          <p>The CMA's final veterinary report brings six new requirements by September 2026. Here is what independent practices need to know without the panic or spin.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+          <!-- No follow-up -->
+          <circle cx="400" cy="55" r="20" fill="rgba(15,110,86,0.06)" stroke="rgba(15,110,86,0.25)" stroke-width="1.5"/>
+          <rect x="392" y="46" width="16" height="12" rx="2" fill="none" stroke="#0F6E56" stroke-width="1.3"/>
+          <line x1="392" y1="50" x2="408" y2="50" stroke="#0F6E56" stroke-width="1"/>
+          <line x1="395" y1="53" x2="403" y2="53" stroke="rgba(15,110,86,0.4)" stroke-width="0.8"/>
+          <line x1="395" y1="55.5" x2="401" y2="55.5" stroke="rgba(15,110,86,0.3)" stroke-width="0.8"/>
+          <text x="400" y="85" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.3">NO</text>
+          <text x="400" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="rgba(15,110,86,0.6)" font-weight="600" letter-spacing="0.3">FOLLOW-UP</text>
 
-      <article class="blog-card">
-        <div class="blog-card-banner" aria-hidden="true">
-          <span class="blog-card-banner-date">March 2026</span>
+          <!-- Arrows from gaps down to churn -->
+          <line x1="280" y1="98" x2="310" y2="120" stroke="rgba(69,196,188,0.25)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="340" y1="98" x2="340" y2="120" stroke="rgba(83,74,183,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="400" y1="98" x2="370" y2="120" stroke="rgba(15,110,86,0.2)" stroke-width="1" stroke-dasharray="3 2"/>
+
+          <!-- Bottom: Churn result -->
+          <rect x="290" y="120" width="100" height="36" rx="6" fill="rgba(83,74,183,0.06)" stroke="rgba(83,74,183,0.2)" stroke-width="1.5"/>
+          <text x="340" y="135" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="rgba(83,74,183,0.5)" font-weight="700">10-15%</text>
+          <text x="340" y="149" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7.5" fill="rgba(83,74,183,0.4)" font-weight="500">ANNUAL CHURN</text>
+
+          <!-- RIGHT: Cost multiplier -->
+          <text x="520" y="78" text-anchor="middle" font-family="Outfit, sans-serif" font-size="28" fill="rgba(15,110,86,0.15)" font-weight="700">5-7x</text>
+          <text x="520" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.45)" font-weight="500">cost to replace</text>
+          <text x="520" y="107" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="rgba(15,110,86,0.45)" font-weight="500">vs. retain</text>
+
+          <!-- Decorative arcs -->
+          <path d="M 50 165 A 25 25 0 0 1 50 190" stroke="rgba(83,74,183,0.1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 555 35 A 25 25 0 0 0 555 60" stroke="rgba(69,196,188,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Floating accent dots -->
+          <circle cx="230" cy="140" r="3" fill="none" stroke="rgba(69,196,188,0.3)" stroke-width="1.2"/>
+          <circle cx="460" cy="140" r="3.5" fill="none" stroke="rgba(83,74,183,0.2)" stroke-width="1.2"/><circle cx="460" cy="140" r="1.3" fill="rgba(83,74,183,0.2)"/>
+          <circle cx="500" cy="155" r="3" fill="none" stroke="rgba(69,196,188,0.25)" stroke-width="1.2"/><circle cx="500" cy="155" r="1.2" fill="rgba(69,196,188,0.25)"/>
+          <circle cx="240" cy="45" r="2.5" fill="none" stroke="rgba(83,74,183,0.18)" stroke-width="1.2"/>
+        </svg></div><div class="post-body">
+
+<h2>The unanswered call</h2>
+<p>The RCVS and industry surveys consistently show that a significant number of calls to veterinary practices go unanswered during peak hours. Most practices know this is a problem. Fewer know what it actually costs.</p>
+<p>A missed call is not just an inconvenience. It is a decision point. The client who cannot get through does one of three things. They call back later (some do). They find another practice that answers (many do). Or they decide the issue was not urgent enough and do nothing (which can become a welfare concern).</p>
+<p>The clients who call back are the loyal ones. The ones who do not are the ones you never hear about. They do not complain. They do not leave a review. They just disappear from your system.</p>
+<p>And here is the part that stings. You will never know they left because of a missed call. Your books will just show a gradually declining active client list and no obvious reason why.</p>
+<h2>The post-treatment gap</h2>
+<p>A client brings their cat in for a skin condition. The vet prescribes a course of treatment. The consultation ends. The client pays and leaves.</p>
+<p>What happens next?</p>
+<p>In most practices, nothing. Unless the client books a follow-up themselves, there is no check-in. No &quot;how is Bella doing?&quot; message three days later. No prompt to rebook if symptoms have not improved.</p>
+<p>From a clinical perspective, this is a gap. From a client experience perspective, it is a missed opportunity to show that your practice cares beyond the four walls of the consultation room.</p>
+<p>Practices that follow up after treatment consistently report higher client satisfaction, better compliance, and stronger retention. It is not complicated. It is just easy to let slip when the day is already full.</p>
+<h2>The quiet drift</h2>
+<p>Client retention is not one big thing. It is dozens of small things that compound over time.</p>
+<p>A recall that did not go out. A call that rang out. A follow-up that nobody had time to make. A birthday message that used to go out but stopped when the system changed.</p>
+<p>None of these feel significant on their own. But together, they create a gap between what your clients expect and what they experience. And that gap is where quiet churn lives.</p>
+<p>The practices that retain clients well are not doing anything dramatic. They are just consistent. Every recall goes out on time. Every call gets answered or returned. Every post-treatment check-in happens. Every lapsed client gets a gentle nudge before they drift too far.</p>
+<p>Consistency beats perfection. Every time.</p>
+<h2>Where to start</h2>
+<p>If you are a practice manager reading this and thinking &quot;we probably have some of these gaps,&quot; you are not alone. Almost every practice does.</p>
+<p>The first step is not buying new software or hiring more staff. It is understanding where the gaps actually are.</p>
+<p>Look at your recall completion rates. How many recalls go out on time versus how many lapse? Check your call answer rates during peak hours. Are you losing clients before they even get through the door? Review your active client list quarter on quarter. Is it growing, flat, or slowly shrinking?</p>
+<p>These three numbers will tell you more about your practice&#39;s health than any marketing report.</p>
+<hr>
+<p><em>We are currently offering a free front-of-house audit for independent veterinary practices. It takes about 15 minutes and maps out exactly where clients are falling through the cracks, whether that is missed calls, lapsed recalls, or follow-up that is not happening. No obligation. Even if we are not the right fit, you walk away with a clear picture of where to focus.</em></p>
+<p><em>If that sounds useful, you can book one at <a href="https://clinevo.ai">clinevo.ai</a>.</em></p>
+
+      </div>
+      
+    </main>
+
+    <aside class="post-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-top">
+          <h3>Interested in AI for your practice?</h3>
+          <p>Book a free 30-minute consultation. No pitch. No pressure.</p>
         </div>
-        <a href="/blog/posts/why-ai-tools-fail-clinical-practices.html" class="blog-card-body">
-          <span class="blog-card-tags">
-            
-            <span class="blog-card-tag topic">Clinical AI</span>
-          </span>
-          <h2>Why Most AI Tools Fail in Clinical Practices</h2>
-          <p>Most AI tools fail in clinical practices not because the technology is bad, but because no one asked the right questions before switching them on. A practical guide from Clinevo.</p>
-          <span class="blog-card-link">Read article &rarr;</span>
-        </a>
-      </article>
+        <div class="sidebar-card-body">
+          <a href="/consultation.html" class="btn btn-primary">Book a free consultation &rarr;</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Author / CTA footer strip -->
+<div class="post-footer-strip">
+  <div class="post-footer-strip-inner">
+    <div class="post-author">
+      <div class="post-author-avatar">DR</div>
+      <div>
+        <span class="post-author-name">Donna R.</span>
+        <span class="post-author-role">Clinical Operations Consultant</span>
+      </div>
+    </div>
+    <div class="post-footer-cta">
+      <p>Clinevo helps veterinary, optical, and dental practices implement AI that actually works.</p>
+      <a href="/consultation.html" class="btn btn-teal">Free consultation &rarr;</a>
     </div>
   </div>
 </div>
