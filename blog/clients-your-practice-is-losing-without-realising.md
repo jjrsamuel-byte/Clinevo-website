@@ -5,8 +5,8 @@ description: "The average UK veterinary practice loses 10-15% of its active clie
 slug: "clients-your-practice-is-losing-without-realising"
 illustration: "churn"
 illustrationPosition: "inline"
-sectorTag: "Veterinary"
-topicTag: "Client Retention"
+sectorTag: ""
+topicTag: "Practice Management"
 author: "Donna"
 ---
 
